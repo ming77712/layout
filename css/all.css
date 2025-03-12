@@ -1,0 +1,169 @@
+.headerBg {
+  background-color: #f5f5f7;
+}
+
+.newsBg {
+  background-color: #f1f9f8;
+}
+
+.infoBg {
+  background-color: #79a8a9;
+}
+
+.footerBg {
+  background-color: #367c8d;
+}
+
+.logo {
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-size: cover;
+  background-image: url(../images/logo.png);
+  width: 392px;
+  height: 78px;
+}
+
+.iconBg {
+  background-color: #50b8af;
+  width: 40px;
+  height: 40px;
+}
+
+/* .newsSwiper .swiper-button-prev:after {
+  content: '\e900';
+}
+
+.newsSwiper .swiper-button-next:after {
+  content: '\e901';
+} */
+
+.newsBg .nav-tabs .nav-link.active {
+  border-bottom: 2px solid #34847c !important;
+}
+
+.newsContent li {
+  display: flex;
+  align-items: center;
+  background-color: #fff;
+  height: 50px;
+}
+
+.infoSwiper {
+  position: static;
+}
+
+.infoSwiper .swiper-slide {
+  border: 2px solid #fff;
+  text-align: center;
+  color: #fff;
+}
+
+.infoSwiper .swiper-button-prev {
+  left: 8px;
+}
+
+.infoSwiper .swiper-button-next {
+  right: 8px;
+}
+
+.infoSwiper .swiper-button-prev:after {
+  content: 'prev';
+  color: #fff;
+  font-weight: 700;
+}
+
+.infoSwiper .swiper-button-next:after {
+  content: 'next';
+  color: #fff;
+  font-weight: 700;
+}
+
+#service-tab .active {
+  background-color: #f2f2f2 !important;
+  border-radius: 10px;
+}
+
+#service-tab button:hover {
+  transform: scale(1.1);
+}
+
+.businessWrap ul li a {
+  position: relative;
+  display: block !important;
+  color: #ffffff;
+  transition-property: color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+.businessWrap ul li a::before {
+  content: '';
+  z-index: 1;
+  border-color: rgba(255, 255, 255, 0.25);
+  border-style: solid;
+  border-width: 0;
+  transition: border-width 0.3s ease;
+}
+
+.businessWrap ul li a::before,
+.businessWrap ul li a .imgInner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.businessWrap ul li a .imgInner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(118, 118, 113, 0.8);
+  z-index: 2;
+}
+
+.businessWrap ul li a:hover::before {
+  border-width: 10px;
+}
+
+.businessWrap .pic-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.hoverScale,
+.hoverScale a {
+  display: block;
+  overflow: hidden;
+}
+
+.hoverScale .pic {
+  overflow: hidden;
+  backface-visibility: hidden;
+  transform: scale(1.01);
+  transition-property: transform;
+  transition-duration: 0.75s;
+  transition-timing-function: ease;
+}
+
+.hoverScale:hover .pic {
+  transform: scale(1.05);
+}
+
+footer div,
+footer p,
+footer a {
+  color: #fff;
+}
+
+/* Medium devices */
+@media (min-width: 768px) {
+}
+
+/* Large devices */
+@media (min-width: 992px) {
+}
