@@ -12,12 +12,12 @@
     <link rel="stylesheet" href="./css/all.css" />
   </head>
   <body>
-    <header class="headerBg header fixed-top p-2" style="z-index: 10">
+    <header class="headerBg fixed-top p-2" style="z-index: 10">
       <div class="container d-flex justify-content-between">
         <a href="#" class="logo d-block"><h1>環境部化學物質管理署</h1></a>
         <nav class="d-flex gap-5">
           <ul class="infoList d-flex align-items-center gap-4">
-            <li><a href="#" class="infoWrapItem fs-4">專區資訊</a></li>
+            <li class="infoWrapItem"><p class="fs-4">專區資訊</p></li>
             <li><a href="#" class="fs-4">相關連結</a></li>
             <li><a href="#" class="fs-4">網站導覽</a></li>
           </ul>
@@ -113,17 +113,15 @@
         </ul>
       </div>
     </header>
-    <div
-      class="backdrop-blur position-absolute start-0 end-0 top-0 bottom-0"
-    ></div>
+    <div class="backdrop-blur position-fixed start-0 top-0"></div>
     <main style="padding-top: 5.875rem">
       <section>
         <div class="container">
-          <div class="row my-4">
-            <div class="col-md-4 order-1 order-md-0">
+          <div class="row my-4" style="min-height: 384px">
+            <div id="loginList" class="col-md-4 order-1 order-md-0 mt-4">
               <p class="text-center fs-4 mt-4 mb-3">請選擇登入單位</p>
               <div class="d-flex justify-content-center gap-5">
-                <div class="text-center">
+                <div id="userBtn" class="cursor-pointer text-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="50"
@@ -138,7 +136,7 @@
                   </svg>
                   <p class="fs-5">運送業者</p>
                 </div>
-                <div class="text-center">
+                <div class="cursor-pointer text-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="50"
@@ -160,7 +158,7 @@
                   </svg>
                   <p class="fs-5">車機廠商</p>
                 </div>
-                <div class="text-center">
+                <div class="cursor-pointer text-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="50"
@@ -175,6 +173,125 @@
                     <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
                   </svg>
                   <p class="fs-5">管理單位</p>
+                </div>
+              </div>
+            </div>
+            <div id="userWrap" class="d-none col-md-4 order-1 order-md-0">
+              <!-- <p class="text-center fs-4 mt-2 mb-3">請選擇登入單位</p> -->
+              <div
+                class="d-flex justify-content-between align-items-center mt-4 mb-3"
+              >
+                <div class="text-center border-end border-black pe-5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="50"
+                    height="50"
+                    fill="currentColor"
+                    class="bi bi-truck"
+                    viewBox="0 0 16 16"
+                  >
+                    <path
+                      d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5zm1.294 7.456A2 2 0 0 1 4.732 11h5.536a2 2 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456M12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
+                    />
+                  </svg>
+                  <p class="fs-5">運送業者</p>
+                </div>
+
+                <div
+                  id="selectLogin"
+                  class="d-flex flex-column justify-content-center gap-2"
+                >
+                  <button
+                    type="button"
+                    class="selectBtnCustom d-block mx-auto px-4 active"
+                    data-select-login="card"
+                  >
+                    自然人憑證登入</button
+                  ><button
+                    type="button"
+                    class="selectBtnCustom d-block mx-auto px-4"
+                    data-select-login="account"
+                  >
+                    帳號密碼登入
+                  </button>
+                </div>
+                <i
+                  id="userCloseBtn"
+                  class="cursor-pointer bi bi-x-circle fs-2"
+                ></i>
+              </div>
+              <div id="cardForm" class="p-2">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <label for="cardNumber" class="form-label w-25 fs-5"
+                    >卡片</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control w-50 border-black"
+                    id="cardNumber"
+                  />
+                  <button type="button" class="btnCustom w-25">重新偵測</button>
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <label for="pinNumber" class="form-label w-25 fs-5"
+                    >PIN碼</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control w-75 border-black"
+                    id="pinNumber"
+                  />
+                </div>
+                <div class="d-flex justify-content-between gap-3 p-2">
+                  <button type="button" class="btnCustom">注意事項</button
+                  ><button type="button" class="btnCustom">申請帳號</button
+                  ><button type="button" class="btnCustom">登入</button>
+                </div>
+              </div>
+              <div id="accountForm" class="d-none p-2">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <label for="accountUser" class="form-label w-25 fs-5"
+                    >帳號</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control w-75 border-black"
+                    id="accountUser"
+                  />
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <label for="accountPassword" class="form-label w-25 fs-5"
+                    >密碼</label
+                  >
+                  <input
+                    type="password"
+                    class="form-control w-75 border-black"
+                    id="accountPassword"
+                  />
+                </div>
+                <div class="d-flex align-items-center gap-2 mb-2">
+                  <label for="checkNumber" class="form-label w-25 fs-5"
+                    >驗證碼</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control w-25 border-black"
+                    id="checkNumber"
+                  />
+                  <img
+                    src="./images/checkNumber.png"
+                    class="w-25 me-2"
+                    alt=""
+                  />
+                  <div class="d-flex gap-3 w-25">
+                    <i class="cursor-pointer bi bi-arrow-clockwise fs-2"></i
+                    ><i class="cursor-pointer bi bi-volume-up-fill fs-2"></i>
+                  </div>
+                </div>
+                <div class="d-flex justify-content-between gap-3 p-2">
+                  <button type="button" class="btnCustom">申請帳號</button
+                  ><button type="button" class="btnCustom">忘記密碼</button
+                  ><button type="button" class="btnCustom">登入</button>
                 </div>
               </div>
             </div>
@@ -320,11 +437,7 @@
                   </p>
                 </li>
               </ul>
-              <button
-                type="button"
-                class="d-block mx-auto btn rounded-5 px-4"
-                style="max-width: 800px; background-color: #50b8af; color: #fff"
-              >
+              <button type="button" class="btnCustom d-block mx-auto px-4 py-1">
                 查看更多
               </button>
             </div>

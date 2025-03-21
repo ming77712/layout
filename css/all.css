@@ -14,6 +14,35 @@
   background-color: #367c8d;
 }
 
+.btnCustom {
+  width: 10.125rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: #50b8af;
+  color: #fff;
+}
+
+.selectBtnCustom {
+  width: 10.125rem;
+  height: 2.5rem;
+  border: 1px solid #000;
+  border-radius: 2rem;
+  color: #000;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+}
+
+.selectBtnCustom.active {
+  width: 10.125rem;
+  height: 2.5rem;
+  border: none;
+  background-color: #50b8af;
+  border-radius: 2rem;
+  color: #fff;
+}
+
 .logo {
   text-indent: 101%;
   overflow: hidden;
@@ -30,22 +59,11 @@
   height: 40px;
 }
 
-/* .infoList .active {
-  border-bottom: 1px solid #000;
-} */
-
-/* .backdrop-invert {
-  transition: 1s all;
-}
-.backdrop-invert:hover {
-  background-color: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(5px);
-} */
-
+/* 霧化效果 */
 .backdrop-blur {
   display: none;
-  height: 2368.44px;
   width: calc(100vw - 15px);
+  height: 100vh;
   z-index: 2;
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
