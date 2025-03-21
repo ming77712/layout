@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="./css/all.css" />
   </head>
   <body>
-    <header class="headerBg fixed-top p-2" style="z-index: 10">
+    <header class="headerBg fixed-top p-2" style="z-index: 100">
       <div class="container d-flex justify-content-between">
         <a href="#" class="logo d-block"><h1>環境部化學物質管理署</h1></a>
         <nav class="d-flex gap-5">
@@ -243,8 +243,54 @@
                   />
                 </div>
                 <div class="d-flex justify-content-between gap-3 p-2">
-                  <button type="button" class="btnCustom">注意事項</button
-                  ><button type="button" class="btnCustom">申請帳號</button
+                  <button
+                    type="button"
+                    id="cardNoticeBtn"
+                    class="btnCustom position-relative"
+                  >
+                    注意事項
+                  </button>
+                  <div
+                    id="cardNoticeWrap"
+                    class="d-none position-absolute bg-white border border-black rounded-2 p-2 mt-5"
+                    style="width: 400px; z-index: 50"
+                  >
+                    <ol>
+                      <li class="mb-2">
+                        <p>
+                          1.
+                          請將憑證插入讀卡機進行登入驗證，系統未讀取到卡片請按「重新偵測卡片」。
+                        </p>
+                      </li>
+                      <li class="mb-2">
+                        <p>
+                          2.
+                          尚未安裝客戶端程式、無法正常使用者，請(重新)安裝跨平台網頁元件<a
+                            href="https://moica.nat.gov.tw/rac_plugin.html"
+                            target="_blank"
+                            style="color: blue"
+                            >(https://moica.nat.gov.tw/rac_plugin.html)</a
+                          >。
+                        </p>
+                      </li>
+                      <li>
+                        <p>
+                          3.
+                          自然人憑證帳號申請及綁定操作流程請參考「專區訊息」>「操作流程」。
+                        </p>
+                      </li>
+                    </ol>
+                    <div
+                      class="position-absolute top-0 start-100 translate-middle"
+                      style="z-index: 60"
+                    >
+                      <i
+                        id="noticeCloseBtn"
+                        class="cursor-pointer bi bi-x-circle-fill fs-3"
+                      ></i>
+                    </div>
+                  </div>
+                  <button type="button" class="btnCustom">申請帳號</button
                   ><button type="button" class="btnCustom">登入</button>
                 </div>
               </div>

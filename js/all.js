@@ -42,6 +42,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const buttons = selectLogin.querySelectorAll('button');
   const cardForm = document.getElementById('cardForm');
   const accountForm = document.getElementById('accountForm');
+  const cardNoticeBtn = document.getElementById('cardNoticeBtn');
+  const cardNoticeWrap = document.getElementById('cardNoticeWrap');
+  const noticeCloseBtn = document.getElementById('noticeCloseBtn');
 
   selectLogin.addEventListener('click', (e) => {
     buttons.forEach((button) => {
@@ -56,6 +59,15 @@ document.addEventListener('DOMContentLoaded', () => {
       accountForm.classList.remove('d-none');
     }
   });
+
+  cardNoticeBtn.addEventListener('click', () => {
+    cardNoticeWrap.classList.remove('d-none');
+  });
+
+  noticeCloseBtn.addEventListener('click', () => {
+    cardNoticeWrap.classList.add('d-none');
+  });
+
   // login block end
 
   const newsSwiper = new Swiper('.newsSwiper', {
