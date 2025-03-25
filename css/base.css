@@ -9,6 +9,10 @@
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
+:root {
+  scroll-padding-top: 3.5rem;
+}
+
 h1,
 h2,
 h3,
@@ -39,4 +43,15 @@ a {
 
 .cursor-pointer {
   cursor: pointer;
+}
+
+a[accesskey],
+.tactile {
+  font-size: 0.875rem;
+  color: #10af72;
+  line-height: 1.5;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 50;
 }

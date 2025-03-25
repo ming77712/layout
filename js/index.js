@@ -1,27 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // header block start
-  const backdropBlur = document.querySelector('.backdrop-blur');
-  const infoWrapItem = document.querySelector('.infoWrapItem');
-  const headerInfoWrap = document.querySelector('.headerInfoWrap');
-
-  infoWrapItem.addEventListener('mouseenter', function () {
-    headerInfoWrap.classList.add('active');
-    backdropBlur.style.display = 'block';
-  });
-
-  headerInfoWrap.addEventListener('mouseenter', function () {
-    headerInfoWrap.classList.add('active');
-  });
-
-  headerInfoWrap.addEventListener('mouseleave', function (event) {
-    // 如果滑鼠進入 .infoWrapItem，則不移除 active
-    if (!infoWrapItem.contains(event.relatedTarget)) {
-      headerInfoWrap.classList.remove('active');
-      backdropBlur.style.display = 'none';
-    }
-  });
-  // header block end
-
   // login block start
   const loginList = document.getElementById('loginList');
   const userBtn = document.getElementById('userBtn');
@@ -47,17 +24,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const noticeCloseBtn = document.getElementById('noticeCloseBtn');
 
   selectLogin.addEventListener('click', (e) => {
-    buttons.forEach((button) => {
-      button.classList.remove('active');
-    });
-    e.target.classList.add('active');
+    if (e.target.dataset.selectLogin !== undefined) {
+      buttons.forEach((button) => {
+        button.classList.remove('active');
+      });
+      e.target.classList.add('active');
+    } else {
+      return;
+    }
     if (e.target.dataset.selectLogin === 'card') {
       accountForm.classList.add('d-none');
       cardForm.classList.remove('d-none');
-    } else {
+    } else if (e.target.dataset.selectLogin === 'account') {
       cardForm.classList.add('d-none');
       accountForm.classList.remove('d-none');
     }
+    AOS.refresh();
   });
 
   cardNoticeBtn.addEventListener('click', () => {

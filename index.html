@@ -8,18 +8,24 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/bootstrap-icons.min.css" />
     <link rel="stylesheet" href="./css/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/aos.css" />
     <link rel="stylesheet" href="./css/base.css" />
     <link rel="stylesheet" href="./css/all.css" />
   </head>
   <body>
     <header class="headerBg fixed-top p-2" style="z-index: 100">
+      <a href="#R" class="tactile" title="跳到主要內容"
+        ><span>跳到主要內容</span></a
+      >
       <div class="container d-flex justify-content-between">
-        <a href="#" class="logo d-block"><h1>環境部化學物質管理署</h1></a>
+        <a href="./index.html" class="logo d-block"
+          ><h1>環境部化學物質管理署</h1></a
+        >
         <nav class="d-flex gap-5">
           <ul class="infoList d-flex align-items-center gap-4">
             <li class="infoWrapItem"><p class="fs-4">專區資訊</p></li>
-            <li><a href="#" class="fs-4">相關連結</a></li>
-            <li><a href="#" class="fs-4">網站導覽</a></li>
+            <li><a href="./02g.html" class="fs-4">相關連結</a></li>
+            <li><a href="./sitemap.html" class="fs-4">網站導覽</a></li>
           </ul>
           <ul class="d-flex align-items-center gap-3">
             <li>
@@ -44,7 +50,7 @@
           <ul class="d-flex align-items-center gap-2">
             <li>
               <a
-                href="#"
+                href="./contactphone.html"
                 class="iconBg d-flex justify-content-center align-items-center rounded-5"
                 ><i class="bi bi-telephone-fill text-white fs-4"></i
               ></a>
@@ -53,6 +59,7 @@
               <a
                 href="https://epamail.moenv.gov.tw/Front/MailBoxHome"
                 target="_blank"
+                rel="noopener"
                 class="iconBg d-flex justify-content-center align-items-center rounded-5"
                 ><i class="bi bi-envelope-fill text-white fs-4"></i
               ></a>
@@ -66,7 +73,7 @@
             </li>
             <li>
               <a
-                href="#"
+                href="./search.html"
                 class="iconBg d-flex justify-content-center align-items-center rounded-5"
                 ><i class="bi bi-search text-white fs-4"></i
               ></a>
@@ -78,7 +85,9 @@
       <div class="headerInfoWrap container position-relative gap-5 p-4">
         <ul>
           <li class="fs-5 mb-2" style="color: #7f7f7f">車輛審驗</li>
-          <li class="fs-4 ms-3 mb-2">正式核可車機型號</li>
+          <li class="fs-4 ms-3 mb-2">
+            <a href="./02c.html">正式核可車機型號</a>
+          </li>
           <li class="fs-4 ms-3 mb-2">環境部委託審驗單位</li>
         </ul>
         <ul>
@@ -115,7 +124,8 @@
     </header>
     <div class="backdrop-blur position-fixed start-0 top-0"></div>
     <main style="padding-top: 5.875rem">
-      <section>
+      <section class="position-relative" data-aos="fade-right">
+        <a accesskey="R" href="#R" name="R" title="主內容區域" id="AR">:::</a>
         <div class="container">
           <div class="row my-4" style="min-height: 384px">
             <div id="loginList" class="col-md-4 order-1 order-md-0 mt-4">
@@ -220,7 +230,12 @@
                   class="cursor-pointer bi bi-x-circle fs-2"
                 ></i>
               </div>
-              <div id="cardForm" class="p-2">
+              <div
+                id="cardForm"
+                class="p-2"
+                data-aos="fade-left"
+                data-aos-easing="ease-in-out"
+              >
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <label for="cardNumber" class="form-label w-25 fs-5"
                     >卡片</label
@@ -252,8 +267,8 @@
                   </button>
                   <div
                     id="cardNoticeWrap"
-                    class="d-none position-absolute bg-white border border-black rounded-2 p-2 mt-5"
-                    style="width: 400px; z-index: 50"
+                    class="d-none position-absolute bg-white border border-black rounded-2 p-2"
+                    style="width: 400px; z-index: 50; margin-top: 4rem"
                   >
                     <ol>
                       <li class="mb-2">
@@ -294,7 +309,12 @@
                   ><button type="button" class="btnCustom">登入</button>
                 </div>
               </div>
-              <div id="accountForm" class="d-none p-2">
+              <div
+                id="accountForm"
+                class="d-none p-2"
+                data-aos="fade-left"
+                data-aos-easing="ease-in-out"
+              >
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <label for="accountUser" class="form-label w-25 fs-5"
                     >帳號</label
@@ -386,7 +406,7 @@
         </div>
       </section>
 
-      <section class="newsBg">
+      <section class="newsBg" data-aos="fade-left">
         <div class="container">
           <h2 class="text-center fs-2 py-4">公告資訊</h2>
 
@@ -509,7 +529,7 @@
         </div>
       </section>
 
-      <section>
+      <section data-aos="fade-up">
         <div class="container">
           <h2 class="text-center fs-2 py-4">熱門服務</h2>
 
@@ -681,7 +701,7 @@
         </div>
       </section>
 
-      <section class="infoBg">
+      <section class="infoBg" data-aos="fade-up">
         <div class="container">
           <h2 class="text-center fs-2 py-4" style="color: #fff">資訊揭露</h2>
           <div class="row justify-content-center pb-3">
@@ -737,13 +757,18 @@
         </div>
       </section>
 
-      <section class="businessWrap">
+      <section class="businessWrap" data-aos="fade-up">
         <div class="container">
           <h2 class="text-center fs-2 py-4">核心業務</h2>
 
           <ul class="row">
             <li class="col-md-6 col-lg-4 mb-4">
-              <a href="#" class="hoverScale" style="height: 200px">
+              <a
+                href="#"
+                class="hoverScale"
+                style="height: 200px"
+                title="毒性及關注化學物質分類說明(另開新視窗)"
+              >
                 <div
                   class="pic pic-fill"
                   style="
@@ -763,7 +788,12 @@
               </a>
             </li>
             <li class="col-md-6 col-lg-4 mb-4">
-              <a href="#" class="hoverScale" style="height: 200px">
+              <a
+                href="#"
+                class="hoverScale"
+                style="height: 200px"
+                title="毒性及關注化學物質審驗手冊(另開新視窗)"
+              >
                 <div
                   class="pic pic-fill"
                   style="
@@ -783,7 +813,12 @@
               </a>
             </li>
             <li class="col-md-6 col-lg-4 mb-4">
-              <a href="#" class="hoverScale" style="height: 200px">
+              <a
+                href="#"
+                class="hoverScale"
+                style="height: 200px"
+                title="毒性及關注化學物質系統操作教學(另開新視窗)"
+              >
                 <div
                   class="pic pic-fill"
                   style="
@@ -803,7 +838,12 @@
               </a>
             </li>
             <li class="col-md-6 col-lg-4 mb-4">
-              <a href="#" class="hoverScale" style="height: 200px">
+              <a
+                href="#"
+                class="hoverScale"
+                style="height: 200px"
+                title="毒性及關注化學物質運送車輛即時追蹤系統(另開新視窗)"
+              >
                 <div
                   class="pic pic-fill"
                   style="
@@ -823,7 +863,12 @@
               </a>
             </li>
             <li class="col-md-6 col-lg-4 mb-4">
-              <a href="#" class="hoverScale" style="height: 200px">
+              <a
+                href="#"
+                class="hoverScale"
+                style="height: 200px"
+                title="毒性及關注化學物質運送表單規定(另開新視窗)"
+              >
                 <div
                   class="pic pic-fill"
                   style="
@@ -843,7 +888,12 @@
               </a>
             </li>
             <li class="col-md-6 col-lg-4 mb-4">
-              <a href="#" class="hoverScale" style="height: 200px">
+              <a
+                href="#"
+                class="hoverScale"
+                style="height: 200px"
+                title="毒性及關注化學物質運送管理辦法(另開新視窗)"
+              >
                 <div
                   class="pic pic-fill"
                   style="
@@ -929,5 +979,7 @@
   <script src="./js/bootstrap.min.js"></script>
   <script src="./js/swiper-bundle.min.js"></script>
   <script src="./js/vivus.min.js"></script>
-  <script src="./js/all.js"></script>
+  <script src="./js/aos.js"></script>
+  <script src="./js/header.js"></script>
+  <script src="./js/index.js"></script>
 </html>
