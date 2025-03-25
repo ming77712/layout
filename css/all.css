@@ -227,3 +227,32 @@ footer a {
 /* Large devices */
 @media (min-width: 992px) {
 }
+
+#userSelect,
+#cardForm,
+#accountForm {
+  position: relative;
+  animation: none;
+}
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

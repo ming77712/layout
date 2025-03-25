@@ -3,11 +3,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const loginList = document.getElementById('loginList');
   const userBtn = document.getElementById('userBtn');
   const userWrap = document.getElementById('userWrap');
+  const userSelect = document.getElementById('userSelect');
   const userCloseBtn = document.getElementById('userCloseBtn');
 
   userBtn.addEventListener('click', () => {
     loginList.classList.add('d-none');
     userWrap.classList.remove('d-none');
+    userSelect.style.animation = 'slideInFromRight 0.5s ease-out forwards';
+    cardForm.style.animation = 'slideInFromBottom 0.5s ease-out forwards';
   });
 
   userCloseBtn.addEventListener('click', () => {
@@ -35,11 +38,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target.dataset.selectLogin === 'card') {
       accountForm.classList.add('d-none');
       cardForm.classList.remove('d-none');
+      cardForm.style.animation = 'slideInFromBottom 0.5s ease-out forwards';
     } else if (e.target.dataset.selectLogin === 'account') {
       cardForm.classList.add('d-none');
       accountForm.classList.remove('d-none');
+      accountForm.style.animation = 'slideInFromBottom 0.5s ease-out forwards';
     }
-    AOS.refresh();
   });
 
   cardNoticeBtn.addEventListener('click', () => {
