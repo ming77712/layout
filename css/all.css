@@ -235,6 +235,21 @@ footer a {
   animation: none;
 }
 
+#line {
+  margin: auto;
+  -webkit-transform: translateY(76px);
+  -moz-transform: translateY(76px);
+  -o-transform: translateY(76px);
+  transform: translateY(0px);
+  height: 80px;
+  opacity: 1;
+  border-right: solid black 1px;
+  -webkit-animation: expand 1s 1 ease-in-out;
+  -moz-animation: expand 1s 1 ease-in-out;
+  -o-animation: expand 1s 1 ease-in-out;
+  animation: expand 1s 1 ease-in-out;
+}
+
 @keyframes slideInFromBottom {
   0% {
     transform: translateY(100%);
@@ -254,5 +269,19 @@ footer a {
   100% {
     transform: translateX(0);
     opacity: 1;
+  }
+}
+
+@keyframes expand {
+  0% {
+    height: 0px;
+    opacity: 0;
+  }
+  1% {
+    height: 5px;
+    opacity: 1;
+  }
+  100% {
+    height: 80px;
   }
 }
