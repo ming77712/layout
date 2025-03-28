@@ -1,10 +1,12 @@
-@font-face {
+@import url('https://fonts.googleapis.com/css2?family=Iansui&display=swap');
+
+/* @font-face {
   font-family: 'iansui';
   src: url('./fonts/Iansui-Regular.ttf') format('ttf');
-}
+} */
 
 * {
-  font-family: 'iansui', system-ui, -apple-system, 'Segoe UI', Roboto,
+  font-family: 'Iansui', system-ui, -apple-system, 'Segoe UI', Roboto,
     'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
@@ -48,10 +50,13 @@ a {
 a[accesskey],
 .tactile {
   font-size: 0.875rem;
-  color: #10af72;
-  line-height: 1.5;
+  color: #f5f5f7;
   position: absolute;
-  top: 0;
-  left: 0;
   z-index: 50;
+}
+
+.tactile:focus {
+  color: #10af72;
+  left: 0;
+  top: 0;
 }
