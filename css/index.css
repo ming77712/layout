@@ -1,26 +1,9 @@
-.headerBg {
-  background-color: #f5f5f7;
-}
-
 .newsBg {
   background-color: #f1f9f8;
 }
 
 .infoBg {
   background-color: #79a8a9;
-}
-
-.footerBg {
-  background-color: #367c8d;
-}
-
-.btnCustom {
-  width: 10.125rem;
-  height: 2.5rem;
-  border: none;
-  border-radius: 2rem;
-  background-color: #50b8af;
-  color: #fff;
 }
 
 .selectBtnCustom {
@@ -41,44 +24,6 @@
   background-color: #50b8af;
   border-radius: 2rem;
   color: #fff;
-}
-
-.logo {
-  text-indent: 101%;
-  overflow: hidden;
-  white-space: nowrap;
-  background-size: cover;
-  background-image: url(../images/logo.png);
-  width: 392px;
-  height: 78px;
-}
-
-.iconBg {
-  background-color: #50b8af;
-  width: 40px;
-  height: 40px;
-}
-
-/* 霧化效果 */
-.backdrop-blur {
-  display: none;
-  width: calc(100vw - 15px);
-  height: 100vh;
-  z-index: 2;
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-}
-
-.infoList li:hover {
-  border-bottom: 1px solid #000;
-}
-
-.headerInfoWrap {
-  display: none;
-}
-
-.headerInfoWrap.active {
-  display: flex;
 }
 
 .newsSwiper .swiper-button-prev:after {
@@ -237,16 +182,6 @@
   bottom: 0;
 }
 
-.table-custom {
-  --bs-table-striped-bg: #cee0e0;
-  --bs-table-bg: #e3eded;
-}
-
-.table-custom > thead > tr > th {
-  background-color: #649b9c;
-  color: #fff;
-}
-
 .hoverScale,
 .hoverScale a {
   display: block;
@@ -264,12 +199,6 @@
 
 .hoverScale:hover .pic {
   transform: scale(1.05);
-}
-
-footer div,
-footer p,
-footer a {
-  color: #fff;
 }
 
 /* Medium devices */
