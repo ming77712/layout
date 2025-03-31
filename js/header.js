@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  AOS.init();
   const backdropBlur = document.querySelector('.backdrop-blur');
   const infoWrapItem = document.querySelector('.infoWrapItem');
   const headerInfoWrap = document.querySelector('.headerInfoWrap');

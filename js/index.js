@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
+  AOS.init();
   // login block start
   const loginList = document.getElementById('loginList');
   const userBtn = document.getElementById('userBtn');
@@ -52,6 +53,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
   noticeCloseBtn.addEventListener('click', () => {
     cardNoticeWrap.classList.add('d-none');
+  });
+
+  const registerBtns = document.querySelectorAll('.registerBtn');
+  registerBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      location.href = './registeraccount.html';
+    });
   });
 
   // login block end

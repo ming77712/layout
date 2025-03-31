@@ -155,156 +155,18 @@
       </div>
       <section>
         <div class="container">
-          <h2 class="my-2">申請帳號(2/2)：自然人憑證綁定</h2>
-          <form class="row align-items-center">
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_facno"
-                class="form-label fs-5"
-                style="width: 25%"
-                >卡片：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_facno"
-                style="width: 50%"
-              />
-              <button type="button" class="btnCustom" style="width: 10%">
-                重新偵測
-              </button>
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_facname"
-                class="form-label fs-5"
-                style="width: 25%"
-                >PIN碼：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_facname"
-                style="width: 50%"
-              />
-              <button type="button" class="btnCustom" style="width: 10%">
-                取得資訊
-              </button>
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_boss"
-                class="form-label fs-5"
-                style="width: 25%"
-                >管制編號：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_boss"
-                style="width: 50%"
-                disabled
-              />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_Addr"
-                class="form-label fs-5"
-                style="width: 25%"
-                >公司名稱：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_Addr"
-                style="width: 50%"
-                disabled
-              />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_bossEmail"
-                class="form-label fs-5"
-                style="width: 25%"
-                >憑證所有人姓名：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_bossEmail"
-                style="width: 50%"
-              />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_AddrPostCode"
-                class="form-label fs-5"
-                style="width: 25%"
-                >憑證所有人聯繫方式：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_AddrPost"
-                style="width: 50%"
-              />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_comm"
-                class="form-label fs-5"
-                style="width: 25%"
-                >憑證所有人Email：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_comm"
-                style="width: 50%"
-              />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_Email"
-                class="form-label fs-5"
-                style="width: 25%"
-                >卡號：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_Email"
-                style="width: 50%"
-              />
-            </div>
-            <div class="d-flex align-items-center mb-3">
-              <label
-                for="ContentPlaceHolder1_TextBox_Email"
-                class="form-label fs-5"
-                style="width: 25%"
-                >GPKI：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_Email"
-                style="width: 50%"
-              />
-            </div>
-            <button type="submit" class="btnCustom m-auto">確認送出</button>
-          </form>
-          <ol class="my-4">
-            <li class="fs-5">
-              1. 尚未安裝客戶端程式、無法正常使用者，請(重新)安裝跨平台網頁元件
-            </li>
-            <li class="fs-5">
-              2. 相同管制編號須設定多組登入憑證者，請登入系統後自行新增即可。
-            </li>
-            <li class="fs-5">
-              3.
-              相同自然人憑證僅限對應乙組管制編號，意即無法重複設置於多組管制編號，敬請注意。
-            </li>
-          </ol>
+          <h2 class="my-2">申請帳號</h2>
+          <p class="fs-5 my-4">*您已完成帳號申請作業，目前帳號狀態為審核中</p>
+          <p class="fs-5 mb-4">
+            本系統正在驗證填入資料是否正確，單次審核時間約為6-12小時，待完成後將自動寄送<span
+              style="text-decoration: underline"
+              >審核結果認證信</span
+            >至<span class="text-danger">事業電子郵件信箱</span
+            >，敬請於收到信件後點選連結開通帳號權限。
+          </p>
+          <p class="fs-5">
+            若逾時仍未收到信件，請先確認環境保護許可資訊系統(EMS)登載之事業電子郵件信箱是否正確，以及該信箱收件匣/垃圾信件匣是否有未讀信件，或洽本系統客服電話詢問，感謝。
+          </p>
         </div>
       </section>
     </main>
@@ -369,8 +231,30 @@
   </body>
 
   <script src="./js/bootstrap.min.js"></script>
-  <script src="./js/swiper-bundle.min.js"></script>
-  <script src="./js/vivus.min.js"></script>
-  <script src="./js/aos.js"></script>
   <script src="./js/header.js"></script>
+  <script>
+    const ContentPlaceHolder1_P_no = document.getElementById(
+      'ContentPlaceHolder1_P_no'
+    );
+    const registerBackdropBtn = document.getElementById('registerBackdropBtn');
+    const registerNoticeBtn = document.getElementById('registerNoticeBtn');
+    const registerNoticeText = document.getElementById('registerNoticeText');
+    registerBackdropBtn.addEventListener('click', () => {
+      if (ContentPlaceHolder1_P_no.value === '') {
+        registerNoticeText.textContent = '請輸入管制編號';
+        registerNoticeBtn.disabled = true;
+      } else {
+        registerNoticeText.textContent =
+          '請確認此管制編號為貴公司所屬，若冒用他人管制編號或資料填寫不實，本系統有權隨時終止帳號資格及使用權限。';
+        registerNoticeBtn.disabled = false;
+      }
+    });
+    registerNoticeBtn.addEventListener('click', () => {
+      if (ContentPlaceHolder1_P_no.value === '') {
+        return;
+      } else {
+        location.href = `./registerinfo.html?no=${ContentPlaceHolder1_P_no.value}`;
+      }
+    });
+  </script>
 </html>

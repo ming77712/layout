@@ -171,7 +171,14 @@
                 placeholder="A00A0001"
                 style="width: 15%"
               />
-              <button type="submit" class="btnCustom" style="width: 10%">
+              <button
+                type="button"
+                id="registerBackdropBtn"
+                class="btnCustom"
+                style="width: 10%"
+                data-bs-toggle="modal"
+                data-bs-target="#registerNoticeBackdrop"
+              >
                 送出申請
               </button>
             </div>
@@ -190,6 +197,49 @@
               機關單位或車機廠商若需申請本系統帳號，請來信至客服信箱並敘明單位及申請緣由，後續將由專人聯繫協助辦理。
             </li>
           </ol>
+        </div>
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="registerNoticeBackdrop"
+          data-bs-backdrop="static"
+          data-bs-keyboard="false"
+          tabindex="-1"
+          aria-labelledby="registerNoticeBackdropLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <div class="modal-header">
+                <!-- <h5 class="modal-title" id="registerNoticeBackdrop">
+                  Modal title
+                </h5> -->
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div id="registerNoticeText" class="modal-body fs-5"></div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  取消
+                </button>
+                <button
+                  id="registerNoticeBtn"
+                  type="button"
+                  class="btn btn-primary"
+                >
+                  確認
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </main>
@@ -254,8 +304,30 @@
   </body>
 
   <script src="./js/bootstrap.min.js"></script>
-  <script src="./js/swiper-bundle.min.js"></script>
-  <script src="./js/vivus.min.js"></script>
-  <script src="./js/aos.js"></script>
   <script src="./js/header.js"></script>
+  <script>
+    const ContentPlaceHolder1_P_no = document.getElementById(
+      'ContentPlaceHolder1_P_no'
+    );
+    const registerBackdropBtn = document.getElementById('registerBackdropBtn');
+    const registerNoticeBtn = document.getElementById('registerNoticeBtn');
+    const registerNoticeText = document.getElementById('registerNoticeText');
+    registerBackdropBtn.addEventListener('click', () => {
+      if (ContentPlaceHolder1_P_no.value === '') {
+        registerNoticeText.textContent = '請輸入管制編號';
+        registerNoticeBtn.disabled = true;
+      } else {
+        registerNoticeText.textContent =
+          '請確認此管制編號為貴公司所屬，若冒用他人管制編號或資料填寫不實，本系統有權隨時終止帳號資格及使用權限。';
+        registerNoticeBtn.disabled = false;
+      }
+    });
+    registerNoticeBtn.addEventListener('click', () => {
+      if (ContentPlaceHolder1_P_no.value === '') {
+        return;
+      } else {
+        location.href = `./registerinfo.html?no=${ContentPlaceHolder1_P_no.value}`;
+      }
+    });
+  </script>
 </html>

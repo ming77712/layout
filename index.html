@@ -17,12 +17,12 @@
       <a href="#R" class="tactile" title="跳到主要內容"
         ><span>跳到主要內容</span></a
       >
-      <div class="container d-flex justify-content-between">
+      <div class="container d-block d-md-flex justify-content-between">
         <a href="./index.html" class="logo d-block"
           ><h1>環境部化學物質管理署</h1></a
         >
-        <nav class="d-flex gap-5">
-          <ul class="infoList d-flex align-items-center gap-4">
+        <nav class="d-block d-md-flex gap-5">
+          <ul class="infoList d-block d-md-flex align-items-center gap-4">
             <li class="infoWrapItem"><p class="fs-5">專區資訊</p></li>
             <li><a href="./02g.html" class="fs-5">相關連結</a></li>
             <li><a href="./sitemap.html" class="fs-5">網站導覽</a></li>
@@ -193,7 +193,7 @@
                 class="d-flex justify-content-between align-items-center mt-4 mb-3"
               >
                 <div class="d-flex">
-                  <div class="text-center pe-5">
+                  <div class="text-center px-3">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="50"
@@ -217,13 +217,13 @@
                 >
                   <button
                     type="button"
-                    class="selectBtnCustom d-block mx-auto px-4 active"
+                    class="selectBtnCustom d-block mx-auto fs-5 px-3 active"
                     data-select-login="card"
                   >
                     自然人憑證登入</button
                   ><button
                     type="button"
-                    class="selectBtnCustom d-block mx-auto px-4"
+                    class="selectBtnCustom d-block mx-auto fs-5 px-3"
                     data-select-login="account"
                   >
                     帳號密碼登入
@@ -244,7 +244,7 @@
                     class="form-control w-50 border-black"
                     id="cardNumber"
                   />
-                  <button type="button" class="btnCustom w-25">重新偵測</button>
+                  <button type="button" class="btnCustom w-25 fs-5">重新偵測</button>
                 </div>
                 <div class="d-flex align-items-center gap-2 mb-2">
                   <label for="pinNumber" class="form-label w-25 fs-5"
@@ -260,7 +260,7 @@
                   <button
                     type="button"
                     id="cardNoticeBtn"
-                    class="btnCustom position-relative"
+                    class="btnCustom position-relative fs-5"
                   >
                     注意事項
                   </button>
@@ -304,8 +304,8 @@
                       ></i>
                     </div>
                   </div>
-                  <button type="button" class="btnCustom">申請帳號</button
-                  ><button type="button" class="btnCustom">登入</button>
+                  <button type="button" class="registerBtn btnCustom fs-5">申請帳號</button
+                  ><button type="button" class="btnCustom fs-5">登入</button>
                 </div>
               </div>
               <div id="accountForm" class="d-none p-2">
@@ -349,9 +349,9 @@
                   </div>
                 </div>
                 <div class="d-flex justify-content-between gap-3 p-2">
-                  <button type="button" class="btnCustom">申請帳號</button
-                  ><button type="button" class="btnCustom">忘記密碼</button
-                  ><button type="button" class="btnCustom">登入</button>
+                  <button type="button" class="registerBtn btnCustom fs-5">申請帳號</button
+                  ><button type="button" class="btnCustom fs-5">忘記密碼</button
+                  ><button type="button" class="btnCustom fs-5">登入</button>
                 </div>
               </div>
             </div>
@@ -497,7 +497,7 @@
                   </p>
                 </li>
               </ul>
-              <button type="button" class="btnCustom d-block mx-auto px-4 py-1">
+              <button type="button" class="btnCustom d-block mx-auto fs-5 px-4 py-1">
                 查看更多
               </button>
             </div>
@@ -588,13 +588,105 @@
           </nav>
           <div class="tab-content mb-4" id="nav-tabServiceContent">
             <div
-              class="tab-pane fade border border-dark"
+              class="tab-pane fade border border-dark p-4"
               id="nav-rate"
               role="tabpanel"
               aria-labelledby="nav-rate-tab"
               tabindex="0"
             >
-              ...
+            <div class="row">
+              <div class="col-lg-5 mb-5 mb-md-0">
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    <label for="yearSearch" class="form-label"
+                      >年度查詢：</label
+                    >
+                    <select
+                      id="yearSearch"
+                      class="form-select w-25"
+                      aria-label="year select"
+                    >
+                      <option selected>114</option>
+                      <option value="113">113</option>
+                      <option value="112">112</option>
+                      <option value="111">111</option>
+                    </select>
+                    <label for="monthSearch" class="form-label"
+                    >月份查詢：</label
+                  >
+                  <select
+                    id="monthSearch"
+                    class="form-select w-25"
+                    aria-label="month select"
+                  >
+                    <option selected>4</option>
+                    <option value="3">3</option>
+                    <option value="2">2</option>
+                    <option value="1">1</option>
+                  </select>
+                </div>
+                <p>統計日期：114/3/5</p>
+                <table
+                  class="table table-custom table-bordered border-white table-striped text-center"
+                >
+                  <thead>
+                    <tr>
+                      <th scope="col" class="fw-light">車機型號</th>
+                      <th scope="col" class="fw-light">妥善率</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row" class="fw-light">富德爾FT-168 4G</th>
+                      <td class="fw-light">A+</td>
+                    </tr>
+                    <tr>
+                      <th scope="row" class="fw-light">中興MSM0901</th>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+                <span>* 車輛編號謹照管制編號依序排列，無特殊意義 </span>
+              </div>
+              <div class="col-lg-7">
+                <h3 class="fs-4 mb-2">即時追蹤系統妥善率計算說明：</h3>
+                <p>即時追蹤系統妥善率係由系統每月自動計算，以反映車機軟體、硬體及廠商提供維修服務品質是否良好，駕駛人是否維持車機正常運送，於異常狀態時是否即時聯絡車機廠商維修。</p>
+                <p class="my-2">*建議新裝置即時追蹤系統者應於採購前謹慎選擇妥善率良好之車機廠商</p>
+                <table
+                class="table table-bordered border-black text-center mb-2"
+              >
+                <thead>
+                  <tr>
+                    <th scope="col" class="fw-light">檢核項目</th>
+                    <th scope="col" class="fw-light">說明</th>
+                    <th scope="col" class="fw-light">權重</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row" class="fw-light">回傳品質</th>
+                    <td>該月回傳率大於85%的車輛數/(該月車機車輛總數-該月未出車之車輛數)</td>
+                    <td>75%</td>
+                  </tr>
+                  <tr>
+                    <th scope="row" class="fw-light">維修效能</th>
+                    <td>1-(故障車輛數/(該月車機車輛總數-該月未出車之車輛數))</td>
+                    <td>25%</td>
+                  </tr>
+                </tbody>
+              </table>
+              <h3 class="fs-4 mb-2">妥善率等級說明：</h3>
+              <p class="mb-2">＊表示目前該車機型號車輛數少於10輛</p>
+              <ul class="mb-2">
+                <li>A+：該車機型號妥善率≧95%</li>
+                <li>A ：90%≦該車機型號妥善率<95%</li>
+                <li>B+：85%≦該車機型號妥善率<90%</li>
+                <li>B ：80%≦該車機型號妥善率<85%</li>
+                <li>C ：60%≦該車機型號妥善率<80%</li>
+                <li>D ：該車機型號妥善率<60%</li>
+              </ul>
+              <p>#：表示該車機型號已無車輛</p>
+              </div>
+            </div>
             </div>
             <div
               class="tab-pane fade show border border-dark p-4 active"
@@ -821,13 +913,53 @@
               </div>
             </div>
             <div
-              class="tab-pane fade border border-dark"
+              class="tab-pane fade border border-dark p-4"
               id="nav-proof"
               role="tabpanel"
               aria-labelledby="nav-proof-tab"
               tabindex="0"
             >
-              ...
+            <div class="d-flex gap-5 mb-4">
+              <div class="d-flex align-items-center">
+                <label for="conditionalSearch" class="form-label w-50"
+                  >條件查詢：</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="conditionalSearch"
+                  placeholder="請輸入車號/公司名稱"
+                />
+              </div>
+            </div>
+            <table
+              class="table table-custom table-bordered border-white table-striped text-center"
+            >
+              <thead>
+                <tr>
+                  <th scope="col" class="fw-light">管制編號</th>
+                  <th scope="col" class="fw-light">公司名稱</th>
+                  <th scope="col" class="fw-light">檔案下載</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">F5801604</th>
+                  <td>振興發科技有限公司</td>
+                  <td><a href="#">下載</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">F5801604</th>
+                  <td>振興發科技有限公司</td>
+                  <td><a href="#">下載</a></td>
+                </tr>
+                <tr>
+                  <th scope="row">F5801604</th>
+                  <td>振興發科技有限公司</td>
+                  <td><a href="#">下載</a></td>
+                </tr>
+              </tbody>
+            </table>
             </div>
           </div>
         </div>

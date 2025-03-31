@@ -154,149 +154,310 @@
         </div>
       </div>
       <section>
-        <div class="container">
-          <h2 class="my-2">申請帳號(1/2)：基本資料填寫</h2>
-          <form class="row align-items-center">
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_facno"
-                class="form-label fs-5"
-                style="width: 25%"
-                >管制編號：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_facno"
-                placeholder="A00A0001"
-                style="width: 75%"
-                disabled
-              />
+        <form>
+          <div id="registerInfoPage" class="container">
+            <h2 class="my-2">申請帳號(1/2)：基本資料填寫</h2>
+            <div class="row align-items-center">
+              <div class="d-flex align-items-center mb-2">
+                <label
+                  for="ContentPlaceHolder1_TextBox_facno"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >管制編號：</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ContentPlaceHolder1_TextBox_facno"
+                  placeholder="A00A0001"
+                  style="width: 40%"
+                  disabled
+                />
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <label
+                  for="ContentPlaceHolder1_TextBox_facname"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >公司名稱：</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ContentPlaceHolder1_TextBox_facname"
+                  placeholder="請輸入完整名稱"
+                  style="width: 40%"
+                />
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <label
+                  for="ContentPlaceHolder1_TextBox_boss"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >公司/營業登記負責人姓名：</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ContentPlaceHolder1_TextBox_boss"
+                  style="width: 40%"
+                />
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <label
+                  for="ContentPlaceHolder1_TextBox_Addr"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >事業地址：</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ContentPlaceHolder1_TextBox_Addr"
+                  style="width: 40%"
+                />
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <label
+                  for="ContentPlaceHolder1_TextBox_bossEmail"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >事業電子郵件信箱：</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ContentPlaceHolder1_TextBox_bossEmail"
+                  placeholder="此為認證信寄發信箱"
+                  style="width: 40%"
+                />
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <label
+                  for="ContentPlaceHolder1_TextBox_AddrPostCode"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >郵寄地址：</label
+                >
+                <input
+                  type="text"
+                  class="form-control me-2"
+                  id="ContentPlaceHolder1_TextBox_AddrPostCode"
+                  placeholder="郵遞區號6碼"
+                  style="width: 10%"
+                />
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ContentPlaceHolder1_TextBox_AddrPost"
+                  style="width: 30%"
+                />
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <label
+                  for="ContentPlaceHolder1_TextBox_comm"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >聯絡人：</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ContentPlaceHolder1_TextBox_comm"
+                  style="width: 40%"
+                />
+              </div>
+              <div class="d-flex align-items-center mb-3">
+                <label
+                  for="ContentPlaceHolder1_TextBox_Email"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >聯絡人電子信箱：</label
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="ContentPlaceHolder1_TextBox_Email"
+                  style="width: 40%"
+                />
+              </div>
+              <button id="nextBtn" type="button" class="btnCustom m-auto">
+                下一步
+              </button>
             </div>
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_facname"
-                class="form-label fs-5"
-                style="width: 25%"
-                >公司名稱：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_facname"
-                placeholder="請輸入完整名稱"
-                style="width: 75%"
-              />
+            <ol class="my-4">
+              <li class="fs-5">
+                1.
+                帳號申請之資料欄位皆須填寫，且為避免影響您所屬權利，請務必確認輸入資料與實際情形相符。
+              </li>
+              <li class="fs-5">
+                2.
+                基本資料將核對環境保護許可資訊系統(EMS)，請確認輸入內容與EMS基本資料表C相同。
+              </li>
+              <li class="fs-5">
+                3.
+                若車機商或管理端具帳號申請需求，請來信本系統述明單位及申請原因，後續將由專人協助辦理。
+              </li>
+            </ol>
+          </div>
+          <div id="registerCardPage" class="d-none container">
+            <h2 class="my-2">申請帳號(2/2)：自然人憑證綁定</h2>
+            <div class="row align-items-center">
+              <div class="d-flex align-items-center mb-2">
+                <label
+                  for="ContentPlaceHolder1_TextBox_facno"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >卡片：</label
+                >
+                <input
+                  type="text"
+                  class="form-control me-3"
+                  id="ContentPlaceHolder1_TextBox_facno"
+                  style="width: 40%"
+                />
+                <button type="button" class="btnCustom" style="width: 10%">
+                  重新偵測
+                </button>
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <label
+                  for="ContentPlaceHolder1_TextBox_facname"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >PIN碼：</label
+                >
+                <input
+                  type="text"
+                  class="form-control me-3"
+                  id="ContentPlaceHolder1_TextBox_facname"
+                  style="width: 40%"
+                />
+                <button type="button" class="btnCustom" style="width: 10%">
+                  取得資訊
+                </button>
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <label
+                  for="ContentPlaceHolder1_TextBox_boss"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >管制編號：</label
+                >
+                <input
+                  type="text"
+                  class="form-control me-3"
+                  id="ContentPlaceHolder1_TextBox_boss"
+                  style="width: 40%"
+                  disabled
+                />
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <label
+                  for="ContentPlaceHolder1_TextBox_Addr"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >公司名稱：</label
+                >
+                <input
+                  type="text"
+                  class="form-control me-3"
+                  id="ContentPlaceHolder1_TextBox_Addr"
+                  style="width: 40%"
+                  disabled
+                />
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <div class="d-flex" style="width: 30%">
+                  <label
+                    for="ContentPlaceHolder1_TextBox_bossEmail"
+                    class="form-label text-end fs-5 me-2"
+                    style="width: 50%"
+                    >憑證所有人姓名：</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control me-3"
+                    id="ContentPlaceHolder1_TextBox_bossEmail"
+                    style="width: 45%"
+                  />
+                </div>
+                <div class="d-flex" style="width: 60%">
+                  <label
+                    for="ContentPlaceHolder1_TextBox_AddrPostCode"
+                    class="form-label text-end fs-5 me-2"
+                    style="width: 30%"
+                    >憑證所有人聯繫方式：</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control me-3"
+                    id="ContentPlaceHolder1_TextBox_AddrPost"
+                    style="width: 60%"
+                  />
+                </div>
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <label
+                  for="ContentPlaceHolder1_TextBox_comm"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >憑證所有人Email：</label
+                >
+                <input
+                  type="text"
+                  class="form-control me-3"
+                  id="ContentPlaceHolder1_TextBox_comm"
+                  style="width: 40%"
+                />
+              </div>
+              <div class="d-flex align-items-center mb-2">
+                <label
+                  for="ContentPlaceHolder1_TextBox_Email"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >卡號：</label
+                >
+                <input
+                  type="text"
+                  class="form-control me-3"
+                  id="ContentPlaceHolder1_TextBox_Email"
+                  style="width: 40%"
+                />
+              </div>
+              <div class="d-flex align-items-center mb-3">
+                <label
+                  for="ContentPlaceHolder1_TextBox_Email"
+                  class="form-label text-end fs-5 me-2"
+                  style="width: 15%"
+                  >GPKI：</label
+                >
+                <input
+                  type="text"
+                  class="form-control me-3"
+                  id="ContentPlaceHolder1_TextBox_Email"
+                  style="width: 40%"
+                />
+              </div>
+              <button id="submitInfo" type="button" class="btnCustom m-auto">
+                確認送出
+              </button>
             </div>
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_boss"
-                class="form-label fs-5"
-                style="width: 25%"
-                >公司/營業登記負責人姓名：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_boss"
-                style="width: 75%"
-              />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_Addr"
-                class="form-label fs-5"
-                style="width: 25%"
-                >事業地址：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_Addr"
-                style="width: 75%"
-              />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_bossEmail"
-                class="form-label fs-5"
-                style="width: 25%"
-                >事業電子郵件信箱：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_bossEmail"
-                placeholder="此為認證信寄發信箱"
-                style="width: 75%"
-              />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_AddrPostCode"
-                class="form-label fs-5"
-                style="width: 25%"
-                >郵寄地址：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_AddrPostCode"
-                placeholder="郵遞區號6碼"
-                style="width: 10%"
-              />
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_AddrPost"
-                style="width: 65%"
-              />
-            </div>
-            <div class="d-flex align-items-center mb-2">
-              <label
-                for="ContentPlaceHolder1_TextBox_comm"
-                class="form-label fs-5"
-                style="width: 25%"
-                >聯絡人：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_comm"
-                style="width: 75%"
-              />
-            </div>
-            <div class="d-flex align-items-center mb-3">
-              <label
-                for="ContentPlaceHolder1_TextBox_Email"
-                class="form-label fs-5"
-                style="width: 25%"
-                >聯絡人電子信箱：</label
-              >
-              <input
-                type="text"
-                class="form-control me-3"
-                id="ContentPlaceHolder1_TextBox_Email"
-                style="width: 75%"
-              />
-            </div>
-            <button type="submit" class="btnCustom m-auto">下一步</button>
-          </form>
-          <ol class="my-4">
-            <li class="fs-5">
-              1.
-              帳號申請之資料欄位皆須填寫，且為避免影響您所屬權利，請務必確認輸入資料與實際情形相符。
-            </li>
-            <li class="fs-5">
-              2.
-              基本資料將核對環境保護許可資訊系統(EMS)，請確認輸入內容與EMS基本資料表C相同。
-            </li>
-            <li class="fs-5">
-              3.
-              若車機商或管理端具帳號申請需求，請來信本系統述明單位及申請原因，後續將由專人協助辦理。
-            </li>
-          </ol>
-        </div>
+            <ol class="my-4">
+              <li class="fs-5">
+                1.
+                尚未安裝客戶端程式、無法正常使用者，請(重新)安裝跨平台網頁元件
+              </li>
+              <li class="fs-5">
+                2. 相同管制編號須設定多組登入憑證者，請登入系統後自行新增即可。
+              </li>
+              <li class="fs-5">
+                3.
+                相同自然人憑證僅限對應乙組管制編號，意即無法重複設置於多組管制編號，敬請注意。
+              </li>
+            </ol>
+          </div>
+        </form>
       </section>
     </main>
     <footer class="footerBg p-3">
@@ -360,8 +521,68 @@
   </body>
 
   <script src="./js/bootstrap.min.js"></script>
-  <script src="./js/swiper-bundle.min.js"></script>
-  <script src="./js/vivus.min.js"></script>
-  <script src="./js/aos.js"></script>
   <script src="./js/header.js"></script>
+  <script>
+    //未做輸入檢查
+    const urlParams = new URLSearchParams(window.location.search);
+    const number = urlParams.get('no')?.trim();
+
+    const facnoInput = document.getElementById(
+      'ContentPlaceHolder1_TextBox_facno'
+    );
+    if (facnoInput) {
+      facnoInput.value = number;
+    }
+
+    const ContentPlaceHolder1_TextBox_facno = document.getElementById(
+      'ContentPlaceHolder1_TextBox_facno'
+    );
+    const ContentPlaceHolder1_TextBox_facname = document.getElementById(
+      'ContentPlaceHolder1_TextBox_facname'
+    );
+    const ContentPlaceHolder1_TextBox_boss = document.getElementById(
+      'ContentPlaceHolder1_TextBox_boss'
+    );
+    const ContentPlaceHolder1_TextBox_Addr = document.getElementById(
+      'ContentPlaceHolder1_TextBox_Addr'
+    );
+    const ContentPlaceHolder1_TextBox_bossEmail = document.getElementById(
+      'ContentPlaceHolder1_TextBox_bossEmail'
+    );
+    const ContentPlaceHolder1_TextBox_AddrPostCode = document.getElementById(
+      'ContentPlaceHolder1_TextBox_AddrPostCode'
+    );
+    const ContentPlaceHolder1_TextBox_AddrPost = document.getElementById(
+      'ContentPlaceHolder1_TextBox_AddrPost'
+    );
+    const ContentPlaceHolder1_TextBox_comm = document.getElementById(
+      'ContentPlaceHolder1_TextBox_comm'
+    );
+    const ContentPlaceHolder1_TextBox_Email = document.getElementById(
+      'ContentPlaceHolder1_TextBox_Email'
+    );
+    const registerInfoPage = document.getElementById('registerInfoPage');
+    const registerCardPage = document.getElementById('registerCardPage');
+
+    document.getElementById('nextBtn').addEventListener('click', () => {
+      let infoData = {
+        facno: ContentPlaceHolder1_TextBox_facno.value,
+        facname: ContentPlaceHolder1_TextBox_facname.value,
+        boss: ContentPlaceHolder1_TextBox_boss.value,
+        addr: ContentPlaceHolder1_TextBox_Addr.value,
+        bossemail: ContentPlaceHolder1_TextBox_bossEmail.value,
+        addrpostcode: ContentPlaceHolder1_TextBox_AddrPostCode.value,
+        addrpost: ContentPlaceHolder1_TextBox_AddrPost.value,
+        comm: ContentPlaceHolder1_TextBox_comm.value,
+        email: ContentPlaceHolder1_TextBox_Email.value,
+      };
+      registerInfoPage.classList.add('d-none');
+      registerCardPage.classList.remove('d-none');
+    });
+
+    document.getElementById('submitInfo').addEventListener('click', () => {
+      // infoData = {}
+      location.href = './registerfinish.html';
+    });
+  </script>
 </html>

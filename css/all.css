@@ -24,7 +24,7 @@
 }
 
 .selectBtnCustom {
-  width: 10.125rem;
+  width: 11.125rem;
   height: 2.5rem;
   border: 1px solid #000;
   border-radius: 2rem;
@@ -35,7 +35,7 @@
 }
 
 .selectBtnCustom.active {
-  width: 10.125rem;
+  width: 11.125rem;
   height: 2.5rem;
   border: none;
   background-color: #50b8af;
