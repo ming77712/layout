@@ -70,6 +70,15 @@ a[accesskey],
   color: #fff;
 }
 
+.btnForm {
+  width: 6rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 2rem;
+  background-color: #50b8af;
+  color: #fff;
+}
+
 .table-custom {
   --bs-table-striped-bg: #cee0e0;
   --bs-table-bg: #e3eded;
@@ -186,6 +195,11 @@ footer a {
     height: 2.5rem;
   }
 
+  .btnForm {
+    width: 10.125rem;
+    height: 2.5rem;
+  }
+
   .logo {
     width: 396px;
     height: 78px;
@@ -200,6 +214,12 @@ footer a {
     display: flex;
   }
 
+  .mainTop {
+    padding-top: 11.5rem;
+  }
+}
+
+@media (min-width: 1200px) {
   .mainTop {
     padding-top: 5.875rem;
   }
