@@ -80,6 +80,18 @@ a[accesskey],
   color: #fff;
 }
 
+.w-15 {
+  width: 15% !important;
+}
+
+.w-35 {
+  width: 35% !important;
+}
+
+.w-85 {
+  width: 85% !important;
+}
+
 .headerBg {
   background-color: #f5f5f7;
 }
