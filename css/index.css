@@ -7,7 +7,7 @@
 }
 
 .selectBtnCustom {
-  width: 11.125rem;
+  width: 10.125rem;
   height: 2.5rem;
   border: 1px solid #000;
   border-radius: 2rem;
@@ -18,11 +18,8 @@
 }
 
 .selectBtnCustom.active {
-  width: 11.125rem;
-  height: 2.5rem;
   border: none;
   background-color: #50b8af;
-  border-radius: 2rem;
   color: #fff;
 }
 
@@ -201,11 +198,13 @@
   transform: scale(1.05);
 }
 
-/* Medium devices */
 @media (min-width: 768px) {
+  .selectBtnCustom {
+    width: 11.125rem;
+    height: 2.5rem;
+  }
 }
 
-/* Large devices */
 @media (min-width: 992px) {
   .newsContent time {
     width: 15%;

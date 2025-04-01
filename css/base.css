@@ -62,7 +62,7 @@ a[accesskey],
 }
 
 .btnCustom {
-  width: 10.125rem;
+  width: 9rem;
   height: 2.5rem;
   border: none;
   border-radius: 2rem;
@@ -90,8 +90,8 @@ a[accesskey],
   white-space: nowrap;
   background-size: cover;
   background-image: url(../images/logo.png);
-  width: 392px;
-  height: 78px;
+  width: 355px;
+  height: 66px;
 }
 
 .iconBg {
@@ -109,7 +109,7 @@ a[accesskey],
 }
 
 .headerInfoWrap.active {
-  display: flex;
+  display: block;
 }
 
 /* 霧化效果 */
@@ -123,7 +123,7 @@ a[accesskey],
 }
 
 .mainTop {
-  padding-top: 11.375rem;
+  padding-top: 10.125rem;
 }
 
 .footerBg {
@@ -169,9 +169,23 @@ footer a {
     font-size: 2rem !important;
   }
 
+  .btnCustom {
+    width: 10.125rem;
+    height: 2.5rem;
+  }
+
+  .logo {
+    width: 396px;
+    height: 78px;
+  }
+
   .iconBg {
     width: 40px;
     height: 40px;
+  }
+
+  .headerInfoWrap.active {
+    display: flex;
   }
 
   .mainTop {

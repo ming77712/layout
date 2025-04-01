@@ -21,13 +21,13 @@
         <a href="./index.html" class="logo d-block mx-auto mx-md-0 mb-3 mb-md-0"
           ><h1>環境部化學物質管理署</h1></a
         >
-        <nav class="d-flex justify-content-between justify-content-md-start gap-5 px-3 px-md-0">
+        <nav class="d-flex justify-content-between justify-content-md-start gap-4 px-3 px-md-0">
           <ul class="infoList d-block d-md-flex align-items-center gap-4">
             <li class="infoWrapItem"><p class="fsc-1">專區資訊</p></li>
             <li><a href="./02g.html" class="fsc-1">相關連結</a></li>
             <li><a href="./sitemap.html" class="fsc-1">網站導覽</a></li>
           </ul>
-          <div class="d-md-flex gap-5">
+          <div class="d-md-flex gap-4">
             <ul class="d-flex align-items-center gap-3 mb-2 mb-md-0">
               <li>
                 <a href="#"
@@ -408,7 +408,7 @@
 
           <nav>
             <div
-              class="nav nav-tabs d-flex justify-content-center gap-5 border-0"
+              class="nav nav-tabs d-flex justify-content-center gap-3 gap-md-5 border-0"
               id="info-tab"
               role="tablist"
             >
@@ -598,13 +598,12 @@
             >
             <div class="row">
               <div class="col-lg-5 mb-5 mb-md-0">
-                <div class="d-flex align-items-center gap-2 mb-2">
-                    <label for="yearSearch" class="form-label"
-                      >年度查詢：</label
-                    >
+                <div class="d-block d-md-flex gap-2 mb-2">
+                  <div class="d-flex align-items-center w-50 mb-2 mb-md-0">
+                    <label for="yearSearch" class="form-label">年度查詢：</label>
                     <select
                       id="yearSearch"
-                      class="form-select w-25"
+                      class="form-select w-50"
                       aria-label="year select"
                     >
                       <option selected>114</option>
@@ -612,19 +611,20 @@
                       <option value="112">112</option>
                       <option value="111">111</option>
                     </select>
-                    <label for="monthSearch" class="form-label"
-                    >月份查詢：</label
-                  >
-                  <select
-                    id="monthSearch"
-                    class="form-select w-25"
-                    aria-label="month select"
-                  >
-                    <option selected>4</option>
-                    <option value="3">3</option>
-                    <option value="2">2</option>
-                    <option value="1">1</option>
-                  </select>
+                  </div>
+                  <div class="d-flex align-items-center w-50">
+                    <label for="monthSearch" class="form-label">月份查詢：</label>
+                    <select
+                      id="monthSearch"
+                      class="form-select w-50"
+                      aria-label="month select"
+                    >
+                      <option selected>4</option>
+                      <option value="3">3</option>
+                      <option value="2">2</option>
+                      <option value="1">1</option>
+                    </select>
+                  </div>
                 </div>
                 <p>統計日期：114/3/5</p>
                 <table
@@ -699,8 +699,8 @@
             >
               <div class="row">
                 <div class="col-lg-7 mb-5 mb-md-0">
-                  <div class="d-flex gap-5 mb-2">
-                    <div class="d-flex align-items-center">
+                  <div class="d-block d-md-flex gap-5 mb-2">
+                    <div class="d-flex align-items-center mb-2 mb-md-0">
                       <label for="conditionalSearch" class="form-label w-50"
                         >條件查詢：</label
                       >
@@ -727,7 +727,7 @@
                       </select>
                     </div>
                   </div>
-                  <div class="d-flex justify-content-between">
+                  <div class="d-block d-md-flex justify-content-between">
                     <p>查詢時間：2025年1月10日 16:30:34</p>
                     <p>清單下載</p>
                   </div>
@@ -927,7 +927,7 @@
               >
               <input
                 type="text"
-                class="form-control w-25"
+                class="form-control w-50"
                 id="documentSearch"
                 placeholder="請輸入管制編號/公司名稱"
               />
