@@ -132,6 +132,10 @@ document.addEventListener('DOMContentLoaded', () => {
   const newsSwiper = new Swiper('.newsSwiper', {
     loop: true,
 
+    autoplay: {
+      delay: 1000,
+    },
+
     pagination: {
       el: '.swiper-pagination',
     },
@@ -146,6 +150,10 @@ document.addEventListener('DOMContentLoaded', () => {
     slidesPerView: 4,
     spaceBetween: 24,
     loop: true,
+
+    autoplay: {
+      delay: 1000,
+    },
 
     navigation: {
       nextEl: '.swiper-button-next',
