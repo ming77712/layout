@@ -132,8 +132,8 @@
           <div class="row my-4" style="min-height: 384px">
             <div id="loginList" class="col-lg-4 order-1 order-lg-0 mt-4">
               <p class="text-center fsc-2 mt-4 mb-3">請選擇登入單位</p>
-              <div class="d-flex justify-content-center gap-5">
-                <div id="userBtn" class="cursor-pointer text-center">
+              <div id="loginSelect" class="d-flex justify-content-center gap-5">
+                <div class="cursor-pointer text-center" data-login-select="user">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="50"
@@ -148,7 +148,7 @@
                   </svg>
                   <p class="fsc-1">運送業者</p>
                 </div>
-                <div class="cursor-pointer text-center">
+                <div class="cursor-pointer text-center" data-login-select="firm">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="50"
@@ -170,7 +170,7 @@
                   </svg>
                   <p class="fsc-1">車機廠商</p>
                 </div>
-                <div class="cursor-pointer text-center">
+                <div class="cursor-pointer text-center" data-login-select="admin">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="50"
@@ -188,50 +188,37 @@
                 </div>
               </div>
             </div>
-            <div id="userWrap" class="d-none col-lg-4 order-1 order-lg-0">
+            <div id="loginWrap" class="d-none col-lg-4 order-1 order-lg-0">
               <div
-                id="userSelect"
+                id="loginHeader"
                 class="d-flex justify-content-between align-items-center mt-4 mb-3"
               >
                 <div class="d-flex">
-                  <div class="text-center px-3">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="50"
-                      height="50"
-                      fill="currentColor"
-                      class="bi bi-truck"
-                      viewBox="0 0 16 16"
-                    >
-                      <path
-                        d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5zm1.294 7.456A2 2 0 0 1 4.732 11h5.536a2 2 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456M12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
-                      />
-                    </svg>
-                    <p class="fsc-1">運送業者</p>
+                  <div id="selectedTitle" class="text-center px-3">
                   </div>
-                  <div id="line"></div>
+                  <div class="line"></div>
                 </div>
 
                 <div
-                  id="selectLogin"
+                  id="loginType"
                   class="d-flex flex-column justify-content-center gap-2"
                 >
                   <button
                     type="button"
                     class="selectBtnCustom d-block mx-auto fsc-1 px-3 active"
-                    data-select-login="card"
+                    data-login-type="card"
                   >
                     自然人憑證登入</button
                   ><button
                     type="button"
                     class="selectBtnCustom d-block mx-auto fsc-1 px-3"
-                    data-select-login="account"
+                    data-login-type="account"
                   >
                     帳號密碼登入
                   </button>
                 </div>
                 <i
-                  id="userCloseBtn"
+                  id="loginHeaderCloseBtn"
                   class="cursor-pointer bi bi-x-circle fsc-4"
                 ></i>
               </div>
