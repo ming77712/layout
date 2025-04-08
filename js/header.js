@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const backdropBlur = document.querySelector('.backdrop-blur');
+  const backdropBlur = document.querySelector('.backdropBlur');
   const infoWrapItem = document.querySelector('.infoWrapItem');
   const headerInfoWrap = document.querySelector('.headerInfoWrap');
 

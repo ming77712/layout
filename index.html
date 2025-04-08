@@ -124,7 +124,7 @@
         </ul>
       </div>
     </header>
-    <div class="backdrop-blur position-fixed start-0 top-0"></div>
+    <div class="backdropBlur position-fixed start-0 top-0"></div>
     <main class="mainTop">
       <section class="position-relative" data-aos="fade-right">
         <a accesskey="R" href="#R" name="R" title="主內容區域" id="AR">:::</a>
@@ -598,11 +598,11 @@
             <div class="row">
               <div class="col-lg-5 mb-5 mb-md-0">
                 <div class="d-block d-md-flex gap-2 mb-2">
-                  <div class="d-flex align-items-center w-50 mb-2 mb-md-0">
-                    <label for="yearSearch" class="form-label">年度查詢：</label>
+                  <div class="d-flex align-items-center mb-2 mb-md-0">
+                    <label for="yearSearch" class="form-label w-50">年度查詢：</label>
                     <select
                       id="yearSearch"
-                      class="form-select w-50"
+                      class="form-select"
                       aria-label="year select"
                     >
                       <option selected>114</option>
@@ -611,11 +611,11 @@
                       <option value="111">111</option>
                     </select>
                   </div>
-                  <div class="d-flex align-items-center w-50">
-                    <label for="monthSearch" class="form-label">月份查詢：</label>
+                  <div class="d-flex align-items-center">
+                    <label for="monthSearch" class="form-label w-50">月份查詢：</label>
                     <select
                       id="monthSearch"
-                      class="form-select w-50"
+                      class="form-select"
                       aria-label="month select"
                     >
                       <option selected>4</option>
@@ -711,7 +711,7 @@
                       />
                     </div>
                     <div class="d-flex align-items-center">
-                      <label for="countySearch" class="form-label w-75"
+                      <label for="countySearch" class="form-label w-50"
                         >縣市：</label
                       >
                       <select
@@ -773,136 +773,114 @@
                   <span>* 車輛編號謹照管制編號依序排列，無特殊意義 </span>
                 </div>
                 <div class="col-lg-5">
-                  <div class="svg-container">
+                  <div class="svgContainer">
                     <svg version="1.1" id="TW_minimal" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="-20 -5 350 430">
 
-                      <!-- 基隆 -->
                       <g class="region" data-region="基隆市">
                         <rect x="120" y="0" width="180" height="35" rx="5" ry="5" />
                         <text x="210" y="22.5" class="regionLabel" text-anchor="middle">基隆市</text>
                       </g>
 
-                      <!-- 臺北 -->
                       <g class="region" data-region="臺北市">
                         <rect x="240" y="35" width="60" height="35" rx="5" ry="5" />
                         <text x="270" y="57.5" class="regionLabel" text-anchor="middle">臺北市</text>
                       </g>
 
-                      <!-- 新北 -->
                       <g class="region" data-region="新北市">
                         <rect x="120" y="35" width="120" height="35" rx="5" ry="5" />
                         <text x="180" y="57.5" class="regionLabel" text-anchor="middle">新北市</text>
                       </g>
 
-                      <!-- 桃園 -->
                       <g class="region" data-region="桃園市">
                         <rect x="120" y="70" width="120" height="35" rx="5" ry="5" />
                         <text x="180" y="92.5" class="regionLabel" text-anchor="middle">桃園市</text>
                       </g>
 
-                      <!-- 宜蘭 -->
                       <g class="region" data-region="宜蘭縣">
                         <rect x="240" y="70" width="60" height="70" rx="5" ry="5" />
                         <text x="270" y="107.5" class="regionLabel" text-anchor="middle">宜蘭縣</text>
                       </g>
 
-                      <!-- 新竹市 -->
                       <g class="region" data-region="新竹市">
                         <rect x="120" y="105" width="60" height="35" rx="5" ry="5" />
                         <text x="150" y="127.5" class="regionLabel" text-anchor="middle">新竹市</text>
                       </g>
 
-                      <!-- 新竹縣 -->
                       <g class="region" data-region="新竹縣">
                         <rect x="180" y="105" width="60" height="35" rx="5" ry="5" />
                         <text x="210" y="127.5" class="regionLabel" text-anchor="middle">新竹縣</text>
                       </g>
 
-                      <!-- 苗栗 -->
                       <g class="region" data-region="苗栗縣">
                         <rect x="120" y="140" width="120" height="35" rx="5" ry="5" />
                         <text x="180" y="162.5" class="regionLabel" text-anchor="middle">苗栗縣</text>
                       </g>
 
-                      <!-- 臺中 -->
                       <g class="region" data-region="臺中市">
                         <rect x="120" y="175" width="120" height="35" rx="5" ry="5" />
                         <text x="180" y="197.5" class="regionLabel" text-anchor="middle">臺中市</text>
                       </g>
 
-                      <!-- 彰化 -->
                       <g class="region" data-region="彰化縣">
                         <rect x="120" y="210" width="60" height="35" rx="5" ry="5" />
                         <text x="150" y="232.5" class="regionLabel" text-anchor="middle">彰化縣</text>
                       </g>
 
-                      <!-- 南投 -->
                       <g class="region" data-region="南投縣">
                         <rect x="180" y="210" width="60" height="70" rx="5" ry="5" />
                         <text x="210" y="247.5" class="regionLabel" text-anchor="middle">南投縣</text>
                       </g>
 
-                      <!-- 雲林 -->
                       <g class="region" data-region="雲林縣">
                         <rect x="120" y="245" width="60" height="35" rx="5" ry="5" />
                         <text x="150" y="267.5" class="regionLabel" text-anchor="middle">雲林縣</text>
                       </g>
 
-                      <!-- 嘉義市 -->
                       <g class="region" data-region="嘉義市">
                         <rect x="120" y="280" width="60" height="35" rx="5" ry="5" />
                         <text x="150" y="302.5" class="regionLabel" text-anchor="middle">嘉義市</text>
                       </g>
 
-                      <!-- 嘉義縣 -->
                       <g class="region" data-region="嘉義縣">
                         <rect x="180" y="280" width="60" height="35" rx="5" ry="5" />
                         <text x="210" y="302.5" class="regionLabel" text-anchor="middle">嘉義縣</text>
                       </g>
 
-                      <!-- 臺南 -->
                       <g class="region" data-region="臺南市">
                         <rect x="120" y="315" width="120" height="35" rx="5" ry="5" />
                         <text x="180" y="337.5" class="regionLabel" text-anchor="middle">臺南市</text>
                       </g>
 
-                      <!-- 高雄 -->
                       <g class="region" data-region="高雄市">
                         <rect x="120" y="350" width="120" height="35" rx="5" ry="5" />
                         <text x="180" y="372.5" class="regionLabel" text-anchor="middle">高雄市</text>
                       </g>
 
-                      <!-- 屏東 -->
                       <g class="region" data-region="屏東縣">
                         <rect x="120" y="385" width="180" height="35" rx="5" ry="5" />
                         <text x="210" y="407.5" class="regionLabel" text-anchor="middle">屏東縣</text>
                       </g>
 
-                      <!-- 臺東 -->
                       <g class="region" data-region="臺東縣">
                         <rect x="240" y="280" width="60" height="105" rx="5" ry="5" />
                         <text x="270" y="337.5" class="regionLabel" text-anchor="middle">臺東縣</text>
                       </g>
 
-                      <!-- 花蓮 -->
                       <g class="region" data-region="花蓮縣">
                         <rect x="240" y="140" width="60" height="140" rx="5" ry="5" />
                         <text x="270" y="215" class="regionLabel" text-anchor="middle">花蓮縣</text>
                       </g>
 
-                      <!-- 澎湖 -->
                       <g class="region" data-region="澎湖縣">
                         <rect x="0" y="175" width="60" height="35" rx="5" ry="5" />
                         <text x="30" y="197.5" class="regionLabel" text-anchor="middle">澎湖縣</ext>
                       </g>
 
-                      <!-- 金門 -->
                       <g class="region" data-region="金門縣">
                         <rect x="0" y="105" width="60" height="35" rx="5" ry="5" />
                         <text x="30" y="127.5" class="regionLabel" text-anchor="middle">金門縣</ext>
                       </g>
 
-                      <!-- 連江 -->
                       <g class="region" data-region="連江縣">
                         <rect x="0" y="35" width="60" height="35" rx="5" ry="5" />
                         <text x="30" y="57.5" class="regionLabel" text-anchor="middle">連江縣</ext>
@@ -921,12 +899,12 @@
               tabindex="0"
             >
             <div class="d-flex align-items-center mb-4">
-              <label for="documentSearch" class="form-label"
+              <label for="documentSearch" class="form-label w-50"
                 >條件查詢：</label
               >
               <input
                 type="text"
-                class="form-control w-50"
+                class="form-control"
                 id="documentSearch"
                 placeholder="請輸入管制編號/公司名稱"
               />
@@ -1033,7 +1011,7 @@
                 title="毒性及關注化學物質分類說明(另開新視窗)"
               >
                 <div
-                  class="pic pic-fill"
+                  class="pic picFill"
                   style="
                     background-image: url(./images/example2.png);
                     background-size: cover;
@@ -1058,7 +1036,7 @@
                 title="毒性及關注化學物質審驗手冊(另開新視窗)"
               >
                 <div
-                  class="pic pic-fill"
+                  class="pic picFill"
                   style="
                     background-image: url(./images/example3.jpg);
                     background-size: cover;
@@ -1083,7 +1061,7 @@
                 title="毒性及關注化學物質系統操作教學(另開新視窗)"
               >
                 <div
-                  class="pic pic-fill"
+                  class="pic picFill"
                   style="
                     background-image: url(./images/example2.png);
                     background-size: cover;
@@ -1108,7 +1086,7 @@
                 title="毒性及關注化學物質運送車輛即時追蹤系統(另開新視窗)"
               >
                 <div
-                  class="pic pic-fill"
+                  class="pic picFill"
                   style="
                     background-image: url(./images/example2.png);
                     background-size: cover;
@@ -1133,7 +1111,7 @@
                 title="毒性及關注化學物質運送表單規定(另開新視窗)"
               >
                 <div
-                  class="pic pic-fill"
+                  class="pic picFill"
                   style="
                     background-image: url(./images/example2.png);
                     background-size: cover;
@@ -1158,7 +1136,7 @@
                 title="毒性及關注化學物質運送管理辦法(另開新視窗)"
               >
                 <div
-                  class="pic pic-fill"
+                  class="pic picFill"
                   style="
                     background-image: url(./images/example2.png);
                     background-size: cover;

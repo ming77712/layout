@@ -2,19 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
   AOS.init();
   // login block start
   const loginList = document.getElementById('loginList');
-  const userBtn = document.getElementById('userBtn');
   const userWrap = document.getElementById('userWrap');
   const userSelect = document.getElementById('userSelect');
-  const userCloseBtn = document.getElementById('userCloseBtn');
 
-  userBtn.addEventListener('click', () => {
+  document.getElementById('userBtn').addEventListener('click', () => {
     loginList.classList.add('d-none');
     userWrap.classList.remove('d-none');
     userSelect.style.animation = 'slideInFromRight 0.5s ease-out forwards';
     cardForm.style.animation = 'slideInFromBottom 0.5s ease-out forwards';
   });
 
-  userCloseBtn.addEventListener('click', () => {
+  document.getElementById('userCloseBtn').addEventListener('click', () => {
     userWrap.classList.add('d-none');
     loginList.classList.remove('d-none');
   });
@@ -23,9 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const buttons = selectLogin.querySelectorAll('button');
   const cardForm = document.getElementById('cardForm');
   const accountForm = document.getElementById('accountForm');
-  const cardNoticeBtn = document.getElementById('cardNoticeBtn');
   const cardNoticeWrap = document.getElementById('cardNoticeWrap');
-  const noticeCloseBtn = document.getElementById('noticeCloseBtn');
 
   selectLogin.addEventListener('click', (e) => {
     if (e.target.dataset.selectLogin !== undefined) {
@@ -47,16 +43,15 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  cardNoticeBtn.addEventListener('click', () => {
+  document.getElementById('cardNoticeBtn').addEventListener('click', () => {
     cardNoticeWrap.classList.remove('d-none');
   });
 
-  noticeCloseBtn.addEventListener('click', () => {
+  document.getElementById('noticeCloseBtn').addEventListener('click', () => {
     cardNoticeWrap.classList.add('d-none');
   });
 
-  const registerBtns = document.querySelectorAll('.registerBtn');
-  registerBtns.forEach((btn) => {
+  document.querySelectorAll('.registerBtn').forEach((btn) => {
     btn.addEventListener('click', () => {
       location.href = './registeraccount.html';
     });
@@ -64,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // login block end
 
-  const svgContainer = document.querySelector('.svg-container');
+  const svgContainer = document.querySelector('.svgContainer');
 
   svgContainer.addEventListener('mouseover', (e) => {
     const region = e.target.closest('.region');
@@ -73,12 +68,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (regionName && regionValue[regionName]) {
         const regionLabel = region.querySelector('.regionLabel');
 
-        regionLabel.classList.add('showing-value');
+        regionLabel.classList.add('showingValue');
 
         setTimeout(() => {
           regionLabel.textContent = regionValue[regionName];
-          regionLabel.classList.remove('showing-value');
-          regionLabel.classList.add('value-shown');
+          regionLabel.classList.remove('showingValue');
+          regionLabel.classList.add('valueShown');
         }, 150);
       }
     }
@@ -93,12 +88,12 @@ document.addEventListener('DOMContentLoaded', () => {
       if (regionName) {
         const regionLabel = region.querySelector('.regionLabel');
 
-        regionLabel.classList.add('showing-value');
-        regionLabel.classList.remove('value-shown');
+        regionLabel.classList.add('showingValue');
+        regionLabel.classList.remove('valueShown');
 
         setTimeout(() => {
           regionLabel.textContent = regionName;
-          regionLabel.classList.remove('showing-value');
+          regionLabel.classList.remove('showingValue');
         }, 150);
       }
     }

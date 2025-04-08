@@ -98,7 +98,7 @@
 }
 
 /* 視覺化圖示 */
-.svg-container {
+.svgContainer {
   width: 100%;
   height: 100%;
   max-width: 550px;
@@ -106,7 +106,7 @@
   /* aspect-ratio: 426 / 530; */
 }
 
-.svg-container svg {
+.svgContainer svg {
   width: 100%;
   height: 100%;
 }
@@ -128,12 +128,12 @@
   fill: #7fcf7c;
 }
 
-.region .regionLabel.showing-value {
+.region .regionLabel.showingValue {
   opacity: 0;
   transform: translateY(-5px);
 }
 
-.region .regionLabel.value-shown {
+.region .regionLabel.valueShown {
   opacity: 1;
   transform: translateY(0);
 }
@@ -179,7 +179,7 @@
   border-width: 10px;
 }
 
-.businessWrap .pic-fill {
+.businessWrap .picFill {
   position: absolute;
   top: 0;
   left: 0;
