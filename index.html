@@ -547,8 +547,7 @@
               >
                 <img
                   src="./images/checked.png"
-                  class="me-2"
-                  style="width: 50px; height: 50px"
+                  class="serviceIcon me-2"
                 />即時追蹤系統妥善率
               </button>
               <button
@@ -564,8 +563,7 @@
               >
                 <img
                   src="./images/protection.png"
-                  class="me-2"
-                  style="width: 50px; height: 50px"
+                  class="serviceIcon me-2"
                 />正式核可車輛
               </button>
               <button
@@ -581,8 +579,7 @@
               >
                 <img
                   src="./images/list.png"
-                  class="me-2"
-                  style="width: 50px; height: 50px"
+                  class="serviceIcon me-2"
                 />操作證明文件查詢
               </button>
             </div>
@@ -598,12 +595,12 @@
             <div class="row">
               <div class="col-lg-5 mb-5 mb-md-0">
                 <div class="d-block d-md-flex gap-2 mb-2">
-                  <div class="d-flex align-items-center mb-2 mb-md-0">
-                    <label for="yearSearch" class="form-label w-50">年度查詢：</label>
+                  <div class="d-flex align-items-center w-auto w-md-50 mb-2 mb-md-0">
+                    <label for="yearSearch" class="form-label w-50 w-lg-auto">年度查詢：</label>
                     <select
                       id="yearSearch"
-                      class="form-select"
-                      aria-label="year select"
+                      class="form-select w-lg-50"
+                      aria-label="年度選擇"
                     >
                       <option selected>114</option>
                       <option value="113">113</option>
@@ -611,12 +608,12 @@
                       <option value="111">111</option>
                     </select>
                   </div>
-                  <div class="d-flex align-items-center">
-                    <label for="monthSearch" class="form-label w-50">月份查詢：</label>
+                  <div class="d-flex align-items-center w-auto w-md-50">
+                    <label for="monthSearch" class="form-label w-50 w-lg-auto">月份查詢：</label>
                     <select
                       id="monthSearch"
-                      class="form-select"
-                      aria-label="month select"
+                      class="form-select w-lg-50"
+                      aria-label="月份選擇"
                     >
                       <option selected>4</option>
                       <option value="3">3</option>
@@ -646,7 +643,7 @@
                     </tr>
                   </tbody>
                 </table>
-                <span>* 車輛編號謹照管制編號依序排列，無特殊意義 </span>
+                <span>* 車輛編號謹照管制編號依序排列，無特殊意義</span>
               </div>
               <div class="col-lg-7">
                 <h3 class="fsc-2 mb-2">即時追蹤系統妥善率計算說明：</h3>
@@ -711,7 +708,7 @@
                       />
                     </div>
                     <div class="d-flex align-items-center">
-                      <label for="countySearch" class="form-label w-50"
+                      <label for="countySearch" class="form-label w-50 w-md-75"
                         >縣市：</label
                       >
                       <select
@@ -770,7 +767,7 @@
                       </tr>
                     </tbody>
                   </table>
-                  <span>* 車輛編號謹照管制編號依序排列，無特殊意義 </span>
+                  <span>* 車輛編號謹照管制編號依序排列，無特殊意義</span>
                 </div>
                 <div class="col-lg-5">
                   <div class="svgContainer">
@@ -899,7 +896,7 @@
               tabindex="0"
             >
             <div class="d-flex align-items-center mb-4">
-              <label for="documentSearch" class="form-label w-50"
+              <label for="documentSearch" class="form-label w-50 w-lg-10"
                 >條件查詢：</label
               >
               <input

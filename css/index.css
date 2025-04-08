@@ -97,6 +97,11 @@
   border-radius: 10px;
 }
 
+.serviceIcon {
+  width: 50px;
+  height: 50px;
+}
+
 /* 視覺化圖示 */
 .svgContainer {
   width: 100%;
