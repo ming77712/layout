@@ -50,6 +50,10 @@ a {
 a[accesskey],
 .tactile {
   font-size: 0.875rem;
+  color: #000;
+}
+
+.tactile {
   color: transparent;
   position: absolute;
   z-index: 50;
