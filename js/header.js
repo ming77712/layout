@@ -20,17 +20,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  document.querySelector('.mainTop').addEventListener('touchstart', () => {
-    if (headerInfoWrap.classList.has('active'))
-      headerInfoWrap.classList.remove('active');
-  });
-
   document.addEventListener('touchstart', (e) => {
     if (
       !headerInfoWrap.contains(e.target) &&
       headerInfoWrap.classList.contains('active')
     ) {
       headerInfoWrap.classList.remove('active');
+      backdropBlur.style.display = 'none';
     }
   });
 
