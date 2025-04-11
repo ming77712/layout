@@ -14,7 +14,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   headerInfoWrap.addEventListener('mouseleave', (e) => {
-    // 如果滑鼠進入 .infoWrapItem，則不移除 active
     if (!infoWrapItem.contains(e.relatedTarget)) {
       headerInfoWrap.classList.remove('active');
       backdropBlur.style.display = 'none';
@@ -24,6 +23,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.querySelector('.mainTop').addEventListener('touchstart', () => {
     if (headerInfoWrap.classList.has('active'))
       headerInfoWrap.classList.remove('active');
+  });
+
+  document.addEventListener('touchstart', (e) => {
+    if (
+      !headerInfoWrap.contains(e.target) &&
+      headerInfoWrap.classList.contains('active')
+    ) {
+      headerInfoWrap.classList.remove('active');
+    }
   });
 
   document.getElementById('AR').addEventListener('focus', () => {
