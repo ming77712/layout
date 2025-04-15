@@ -1,15 +1,26 @@
 document.addEventListener('DOMContentLoaded', () => {
   AOS.init();
   // login block start
+  const loginSelect = document.getElementById('loginSelect');
   const loginList = document.getElementById('loginList');
   const loginWrap = document.getElementById('loginWrap');
   const loginHeader = document.getElementById('loginHeader');
   const selectedTitle = document.getElementById('selectedTitle');
   let loginSelected = null;
 
-  document.getElementById('loginSelect').addEventListener('click', (e) => {
+  loginSelect.addEventListener('click', (e) => {
     const target = e.target.closest('[data-login-select]');
+    switchLoginTarget(target);
+  });
 
+  loginSelect.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      const target = e.target.closest('[data-login-select]');
+      switchLoginTarget(target);
+    }
+  });
+
+  function switchLoginTarget(target = 'user') {
     if (target) {
       const loginType = target.getAttribute('data-login-select');
       selectedTitle.innerHTML = '';
@@ -30,6 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
           </svg><p class="fsc-1">運送業者</p>`;
           loginSelected = 'user';
           break;
+
         case 'firm':
           selectedTitle.innerHTML = `<svg
           xmlns="http://www.w3.org/2000/svg"
@@ -52,6 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </svg><p class="fsc-1">車機廠商</p>`;
           loginSelected = 'firm';
           break;
+
         case 'admin':
           selectedTitle.innerHTML = `<svg
           xmlns="http://www.w3.org/2000/svg"
@@ -68,6 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
         </svg><p class="fsc-1">管理單位</p>`;
           loginSelected = 'admin';
           break;
+
         default:
           break;
       }
@@ -79,13 +93,22 @@ document.addEventListener('DOMContentLoaded', () => {
     loginWrap.classList.remove('d-none');
     loginHeader.style.animation = 'slideInFromRight 0.5s ease-out forwards';
     cardForm.style.animation = 'slideInFromBottom 0.5s ease-out forwards';
-  });
+  }
 
   document
     .getElementById('loginHeaderCloseBtn')
     .addEventListener('click', () => {
       loginWrap.classList.add('d-none');
       loginList.classList.remove('d-none');
+    });
+
+  document
+    .getElementById('loginHeaderCloseBtn')
+    .addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') {
+        loginWrap.classList.add('d-none');
+        loginList.classList.remove('d-none');
+      }
     });
 
   const loginType = document.getElementById('loginType');
@@ -120,6 +143,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.getElementById('noticeCloseBtn').addEventListener('click', () => {
     cardNoticeWrap.classList.add('d-none');
+  });
+
+  document.getElementById('noticeCloseBtn').addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      cardNoticeWrap.classList.add('d-none');
+    }
   });
 
   document.querySelectorAll('.registerBtn').forEach((btn) => {
