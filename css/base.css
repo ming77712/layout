@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Iansui&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Iansui&display=swap'); */
 
 /* @font-face {
   font-family: 'iansui';
@@ -6,7 +6,7 @@
 } */
 
 * {
-  font-family: 'Iansui', system-ui, -apple-system, 'Segoe UI', Roboto,
+  font-family: '微軟正黑體', system-ui, -apple-system, 'Segoe UI', Roboto,
     'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
@@ -231,6 +231,10 @@ a[accesskey],
 
 .headerInfoWrap.active {
   display: block;
+}
+
+.headerInfoWrap li:not(:first-child):hover {
+  border-bottom: 1px solid #000;
 }
 
 /* 霧化效果 */

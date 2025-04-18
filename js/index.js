@@ -21,13 +21,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   function switchLoginTarget(target = 'user') {
-    if (target) {
-      const loginType = target.getAttribute('data-login-select');
-      selectedTitle.innerHTML = '';
+    const loginType = target.getAttribute('data-login-select');
+    selectedTitle.innerHTML = '';
 
-      switch (loginType) {
-        case 'user':
-          selectedTitle.innerHTML = `<svg
+    switch (loginType) {
+      case 'user':
+        selectedTitle.innerHTML = `<svg
             xmlns="http://www.w3.org/2000/svg"
             width="50"
             height="50"
@@ -39,11 +38,11 @@ document.addEventListener('DOMContentLoaded', () => {
               d="M0 3.5A1.5 1.5 0 0 1 1.5 2h9A1.5 1.5 0 0 1 12 3.5V5h1.02a1.5 1.5 0 0 1 1.17.563l1.481 1.85a1.5 1.5 0 0 1 .329.938V10.5a1.5 1.5 0 0 1-1.5 1.5H14a2 2 0 1 1-4 0H5a2 2 0 1 1-3.998-.085A1.5 1.5 0 0 1 0 10.5zm1.294 7.456A2 2 0 0 1 4.732 11h5.536a2 2 0 0 1 .732-.732V3.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v7a.5.5 0 0 0 .294.456M12 10a2 2 0 0 1 1.732 1h.768a.5.5 0 0 0 .5-.5V8.35a.5.5 0 0 0-.11-.312l-1.48-1.85A.5.5 0 0 0 13.02 6H12zm-9 1a1 1 0 1 0 0 2 1 1 0 0 0 0-2m9 0a1 1 0 1 0 0 2 1 1 0 0 0 0-2"
             />
           </svg><p class="fsc-1">運送業者</p>`;
-          loginSelected = 'user';
-          break;
+        loginSelected = 'user';
+        break;
 
-        case 'firm':
-          selectedTitle.innerHTML = `<svg
+      case 'firm':
+        selectedTitle.innerHTML = `<svg
           xmlns="http://www.w3.org/2000/svg"
           width="50"
           height="50"
@@ -62,11 +61,11 @@ document.addEventListener('DOMContentLoaded', () => {
           />
           <path d="M8.5 5.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0" />
         </svg><p class="fsc-1">車機廠商</p>`;
-          loginSelected = 'firm';
-          break;
+        loginSelected = 'firm';
+        break;
 
-        case 'admin':
-          selectedTitle.innerHTML = `<svg
+      case 'admin':
+        selectedTitle.innerHTML = `<svg
           xmlns="http://www.w3.org/2000/svg"
           width="50"
           height="50"
@@ -79,14 +78,11 @@ document.addEventListener('DOMContentLoaded', () => {
           />
           <path d="M4 8a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
         </svg><p class="fsc-1">管理單位</p>`;
-          loginSelected = 'admin';
-          break;
+        loginSelected = 'admin';
+        break;
 
-        default:
-          break;
-      }
-    } else {
-      return;
+      default:
+        break;
     }
 
     loginList.classList.add('d-none');
