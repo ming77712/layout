@@ -23,6 +23,42 @@
   color: #fff;
 }
 
+#loginSelect .cursor-pointer:hover {
+  background-color: #f2f2f2 !important;
+}
+
+.drawIcon {
+  fill: none;
+  stroke: #212529;
+  stroke-width: 0.1;
+  stroke-dasharray: 260;
+  stroke-dashoffset: 260;
+  opacity: 1;
+  animation: draw 10s ease forwards, fillin 5s ease forwards;
+}
+
+@keyframes draw {
+  from {
+    stroke-dashoffset: 260;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes fillin {
+  from {
+    fill: none;
+    opacity: 0;
+    stroke-width: 0.5;
+  }
+  to {
+    fill: #212529;
+    opacity: 1;
+    stroke-width: 0.1;
+  }
+}
+
 .newsSwiper .swiper-button-prev:after,
 .newsSwiper .swiper-button-next:after {
   content: '';

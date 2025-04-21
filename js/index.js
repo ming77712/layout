@@ -13,6 +13,34 @@ document.addEventListener('DOMContentLoaded', () => {
     switchLoginTarget(target);
   });
 
+  loginSelect.addEventListener('mouseover', (e) => {
+    const target = e.target.closest('[data-login-select]');
+
+    if (target !== null) {
+      const paths = target.querySelectorAll('path');
+
+      if (paths.length) {
+        paths.forEach((path) => {
+          path.classList.add('drawIcon');
+        });
+      }
+    }
+  });
+
+  loginSelect.addEventListener('mouseout', (e) => {
+    const target = e.target.closest('[data-login-select]');
+
+    if (target !== null) {
+      const paths = target.querySelectorAll('path');
+
+      if (paths.length) {
+        paths.forEach((path) => {
+          path.classList.remove('drawIcon');
+        });
+      }
+    }
+  });
+
   loginSelect.addEventListener('keydown', (e) => {
     if (e.key === 'Enter') {
       const target = e.target.closest('[data-login-select]');
@@ -31,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             width="50"
             height="50"
             fill="currentColor"
-            class="bi bi-truck"
+            class="drawIcon bi bi-truck"
             viewBox="0 0 16 16"
           >
             <path
@@ -47,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
           width="50"
           height="50"
           fill="currentColor"
-          class="bi bi-router"
+          class="drawIcon bi bi-router"
           viewBox="0 0 16 16"
         >
           <path
@@ -70,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
           width="50"
           height="50"
           fill="currentColor"
-          class="bi bi-key"
+          class="drawIcon bi bi-key"
           viewBox="0 0 16 16"
         >
           <path

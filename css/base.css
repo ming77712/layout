@@ -1,10 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Iansui&display=swap'); */
-
-/* @font-face {
-  font-family: 'iansui';
-  src: url('./fonts/Iansui-Regular.ttf') format('ttf');
-} */
-
 * {
   font-family: '微軟正黑體', system-ui, -apple-system, 'Segoe UI', Roboto,
     'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif,
@@ -233,8 +226,12 @@ a[accesskey],
   display: block;
 }
 
-.headerInfoWrap li:not(:first-child):hover {
+.headerInfoWrap li:not(:first-child):hover a {
   border-bottom: 1px solid #000;
+}
+
+.infoList > li {
+  height: 25px;
 }
 
 /* 霧化效果 */
@@ -316,6 +313,10 @@ footer a {
 
   .headerInfoWrap.active {
     display: flex;
+  }
+
+  .infoList > li {
+    height: 31px;
   }
 
   .mainTop {
