@@ -252,7 +252,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loop: true,
 
     autoplay: {
-      delay: 1000,
+      delay: 4000,
     },
 
     pagination: {
@@ -271,7 +271,7 @@ document.addEventListener('DOMContentLoaded', () => {
     loop: true,
 
     autoplay: {
-      delay: 1000,
+      delay: 4000,
     },
 
     navigation: {

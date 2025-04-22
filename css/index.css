@@ -23,40 +23,42 @@
   color: #fff;
 }
 
+#loginSelect .cursor-pointer {
+  background-color: #a6caec !important;
+}
+
 #loginSelect .cursor-pointer:hover {
-  background-color: #f2f2f2 !important;
+  background-color: #4890d8 !important;
 }
 
 .drawIcon {
-  fill: none;
+  fill: #212529;
   stroke: #212529;
   stroke-width: 0.1;
-  stroke-dasharray: 260;
-  stroke-dashoffset: 260;
-  opacity: 1;
-  animation: draw 10s ease forwards, fillin 5s ease forwards;
+  opacity: 0;
+  animation: appear 2s ease forwards;
+  /* animation-delay: 2s; */
 }
 
-@keyframes draw {
+@keyframes appear {
   from {
-    stroke-dashoffset: 260;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
-}
-
-@keyframes fillin {
-  from {
-    fill: none;
     opacity: 0;
-    stroke-width: 0.1;
   }
   to {
-    fill: #212529;
     opacity: 1;
-    stroke-width: 0.1;
   }
+}
+
+#cardNoticeWrap {
+  width: 380px;
+  z-index: 50;
+  top: 0;
+  left: 40px;
+}
+
+.newsSwiper img {
+  height: 340px;
+  object-fit: contain;
 }
 
 .newsSwiper .swiper-button-prev:after,
@@ -66,6 +68,10 @@
 
 .swiper-pagination-bullet-active {
   background-color: #525252;
+}
+
+.newsBg .nav-tabs .nav-link {
+  height: 48px;
 }
 
 .newsBg .nav-tabs .nav-link:hover,
@@ -243,6 +249,11 @@
 }
 
 @media (min-width: 992px) {
+  #cardNoticeWrap {
+    top: 180px;
+    left: 20px;
+  }
+
   .newsContent time {
     width: 15%;
   }
