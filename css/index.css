@@ -23,12 +23,28 @@
   color: #fff;
 }
 
-#loginSelect .cursor-pointer {
-  background-color: #a6caec !important;
+#loginSelect .cursor-pointer:first-child {
+  background-color: #fff5ef !important;
 }
 
-#loginSelect .cursor-pointer:hover {
-  background-color: #4890d8 !important;
+#loginSelect .cursor-pointer:first-child:hover {
+  background-color: #ffecdd !important;
+}
+
+#loginSelect .cursor-pointer:nth-child(2) {
+  background-color: #fffbe5 !important;
+}
+
+#loginSelect .cursor-pointer:nth-child(2):hover {
+  background-color: #fff7c9 !important;
+}
+
+#loginSelect .cursor-pointer:nth-child(3) {
+  background-color: #eff9ed !important;
+}
+
+#loginSelect .cursor-pointer:nth-child(3):hover {
+  background-color: #e3f5df !important;
 }
 
 .drawIcon {
