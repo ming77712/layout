@@ -47,6 +47,19 @@
   background-color: #e3f5df !important;
 }
 
+.highlightUnderline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 20px;
+  width: 50%;
+  background-color: #e3eded;
+  z-index: -1;
+  margin: auto;
+}
+
 .drawIcon {
   fill: #212529;
   stroke: #212529;
