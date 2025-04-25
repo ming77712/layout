@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   loginSelect.addEventListener('click', (e) => {
     const target = e.target.closest('[data-login-select]');
-    switchLoginTarget(target);
+    if (target) switchLoginTarget(target);
   });
 
   loginSelect.addEventListener('mouseover', (e) => {
@@ -124,6 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
     .addEventListener('click', () => {
       loginWrap.classList.add('d-none');
       loginList.classList.remove('d-none');
+      cardNoticeWrap.classList.add('d-none'); //提示框關閉
     });
 
   document
@@ -132,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (e.key === 'Enter') {
         loginWrap.classList.add('d-none');
         loginList.classList.remove('d-none');
+        cardNoticeWrap.classList.add('d-none'); //提示框關閉
       }
     });
 
@@ -142,6 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const cardNoticeWrap = document.getElementById('cardNoticeWrap');
 
   loginType.addEventListener('click', (e) => {
+    cardNoticeWrap.classList.add('d-none'); //提示框關閉
     if (e.target.dataset.loginType !== undefined) {
       buttons.forEach((button) => {
         button.classList.remove('active');

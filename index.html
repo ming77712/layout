@@ -13,6 +13,11 @@
     <link rel="stylesheet" href="./css/index.css" />
   </head>
   <body>
+    <noscript>
+      <div style="float: left;">
+          很抱歉，網站的某些功能在JavaScript沒有啟用的狀態下無法正常使用。
+      </div>
+    </noscript>
     <header class="headerBg fixed-top p-2" style="z-index: 100">
       <a href="#R" class="tactile" title="跳到主要內容"
         ><span>跳到主要內容</span></a
@@ -101,7 +106,7 @@
             <a
               href="https://toxicgps.moenv.gov.tw/gpszone/download/113%E5%B9%B4%E6%AF%92%E9%97%9C%E5%8C%96%E7%89%A9GPS%E5%AF%A9%E9%A9%97%E6%89%8B%E5%86%8A.pdf
             "
-              target="_blank" title="系統審驗操作手冊"
+              target="_blank" title="系統審驗操作手冊(另開新視窗)"
               >系統審驗操作手冊</a
             >
           </li>
@@ -113,14 +118,14 @@
             <a
               href="https://toxicgps.moenv.gov.tw/gpszone/download/113GPS%E8%AA%AA%E6%98%8E%E6%9C%83%E7%B0%A1%E5%A0%B1_%E4%BF%AE%E8%A8%82%E7%89%88.pdf
             "
-              target="_blank" title="業者說明會簡報"
+              target="_blank" title="業者說明會簡報(另開新視窗)"
               >業者說明會簡報</a
             >
           </li>
           <li class="fsc-1 ms-3 mb-2">
             <a
               href="https://toxicgps.moenv.gov.tw/gpszone/download/%E8%BB%8A%E6%A9%9F%E5%85%88%E6%9C%9F%E6%B8%AC%E8%A9%A6%E6%96%87%E4%BB%B6_112.zip
-            " title="車機先期測試資料表"
+            " title="車機先期測試資料表(下載檔案)"
               >車機先期測試資料表</a
             >
           </li>
@@ -133,10 +138,10 @@
         <a accesskey="R" href="#R" name="R" title="主內容區域" id="AR">:::</a>
         <div class="container">
           <div class="row my-4" style="min-height: 340px">
-            <div id="loginList" class="col-lg-4 my-1">
+            <div id="loginList" class="col-lg-4 mb-3 my-lg-1">
               <p class="highlightUnderline position-relative text-center fw-bold fsc-3 mb-3">請選擇登入單位</p>
               <div id="loginSelect" class="d-flex flex-column justify-content-center gap-4">
-                <div class="cursor-pointer d-flex justify-content-center align-items-center rounded-4 px-5 py-2" data-login-select="user" tabindex="0" title="運送業者">
+                <div class="cursor-pointer d-flex justify-content-center align-items-center rounded-4 px-5 py-2" data-login-select="user" tabindex="0" title="運送業者" role="button">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="50"
@@ -151,7 +156,7 @@
                   </svg>
                   <p class="fsc-3">運送業者</p>
                 </div>
-                <div class="cursor-pointer d-flex justify-content-center align-items-center rounded-4 px-5 py-2" data-login-select="firm" tabindex="0" title="車機廠商">
+                <div class="cursor-pointer d-flex justify-content-center align-items-center rounded-4 px-5 py-2" data-login-select="firm" tabindex="0" title="車機廠商" role="button">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="50"
@@ -173,7 +178,7 @@
                   </svg>
                   <p class="fsc-3">車機廠商</p>
                 </div>
-                <div class="cursor-pointer d-flex justify-content-center align-items-center rounded-4 px-5 py-2" data-login-select="admin" tabindex="0" title="管理單位">
+                <div class="cursor-pointer d-flex justify-content-center align-items-center rounded-4 px-5 py-2" data-login-select="admin" tabindex="0" title="管理單位" role="button">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="50"
@@ -225,6 +230,7 @@
                   class="cursor-pointer bi bi-x-circle fsc-4"
                   tabindex="0"
                   title="返回登入單位選擇"
+                  role="button"
                 ></i>
               </div>
               <div id="cardForm" class="p-2">
@@ -288,7 +294,7 @@
                     </ol>
                     <div
                       class="position-absolute top-0 start-100 translate-middle"
-                      style="z-index: 5000;"
+                      style="z-index: 60;"
                     >
                       <i
                         id="noticeCloseBtn"
@@ -350,7 +356,7 @@
               </div>
             </div>
             <div class="col-lg-8">
-              <div class="swiper newsSwiper" style="width: 610px !important;">
+              <div class="swiper newsSwiper">
                 <div class="swiper-wrapper">
                   <div class="swiper-slide">
                     <img
@@ -491,7 +497,7 @@
                   </p>
                 </li>
               </ul>
-              <button type="button" class="btnCustom d-block mx-auto fsc-1 px-4 py-1 mb-2">
+              <button type="button" class="btnCustom d-block mx-auto fsc-1 px-4 py-1 mb-2" title="查看更多最新消息(另開分頁)">
                 查看更多
               </button>
             </div>
@@ -1003,7 +1009,7 @@
                 target="_blank"
                 class="hoverScale"
                 style="height: 200px"
-                title="毒性及關注化學物質分類說明(另開新視窗)"
+                aria-label="毒性及關注化學物質分類說明(另開新視窗)"
               >
                 <div
                   class="pic picFill"
@@ -1025,10 +1031,11 @@
             </li>
             <li class="col-md-6 col-lg-4 mb-4">
               <a
-                href="#"
+                href="https://oaout.moenv.gov.tw/law/LawContent.aspx?id=GL007743&kw=%E6%AF%92%E6%80%A7%E5%8F%8A%E9%97%9C%E6%B3%A8%E5%8C%96%E5%AD%B8%E7%89%A9%E8%B3%AA%E9%81%8B%E9%80%81%E8%BB%8A%E8%BC%9B%E5%8D%B3%E6%99%82%E8%BF%BD%E8%B9%A4%E7%B3%BB%E7%B5%B1%E8%A6%8F%E6%A0%BC"
+                target="_blank"
                 class="hoverScale"
                 style="height: 200px"
-                title="毒性及關注化學物質審驗手冊(另開新視窗)"
+                aria-label="毒性及關注化學物質運送車輛即時追蹤系統規格(另開新視窗)"
               >
                 <div
                   class="pic picFill"
@@ -1042,7 +1049,7 @@
                 >
                   <div class="imgInner">
                     <p class="text-center fsc-2">
-                      毒性及關注化學物質<br />審驗手冊
+                      毒性及關注化學物質<br />運送車輛即時追蹤系統規格
                     </p>
                   </div>
                 </div>
@@ -1050,10 +1057,11 @@
             </li>
             <li class="col-md-6 col-lg-4 mb-4">
               <a
-                href="#"
+                href="https://oaout.moenv.gov.tw/law/LawContent.aspx?id=FL015855"
+                target="_blank"
                 class="hoverScale"
                 style="height: 200px"
-                title="毒性及關注化學物質系統操作教學(另開新視窗)"
+                aria-label="毒性及關注化學物質運送管理辦法(另開新視窗)"
               >
                 <div
                   class="pic picFill"
@@ -1067,7 +1075,7 @@
                 >
                   <div class="imgInner">
                     <p class="text-center fsc-2">
-                      毒性及關注化學物質<br />系統操作教學
+                      毒性及關注化學物質<br />運送管理辦法
                     </p>
                   </div>
                 </div>
@@ -1078,7 +1086,7 @@
                 href="#"
                 class="hoverScale"
                 style="height: 200px"
-                title="毒性及關注化學物質運送車輛即時追蹤系統(另開新視窗)"
+                aria-label="業務資訊(另開新視窗)"
               >
                 <div
                   class="pic picFill"
@@ -1092,7 +1100,7 @@
                 >
                   <div class="imgInner">
                     <p class="text-center fsc-2">
-                      毒性及關注化學物質<br />運送車輛即時追蹤系統
+                      業務資訊
                     </p>
                   </div>
                 </div>
@@ -1100,10 +1108,11 @@
             </li>
             <li class="col-md-6 col-lg-4 mb-4">
               <a
-                href="#"
+                href="https://toxicgps.moenv.gov.tw/gpszone/download/113%E5%B9%B4%E6%AF%92%E9%97%9C%E5%8C%96%E7%89%A9GPS%E5%AF%A9%E9%A9%97%E6%89%8B%E5%86%8A.pdf"
+                target="_blank"
                 class="hoverScale"
                 style="height: 200px"
-                title="毒性及關注化學物質運送表單規定(另開新視窗)"
+                aria-label="審驗手冊(另開新視窗)"
               >
                 <div
                   class="pic picFill"
@@ -1117,7 +1126,7 @@
                 >
                   <div class="imgInner">
                     <p class="text-center fsc-2">
-                      毒性及關注化學物質<br />運送表單規定
+                      審驗手冊
                     </p>
                   </div>
                 </div>
@@ -1128,7 +1137,7 @@
                 href="#"
                 class="hoverScale"
                 style="height: 200px"
-                title="毒性及關注化學物質運送管理辦法(另開新視窗)"
+                aria-label="系統操作教學(另開新視窗)"
               >
                 <div
                   class="pic picFill"
@@ -1142,7 +1151,7 @@
                 >
                   <div class="imgInner">
                     <p class="text-center fsc-2">
-                      毒性及關注化學物質<br />運送管理辦法
+                      系統操作教學
                     </p>
                   </div>
                 </div>

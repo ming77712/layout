@@ -81,8 +81,12 @@
 #cardNoticeWrap {
   width: 380px;
   z-index: 50;
-  top: 0;
+  top: -40px;
   left: 40px;
+}
+
+.newsSwiper {
+  width: 460px !important;
 }
 
 .newsSwiper img {
@@ -281,6 +285,10 @@
   #cardNoticeWrap {
     top: 180px;
     left: 20px;
+  }
+
+  .newsSwiper {
+    width: 610px !important;
   }
 
   .newsContent time {
