@@ -1,3 +1,14 @@
+.logo {
+  text-indent: 101%;
+  overflow: hidden;
+  white-space: nowrap;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 355px;
+  height: 66px;
+}
+
 .buttons {
   min-width: 310px;
   text-align: center;

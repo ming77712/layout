@@ -1,3 +1,62 @@
+// 頁面加載時，初始化隱藏所有子選單
+document.addEventListener('DOMContentLoaded', function () {
+  // 隱藏所有子選單
+  document.querySelectorAll('.dropdown-submenu').forEach(function (submenu) {
+    submenu.style.display = 'none';
+  });
+});
+
+function toggleSubmenu(element) {
+  // 阻止事件冒泡
+  // event.preventDefault();
+  // event.stopPropagation();
+
+  // 獲取父選單文本
+  const parentText = element.textContent.trim().replace(/▶|▼/g, '').trim();
+  const arrow = element.querySelector('.menu-arrow');
+
+  // 找到所有屬於這個父選單的子選單
+  const submenus = document.querySelectorAll(
+    `.dropdown-submenu[data-parent="${parentText}"]`
+  );
+
+  // 檢查第一個子選單的顯示狀態來確定是顯示還是隱藏
+  const isVisible = submenus.length > 0 && submenus[0].style.display !== 'none';
+
+  // 切換顯示/隱藏狀態
+  submenus.forEach(function (submenu) {
+    submenu.style.display = isVisible ? 'none' : 'block';
+  });
+
+  // 更新箭頭方向
+  if (isVisible) {
+    arrow.textContent = '▶'; // 未展開時顯示向右箭頭
+  } else {
+    arrow.textContent = '▼'; // 展開時顯示向下箭頭
+  }
+}
+
+// 點選主下拉選單時保持它開啟
+document.querySelectorAll('.dropdown-menu').forEach(function (element) {
+  element.addEventListener('click', function (event) {
+    event.stopPropagation();
+  });
+});
+
+// 點擊文檔其他位置時關閉所有子選單
+document.addEventListener('click', function (event) {
+  // 檢查點擊的目標不是下拉選單或其子元素
+  if (!event.target.closest('.dropdown-menu')) {
+    document.querySelectorAll('.dropdown-submenu').forEach(function (submenu) {
+      submenu.style.display = 'none';
+    });
+
+    document.querySelectorAll('.menu-arrow').forEach(function (arrow) {
+      arrow.textContent = '▶'; // 重置為向右箭頭
+    });
+  }
+});
+
 const stackedColumnData = {
   FormVehicleCount: [
     280, 205, 210, 213, 230, 337, 394, 358, 388, 375, 379, 344, 367, 320, 374,
@@ -205,25 +264,73 @@ const lineChartsData = {
 };
 
 const comparisonData = {
-  Month: [1, 2],
-  Devices: [
-    { Name: '銳俤(Locator 690)', Month1: 'A+(96%)', Month2: 'A(90%)' },
-    { Name: '易通(EC-912 4G)', Month1: 'A+(95%)', Month2: 'A+(99%)' },
-    { Name: '航釱(H4G)', Month1: 'A+(99%)', Month2: 'A+(98%)' },
-    { Name: '宇暘(J40)', Month1: 'A+(96%)', Month2: 'A(90%)' },
-    { Name: '康訊(U3 LTE)', Month1: 'A+(99%)', Month2: 'B+(87%)' },
-    { Name: '冠祺鴻(TP-458-4G)', Month1: 'C(79%)', Month2: 'A+(99%)' },
-    { Name: '長輝資訊(CH-68-4G)', Month1: 'A+(96%)', Month2: 'A+(98%)' },
-    { Name: '中興保全(MSM0901)', Month1: 'A+(98%)', Month2: 'A+(98%)' },
-    { Name: '弋揚(EP-168-4G)', Month1: 'A+(98%)', Month2: 'A+(99%)' },
-    { Name: '捷世林(JAS106)', Month1: 'C(79%)', Month2: 'A+(96%)' },
-    { Name: '長輝資訊(D1-Plus)', Month1: 'A+(98%)', Month2: 'A+(96%)' },
-    { Name: '富德爾(FT-168 4G)', Month1: 'B+(87%)', Month2: 'A+(95%)' },
-    { Name: '天眼衛星(SE-401 4G)', Month1: 'A+(96%)', Month2: 'A+(95%)' },
-    { Name: '康訊(U1 PLUS LTE)', Month1: 'A+(99%)', Month2: 'A+(99%)' },
-    { Name: '弋揚(EDR-168 4G)', Month1: 'A(90%)', Month2: 'A+(95%)' },
-    { Name: '中興保全(MSM0921)', Month1: 'A+(98%)', Month2: 'A+(98%)' },
-  ],
+  Month: [9, 8],
+  Vendor: {
+    '銳俤(Locator 690)': [
+      [96, 'A+'],
+      [90, 'A'],
+    ],
+    '易通(EC-912 4G)': [
+      [95, 'A+'],
+      [99, 'A+'],
+    ],
+    '航釱(H4G)': [
+      [99, 'A+'],
+      [98, 'A+'],
+    ],
+    '宇暘(J40)': [
+      [96, 'A+'],
+      [90, 'A'],
+    ],
+    '康訊(U3 LTE)': [
+      [99, 'A+'],
+      [87, 'B+'],
+    ],
+    '冠祺鴻(TP-458-4G)': [
+      [79, 'C'],
+      [99, 'A+'],
+    ],
+    '長輝資訊(CH-68-4G)': [
+      [96, 'A+'],
+      [98, 'A+'],
+    ],
+    '中興保全(MSM0901)': [
+      [98, 'A+'],
+      [98, 'A+'],
+    ],
+    '弋揚(EP-168-4G)': [
+      [98, 'A+'],
+      [99, 'A+'],
+    ],
+    '捷世林(JAS106)': [
+      [79, 'C'],
+      [96, 'A+'],
+    ],
+    '長輝資訊(D1-Plus)': [
+      [98, 'A+'],
+      [96, 'A+'],
+    ],
+    '富德爾(FT-168 4G)': [
+      [87, 'B+'],
+      [95, 'A+'],
+    ],
+    '天眼衛星(SE-401 4G)': [
+      [96, 'A+'],
+      [95, 'A+'],
+    ],
+    '康訊(U1 PLUS LTE)': [
+      [99, 'A+'],
+      [99, 'A+'],
+    ],
+    '弋揚(EDR-168 4G)': [
+      [90, 'A'],
+      [95, 'A+'],
+    ],
+    '中興保全(MSM0921)': [
+      [98, 'A+'],
+      [98, 'A+'],
+    ],
+  },
 };
 
 Highcharts.chart('stackedColumn', {
@@ -322,6 +429,7 @@ Highcharts.chart('stackedArea', {
     title: {
       text: '表單數',
     },
+    max: 300,
   },
   tooltip: {
     shared: true,
@@ -458,61 +566,6 @@ Highcharts.chart('splitPackedBubble', {
 //   },
 // });
 
-function renderIcons() {
-  const chart = this;
-  const centerX = chart.plotWidth / 2 + chart.plotLeft;
-  const centerY = chart.plotHeight / 2 + chart.plotTop;
-  const currentValue = solidgaugeData['Routereported'];
-  const total = solidgaugeData['Totalfaultreports'];
-
-  if (!chart.customTooltipLabel) {
-    chart.customTooltipLabel = chart.renderer
-      .label(
-        `<span style="font-size: 2em; color: ${
-          Highcharts.getOptions().colors[0]
-        }; font-weight: bold; margin-right: 3rem;">${currentValue}/<br></span>
-
-        <span style="font-size: 2em; color: ${
-          Highcharts.getOptions().colors[0]
-        }; font-weight: bold; margin-left: 3rem;">${total}</span>`,
-
-        centerX - 50, // X position (adjust as needed)
-        centerY, // Y position (initially centered)
-        'rect',
-        0,
-        0,
-        true
-      )
-      .css({
-        fontSize: '36px',
-        color: Highcharts.getOptions().colors[0],
-        textAlign: 'center',
-      })
-      .attr({
-        align: 'center',
-        padding: 0,
-        zIndex: 10,
-      })
-      .add();
-  } else {
-    chart.customTooltipLabel.attr({
-      text: `<span style="font-size: 2em; color: ${
-        Highcharts.getOptions().colors[0]
-      }; font-weight: bold">${currentValue}<br>/${total}</span>`,
-    });
-  }
-
-  chart.customTooltipLabel.align(
-    {
-      align: 'center',
-      verticalAlign: 'middle',
-      y: -80,
-    },
-    false,
-    'spacingBox'
-  );
-}
-
 const trackColors = Highcharts.getOptions().colors.map((color) =>
   new Highcharts.Color(color).setOpacity(0.3).get()
 );
@@ -521,9 +574,6 @@ Highcharts.chart('solidgauge', {
   chart: {
     type: 'solidgauge',
     // height: '110%',
-    events: {
-      render: renderIcons,
-    },
   },
 
   title: {
@@ -534,7 +584,38 @@ Highcharts.chart('solidgauge', {
   },
 
   tooltip: {
-    enabled: false,
+    useHTML: true,
+    backgroundColor: 'none',
+    borderWidth: 0,
+    shadow: false,
+    style: {
+      fontSize: '64px',
+    },
+    formatter: function () {
+      const currentValue = solidgaugeData['Routereported'];
+      const total = solidgaugeData['Totalfaultreports'];
+      return `
+        <div>
+          <div style="text-align: left; font-weight: bold; color: ${
+            Highcharts.getOptions().colors[0]
+          }">
+            ${currentValue}/
+          </div>
+          <div style="text-align: right; font-weight: bold; color: ${
+            Highcharts.getOptions().colors[0]
+          }">
+            ${total}
+          </div>
+        </div>
+      `;
+    },
+    shared: true,
+    positioner: function (labelWidth, labelHeight, point) {
+      return {
+        x: this.chart.plotLeft + this.chart.plotWidth / 2 - labelWidth / 2,
+        y: this.chart.plotTop + this.chart.plotHeight / 2 - labelHeight / 2,
+      };
+    },
   },
 
   pane: {
@@ -542,7 +623,6 @@ Highcharts.chart('solidgauge', {
     endAngle: 360,
     background: [
       {
-        // Track for Conversion
         outerRadius: '112%',
         innerRadius: '88%',
         backgroundColor: trackColors[0],
@@ -725,187 +805,27 @@ Highcharts.chart('lineCharts', {
   ],
 });
 
-const dataPrev = {
-  2020: [
-    ['kr', 9],
-    ['jp', 12],
-    ['au', 8],
-    ['de', 17],
-    ['ru', 19],
-    ['cn', 26],
-    ['gb', 27],
-    ['us', 46],
-  ],
-  2016: [
-    ['kr', 13],
-    ['jp', 7],
-    ['au', 8],
-    ['de', 11],
-    ['ru', 20],
-    ['cn', 38],
-    ['gb', 29],
-    ['us', 47],
-  ],
-  2012: [
-    ['kr', 13],
-    ['jp', 9],
-    ['au', 14],
-    ['de', 16],
-    ['ru', 24],
-    ['cn', 48],
-    ['gb', 19],
-    ['us', 36],
-  ],
-  2008: [
-    ['kr', 9],
-    ['jp', 17],
-    ['au', 18],
-    ['de', 13],
-    ['ru', 29],
-    ['cn', 33],
-    ['gb', 9],
-    ['us', 37],
-  ],
-  2004: [
-    ['kr', 8],
-    ['jp', 5],
-    ['au', 16],
-    ['de', 13],
-    ['ru', 32],
-    ['cn', 28],
-    ['gb', 11],
-    ['us', 37],
-  ],
-  2000: [
-    ['kr', 7],
-    ['jp', 3],
-    ['au', 9],
-    ['de', 20],
-    ['ru', 26],
-    ['cn', 16],
-    ['gb', 1],
-    ['us', 44],
-  ],
-};
+const vendors = Object.keys(comparisonData.Vendor);
 
-const data = {
-  2020: [
-    ['kr', 6],
-    ['jp', 27],
-    ['au', 17],
-    ['de', 10],
-    ['ru', 20],
-    ['cn', 38],
-    ['gb', 22],
-    ['us', 39],
-  ],
-  2016: [
-    ['kr', 9],
-    ['jp', 12],
-    ['au', 8],
-    ['de', 17],
-    ['ru', 19],
-    ['cn', 26],
-    ['gb', 27],
-    ['us', 46],
-  ],
-  2012: [
-    ['kr', 13],
-    ['jp', 7],
-    ['au', 8],
-    ['de', 11],
-    ['ru', 20],
-    ['cn', 38],
-    ['gb', 29],
-    ['us', 47],
-  ],
-  2008: [
-    ['kr', 13],
-    ['jp', 9],
-    ['au', 14],
-    ['de', 16],
-    ['ru', 24],
-    ['cn', 48],
-    ['gb', 19],
-    ['us', 36],
-  ],
-  2004: [
-    ['kr', 9],
-    ['jp', 17],
-    ['au', 18],
-    ['de', 13],
-    ['ru', 29],
-    ['cn', 33],
-    ['gb', 9],
-    ['us', 37],
-  ],
-  2000: [
-    ['kr', 8],
-    ['jp', 5],
-    ['au', 16],
-    ['de', 13],
-    ['ru', 32],
-    ['cn', 28],
-    ['gb', 11],
-    ['us', 37],
-  ],
-};
+// 建立資料：每個點都要有 `name` 欄位，以便 shared tooltip 正確配對
+const currentMonthData = vendors.map((vendor) => ({
+  name: vendor,
+  y: comparisonData.Vendor[vendor][0][0],
+  grade: comparisonData.Vendor[vendor][0][1],
+}));
 
-const countries = {
-  kr: {
-    name: 'South Korea',
-    color: '#FE2371',
-  },
-  jp: {
-    name: 'Japan',
-    color: '#544FC5',
-  },
-  au: {
-    name: 'Australia',
-    color: '#2CAFFE',
-  },
-  de: {
-    name: 'Germany',
-    color: '#FE6A35',
-  },
-  ru: {
-    name: 'Russia',
-    color: '#6B8ABC',
-  },
-  cn: {
-    name: 'China',
-    color: '#1C74BD',
-  },
-  gb: {
-    name: 'Great Britain',
-    color: '#00A6A6',
-  },
-  us: {
-    name: 'United States',
-    color: '#D568FB',
-  },
-};
-
-// Add upper case country code
-for (const [key, value] of Object.entries(countries)) {
-  value.ucCode = key.toUpperCase();
-}
-
-const getData = (data) =>
-  data.map((point) => ({
-    name: point[0],
-    y: point[1],
-    color: countries[point[0]].color,
-  }));
+const previousMonthData = vendors.map((vendor) => ({
+  name: vendor,
+  y: comparisonData.Vendor[vendor][1][0],
+  grade: comparisonData.Vendor[vendor][1][1],
+}));
 
 const chart = Highcharts.chart('comparison', {
   chart: {
     type: 'column',
   },
-  // Custom option for templates
-  countries,
   title: {
-    text: '二月各車機之妥善率',
+    text: '當月各車機之妥善率',
     align: 'center',
   },
   plotOptions: {
@@ -919,64 +839,58 @@ const chart = Highcharts.chart('comparison', {
   },
   tooltip: {
     shared: true,
-    headerFormat:
-      '<span style="font-size: 15px">' +
-      '{series.chart.options.countries.(point.key).name}' +
-      '</span><br/>',
-    pointFormat:
-      '<span style="color:{point.color}">\u25CF</span> ' +
-      '{series.name}: <b>{point.y} medals</b><br/>',
+    useHTML: true,
+    formatter: function () {
+      const points = this.points;
+      let tooltip = `<b>${points[0].key}</b><br/>`;
+      points.forEach((p) => {
+        tooltip += `<span style="color:${p.color}">\u25CF</span> ${p.series.name}:
+          <b>${p.y}%</b> (等級: ${p.point.grade})<br/>`;
+      });
+      return tooltip;
+    },
   },
   xAxis: {
     type: 'category',
-    max: 4,
+    categories: vendors,
     labels: {
-      useHTML: true,
-      animate: true,
-      format:
-        '{chart.options.countries.(value).ucCode}<br>' +
-        '<span class="f32">' +
-        '<span style="display:inline-block;height:32px;' +
-        'vertical-align:text-top;" class="flag {value}">' +
-        '</span></span>',
       style: {
         textAlign: 'center',
       },
     },
   },
-  yAxis: [
-    {
-      title: {
-        text: 'Gold medals',
-      },
-      showFirstLabel: false,
+  yAxis: {
+    title: {
+      text: '妥善率 (%)',
     },
-  ],
+    max: 100,
+  },
   series: [
     {
-      color: 'rgba(158, 159, 163, 0.5)',
-      pointPlacement: -0.2,
-      linkedTo: 'main',
-      data: dataPrev[2020].slice(),
-      name: '2016',
-    },
-    {
-      name: '2020',
+      name: '9 月',
       id: 'main',
       dataSorting: {
         enabled: true,
         matchByName: true,
       },
-      dataLabels: [
-        {
-          enabled: true,
-          inside: true,
-          style: {
-            fontSize: '16px',
-          },
+      dataLabels: {
+        enabled: true,
+        inside: true,
+        formatter: function () {
+          return this.point.grade;
         },
-      ],
-      data: getData(data[2020]).slice(),
+        style: {
+          fontSize: '16px',
+        },
+      },
+      data: currentMonthData,
+    },
+    {
+      name: '8 月',
+      color: 'rgba(158, 159, 163, 0.5)',
+      pointPlacement: -0.2,
+      linkedTo: 'main',
+      data: previousMonthData,
     },
   ],
   exporting: {
@@ -984,63 +898,36 @@ const chart = Highcharts.chart('comparison', {
   },
 });
 
-const locations = [
-  {
-    city: 'Tokyo',
-    year: 2020,
-  },
-  {
-    city: 'Rio',
-    year: 2016,
-  },
-  {
-    city: 'London',
-    year: 2012,
-  },
-  {
-    city: 'Beijing',
-    year: 2008,
-  },
-  {
-    city: 'Athens',
-    year: 2004,
-  },
-  {
-    city: 'Sydney',
-    year: 2000,
-  },
-];
+// locations.forEach((location) => {
+//   const btn = document.getElementById(location.year);
 
-locations.forEach((location) => {
-  const btn = document.getElementById(location.year);
+//   btn.addEventListener('click', () => {
+//     document.querySelectorAll('.buttons button.active').forEach((active) => {
+//       active.className = '';
+//     });
+//     btn.className = 'active';
 
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.buttons button.active').forEach((active) => {
-      active.className = '';
-    });
-    btn.className = 'active';
-
-    chart.update(
-      {
-        title: {
-          text: '二月各車機之妥善率',
-        },
-        series: [
-          {
-            name: location.year - 4,
-            data: dataPrev[location.year].slice(),
-          },
-          {
-            name: location.year,
-            data: getData(data[location.year]).slice(),
-          },
-        ],
-      },
-      true,
-      false,
-      {
-        duration: 800,
-      }
-    );
-  });
-});
+//     chart.update(
+//       {
+//         title: {
+//           text: '二月各車機之妥善率',
+//         },
+//         series: [
+//           {
+//             name: location.year - 4,
+//             data: dataPrev[location.year].slice(),
+//           },
+//           {
+//             name: location.year,
+//             data: getData(data[location.year]).slice(),
+//           },
+//         ],
+//       },
+//       true,
+//       false,
+//       {
+//         duration: 800,
+//       }
+//     );
+//   });
+// });

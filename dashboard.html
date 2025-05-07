@@ -7,7 +7,376 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/dashboard.css" />
   </head>
+
+  <style>
+    /* 移除項目底線 */
+    .dropdown-item {
+        border-bottom: none !important;
+        text-decoration: none !important;
+        padding-left: 1rem !important;
+    }
+
+    /* 多層下拉選單樣式 */
+    .dropdown-menu li {
+        position: relative;
+    }
+
+    /* 自定義選單按鈕樣式 */
+    .menu-toggle {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background: transparent;
+        border: none;
+        text-align: left;
+        padding: 0.25rem 1rem;
+        color: #212529;
+        cursor: pointer;
+    }
+
+        .menu-toggle:hover {
+            background-color: #f8f9fa;
+        }
+
+    /* 子選單樣式 - 移除縮進 */
+    .dropdown-submenu {
+        display: none;
+        padding-left: 0;
+        margin-top: 0;
+        border: none;
+        box-shadow: none;
+        list-style-type: none;
+    }
+
+    /* 子選單層級樣式 */
+    .submenu-level-1,
+    .submenu-level-2,
+    .submenu-level-3 {
+        /* 添加背景顏色以區分不同層級 */
+        background-color: rgba(0, 0, 0, 0.03);
+    }
+
+    .submenu-level-2 {
+        background-color: rgba(0, 0, 0, 0.06);
+    }
+
+    .submenu-level-3 {
+        background-color: rgba(0, 0, 0, 0.09);
+    }
+
+    /* 箭頭樣式 */
+    .menu-arrow {
+        margin-left: 0.5rem;
+    }
+</style>
+
   <body>
+    <header>
+      <div style="background: no-repeat url(./images/header.png), repeat-x url(./images/headerBg.png); height: 78px;">
+      <div class="container-fluid">
+
+              <div class="d-block d-xl-flex justify-content-between">
+                  <a href="@Url.Action("Index", "Home",new {area =""})" title="環境部化學物質管理署Log" class="logo d-block mx-auto mx-xl-0 mb-3 mb-md-0"><h1>環境部化學物質管理署</h1></a>
+                  <!-- 右側登入資訊 -->
+                  <span>小強 你好</span>
+              </div>
+          </div>
+      </div>
+
+      <nav class="adminHeaderNav navbar navbar-expand-lg navbar-light">
+        <div class="collapse navbar-collapse w-100" id="navbarSupportedContent">
+            <ul class="navbar-nav justify-content-around w-100 mb-2 mb-lg-0">
+                <!-- 帳號功能管理區start -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle border rounded-2"
+                       href="#"
+                       id="navbarDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        審驗資訊系統
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <!-- 帳號功能管理選單 -->
+                        <li>
+                            <button class="menu-toggle" onclick="toggleSubmenu(this)">
+                                帳號功能管理
+                                <span class="menu-arrow">▶</span>
+                            </button>
+                        </li>
+                        <!-- 帳號功能管理子選單 -->
+                        <li class="submenu-level-1 dropdown-submenu"
+                            data-parent="帳號功能管理">
+                            <a href="@Url.Action("SetMainRightAndRedirect", "GpsWeb", new {  area = "Admin",pageUrl =  HttpUtility.UrlEncode("/gpswebu/User_Record.aspx?url=/Pst/New/ChangePassword.aspx") })" class="dropdown-item">更換個人密碼</a>
+
+                        </li>
+                        <li class="submenu-level-1 dropdown-submenu"
+                            data-parent="帳號功能管理">
+                            <a href="@Url.Action("SetMainRightAndRedirect", "GpsWeb", new { area = "Admin", pageUrl = HttpUtility.UrlEncode("/gpswebu/User_Record.aspx?url=/gpszone/WriteGPKI.aspx") })" class="dropdown-item">設定自然人憑證</a>
+                        </li>
+
+                        <!-- 運送車輛審驗/查詢選單 -->
+                        <li>
+                            <button class="menu-toggle" onclick="toggleSubmenu(this)">
+                                運送車輛審驗/查詢
+                                <span class="menu-arrow">▶</span>
+                            </button>
+                        </li>
+                        <!-- 運送車輛審驗/查詢子選單 -->
+                        <li class="submenu-level-1 dropdown-submenu"
+                            data-parent="運送車輛審驗/查詢">
+                            <a href="@Url.Action("SetMainRightAndRedirect", "GpsWeb", new { area = "Admin", pageUrl =  HttpUtility.UrlEncode("/ExamUserCheck.aspx?status=Exam&&url=/NewExam/Home/Login?Token=") })" class="dropdown-item">申請審驗車輛列表</a>
+                        </li>
+                        <li class="submenu-level-1 dropdown-submenu"
+                            data-parent="運送車輛審驗/查詢">
+                            <a href="#" class="dropdown-item">列管車輛資訊查詢</a>
+                        </li>
+                        <!-- 運作業者查詢/統計選單 -->
+                        <li>
+                            <button class="menu-toggle" onclick="toggleSubmenu(this)">
+                                運作業者查詢/統計
+                                <span class="menu-arrow">▶</span>
+                            </button>
+                        </li>
+                        <!-- 運作業者查詢/統計子選單 -->
+                        <li class="submenu-level-1 dropdown-submenu"
+                            data-parent="運作業者查詢/統計">
+                            <a href="#" class="dropdown-item">公司基本資料查詢</a>
+                        </li>
+                        <li class="submenu-level-1 dropdown-submenu"
+                            data-parent="運作業者查詢/統計">
+                            <a href="#" class="dropdown-item">專責人員帳號密碼查詢</a>
+                        </li>
+                        <li class="submenu-level-1 dropdown-submenu"
+                            data-parent="運作業者查詢/統計">
+                            <a href="#" class="dropdown-item">小量運送APP密碼查詢</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 帳號功能管理區end -->
+                <!-- GPS軌跡監控展示區start -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle border rounded-2"
+                       href="#"
+                       id="navbarDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        GPS軌跡監控展示
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">GIS監控圖台(TGOS)</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">即時監控牆功能</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">毒性化學物質運送車輛軌跡分類展示</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">毒性及關注化學物質運送路線網格分析功能</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">車輛監控申請</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">監控車輛名單</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">軌跡資料回傳情形查詢</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">週確認作業</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">車機變頻</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">多化學物質運送車輛共同軌跡分析功能</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">車機即時狀態查詢</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">回報運作場所座標</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">車輛軌跡介接下載</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <!-- GPS軌跡監控展示區end -->
+                <!-- 即時警示分析區start -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle border rounded-2"
+                       href="#"
+                       id="navbarDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        即時警示分析
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">管制區域建置</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">IPS03 管制區域即時警示-今日進入管制區域車輛</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">IPS04 管制區域即時警示-進入管制區域車輛查詢</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">IPS05 管制區域即時警示-監控平台1x1</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">IPS05 管制區域即時警示-監控平台2x2</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">今日進出高雄市表單統計</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">高雄市疑似發生事故車輛名單</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">今日進出科學園區表單列表</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">每日異常勾稽作業</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">查核回報平台</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">查核成果統計報表</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">簡易表單異常樣態勾稽</a>
+                        </li>
+
+                    </ul>
+                </li>
+                <!-- 即時警示分析區end -->
+                <!-- 客服系統區start -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle border rounded-2"
+                       href="#"
+                       id="navbarDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        客服系統
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">特殊案件處理申請</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">表單介接刷新</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">帳號恢復功能</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">代碼檔維護</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">路名維護</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">主動通知系統</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 客服系統end -->
+                <!-- 監控系統操作手冊區start -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle border rounded-2"
+                       href="#"
+                       id="navbarDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        監控系統操作手冊
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">環保局操作說明會簡報</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">查核回報操作懶人包</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 監控系統操作手冊區end -->
+                <!-- 緊急應變即時資訊平台區start -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle border rounded-2"
+                       href="#"
+                       id="navbarDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        緊急應變即時資訊平台
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">緊急通報設定</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 緊急應變即時資訊平台區end -->
+                <!-- 系統帳號權限維護區start -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle border rounded-2"
+                       href="#"
+                       id="navbarDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        系統帳號權限維護
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">群組設定</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">網頁功能對應</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 系統帳號權限維護區end -->
+                <!-- APP下載與功能管理區start -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle border rounded-2"
+                       href="#"
+                       id="navbarDropdown"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        APP下載與功能管理
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">管理端App下載</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">APP最新消息管理</a>
+                        </li>
+                    </ul>
+                </li>
+                <!-- 系統帳號權限維護區end -->
+            </ul>
+        </div>
+    </nav>
+  </header>
     <main>
       <div class="container-fluid">
         <div class="row">
@@ -23,14 +392,14 @@
             <div id="solidgauge"></div>
             <div id="lineCharts"></div>
             <div>
-              <div class="buttons">
+              <!-- <div class="buttons">
                 <button id="2000">2000</button>
                 <button id="2004">2004</button>
                 <button id="2008">2008</button>
                 <button id="2012">2012</button>
                 <button id="2016">2016</button>
                 <button id="2020" class="active">2020</button>
-              </div>
+              </div> -->
               <div id="comparison"></div>
             </div>
           </div>
