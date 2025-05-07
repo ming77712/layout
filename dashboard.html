@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+  </head>
+  <body>
+    <main>
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-4">
+            <div id="stackedColumn"></div>
+            <div id="stackedArea"></div>
+            <div id="splitPackedBubble"></div>
+          </div>
+          <div class="col-4">
+            <div id="sameXaxisDifferentIntervals"></div>
+          </div>
+          <div class="col-4">
+            <div id="solidgauge"></div>
+            <div id="lineCharts"></div>
+            <div>
+              <div class="buttons">
+                <button id="2000">2000</button>
+                <button id="2004">2004</button>
+                <button id="2008">2008</button>
+                <button id="2012">2012</button>
+                <button id="2016">2016</button>
+                <button id="2020" class="active">2020</button>
+              </div>
+              <div id="comparison"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/highcharts.js"></script>
+    <script src="./js/highcharts-more.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/series-label.js"></script>
+    <script src="./js/solid-gauge.js"></script>
+    <script src="./js/exporting.js"></script>
+    <script src="./js/export-data.js"></script>
+    <script src="./js/accessibility.js"></script>
+    <script src="./js/dashboard.js"></script>
+  </body>
+</html>
