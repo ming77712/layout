@@ -57,6 +57,7 @@ document.addEventListener('click', function (event) {
   }
 });
 
+// 目前行駛中的總車輛數
 const stackedColumnData = {
   FormVehicleCount: [
     280, 205, 210, 213, 230, 337, 394, 358, 388, 375, 379, 344, 367, 320, 374,
@@ -68,6 +69,7 @@ const stackedColumnData = {
   ],
 };
 
+// 目前申報運送表單數
 const stackedAreaData = {
   UndeliveredForm: [
     300, 287, 277, 269, 249, 247, 231, 224, 200, 183, 179, 144, 84, 69, 66, 37,
@@ -83,6 +85,7 @@ const stackedAreaData = {
   ],
 };
 
+// 當日累積載運量
 const splitPackedBubbleData = [
   {
     name: '第一類毒化物',
@@ -162,6 +165,7 @@ const splitPackedBubbleData = [
   },
 ];
 
+// 目前正式核可車輛數
 const sameXaxisDifferentIntervalsData = {
   Date: [
     '1月1日',
@@ -215,12 +219,14 @@ const sameXaxisDifferentIntervalsData = {
   ],
 };
 
+// 前一日故障報備回報路線車輛數
 const solidgaugeData = {
   Routereported: 60,
   Noroutereported: 40,
   Totalfaultreports: 100,
 };
 
+// 前一日勾稽案件數
 const lineChartsData = {
   Date: [
     '2025/12/18',
@@ -263,6 +269,7 @@ const lineChartsData = {
   ],
 };
 
+// 當月各車機之妥善率
 const comparisonData = {
   Month: [9, 8],
   Vendor: {
@@ -333,6 +340,7 @@ const comparisonData = {
   },
 };
 
+// 目前行駛中的總車輛數
 Highcharts.chart('stackedColumn', {
   chart: {
     type: 'column',
@@ -418,6 +426,7 @@ Highcharts.chart('stackedColumn', {
   ],
 });
 
+// 目前申報運送表單數
 Highcharts.chart('stackedArea', {
   chart: {
     type: 'area',
@@ -466,6 +475,7 @@ Highcharts.chart('stackedArea', {
   ],
 });
 
+// 當日累積載運量
 Highcharts.chart('splitPackedBubble', {
   chart: {
     type: 'packedbubble',
@@ -510,62 +520,45 @@ Highcharts.chart('splitPackedBubble', {
   series: splitPackedBubbleData,
 });
 
+// 目前正式核可車輛數
 // 未完成
-// Highcharts.chart('sameXaxisDifferentIntervals', {
-//   title: {
-//     text: '目前正式核可車輛數',
-//   },
-//   series: [
-//     {
-//       type: 'column',
-//       name: 'Mean per thirty years',
-//       data: JSON.parse(document.getElementById('columnData').textContent),
-//       pointRange: 30 * 365 * 24 * 36e5,
-//       groupPadding: 0,
-//       pointPadding: 0,
-//       pointPlacement: -0.5,
-//       tooltip: {
-//         // Subtract 30 years from the year to get the start of the period
-//         headerFormat:
-//           '<span style="font-size: 0.8em;">' +
-//           '{subtract (point.x:%Y) 30} - {point.x:%Y}</span><br>',
-//       },
-//     },
-//     {
-//       name: 'Annual mean',
-//       data: JSON.parse(document.getElementById('lineData').textContent),
-//       accessibility: {
-//         description: `
-//               A data series illustrating the same data as the first,
-//               but at different time intervals
-//           `,
-//       },
-//     },
-//   ],
-//   tooltip: {
-//     valueSuffix: '°C',
-//     valueDecimals: 2,
-//   },
-//   yAxis: {
-//     accessibility: {
-//       description: 'temperature',
-//     },
-//     minPadding: 0,
-//     maxPadding: 0,
-//     labels: {
-//       format: '{value:.1f}°C',
-//     },
-//     name: 'Temperature change',
-//     title: {
-//       text: 'Temp anomaly (compared to 1951-1980 avg.)',
-//     },
-//   },
-//   xAxis: {
-//     endOnTick: true,
-//     type: 'datetime',
-//   },
-// });
+Highcharts.chart('sameXaxisDifferentIntervals', {
+  title: {
+    text: '目前正式核可車輛數',
+  },
+  xAxis: {
+    categories: sameXaxisDifferentIntervalsData.Date,
+    title: {
+      text: '日期',
+    },
+  },
+  yAxis: {
+    title: {
+      text: '車輛數',
+    },
+  },
+  tooltip: {
+    shared: true,
+  },
+  series: [
+    {
+      type: 'column',
+      name: '單日車輛成長差',
+      data: sameXaxisDifferentIntervalsData.InitialReview.map(
+        (val, i) => val - sameXaxisDifferentIntervalsData.Unlisting[i]
+      ),
+      color: '#7cb5ec',
+    },
+    {
+      type: 'line',
+      name: '總車輛數',
+      data: sameXaxisDifferentIntervalsData.TotalVehicleCount,
+      color: '#434348',
+    },
+  ],
+});
 
+// 前一日故障報備回報路線車輛數
 const trackColors = Highcharts.getOptions().colors.map((color) =>
   new Highcharts.Color(color).setOpacity(0.3).get()
 );
@@ -669,12 +662,21 @@ Highcharts.chart('solidgauge', {
   ],
 });
 
-// A point click event that uses the Renderer to draw a label next to the point
-// On subsequent clicks, move the existing label instead of creating a new one.
+// 前一日勾稽案件數
+const formNoTrackingData = lineChartsData.Date.map((dateStr, i) => [
+  new Date(dateStr).getTime(),
+  lineChartsData.FormNoTracking[i],
+]);
+
+const startEndMismatchData = lineChartsData.Date.map((dateStr, i) => [
+  new Date(dateStr).getTime(),
+  lineChartsData.StartEndMismatch[i],
+]);
+
 Highcharts.addEvent(Highcharts.Point, 'click', function () {
   if (this.series.options.className.indexOf('popup-on-click') !== -1) {
     const chart = this.series.chart;
-    const date = chart.time.dateFormat('%A, %b %e, %Y', this.x);
+    const date = chart.time.dateFormat('%Y/%m/%d', this.x);
     const text = `<b>${date}</b><br/>${this.y} ${this.series.name}`;
 
     const anchorX = this.plotX + this.series.xAxis.pos;
@@ -689,7 +691,7 @@ Highcharts.addEvent(Highcharts.Point, 'click', function () {
           align,
           fill: 'rgba(0, 0, 0, 0.75)',
           padding: 10,
-          zIndex: 7, // Above series, below tooltip
+          zIndex: 7,
         })
         .css({
           color: 'white',
@@ -706,18 +708,16 @@ Highcharts.addEvent(Highcharts.Point, 'click', function () {
   }
 });
 
-// 未完成
+Highcharts.setOptions({
+  time: {
+    useUTC: false,
+  },
+});
+
 Highcharts.chart('lineCharts', {
   chart: {
     scrollablePlotArea: {
       minWidth: 700,
-    },
-  },
-
-  data: {
-    csvURL: 'https://www.highcharts.com/samples/data/analytics.csv',
-    beforeParse: function (csv) {
-      return csv.replace(/\n\n/g, '\n');
     },
   },
 
@@ -727,58 +727,44 @@ Highcharts.chart('lineCharts', {
   },
 
   xAxis: {
-    tickInterval: 7 * 24 * 3600 * 1000, // one week
+    type: 'datetime',
+    tickInterval: 7 * 24 * 3600 * 1000,
     tickWidth: 0,
     gridLineWidth: 1,
     labels: {
       align: 'left',
       x: 3,
       y: -3,
+      formatter: function () {
+        const date = new Date(this.value);
+        return Highcharts.dateFormat('%Y/%m/%d', date.getTime());
+      },
     },
   },
 
-  yAxis: [
-    {
-      // left y axis
-      title: {
-        text: null,
-      },
-      labels: {
-        align: 'left',
-        x: 3,
-        y: 16,
-        format: '{value:.,0f}',
-      },
-      showFirstLabel: false,
+  yAxis: {
+    title: {
+      text: '案件數',
     },
-    {
-      // right y axis
-      linkedTo: 0,
-      gridLineWidth: 0,
-      opposite: true,
-      title: {
-        text: null,
-      },
-      labels: {
-        align: 'right',
-        x: -3,
-        y: 16,
-        format: '{value:.,0f}',
-      },
-      showFirstLabel: false,
+    labels: {
+      format: '{value:.,0f}',
+      align: 'left',
+      x: 3,
+      y: 16,
     },
-  ],
+  },
+
+  tooltip: {
+    xDateFormat: '%Y/%m/%d',
+    fixed: true,
+    shared: true,
+    crosshairs: true,
+  },
 
   legend: {
     align: 'left',
     verticalAlign: 'top',
     borderWidth: 0,
-  },
-
-  tooltip: {
-    fixed: true,
-    shared: true,
-    crosshairs: true,
   },
 
   plotOptions: {
@@ -787,24 +773,27 @@ Highcharts.chart('lineCharts', {
       className: 'popup-on-click',
       marker: {
         lineWidth: 1,
+        radius: 4,
       },
     },
   },
 
   series: [
     {
-      name: 'All sessions',
+      name: '有表單無軌跡',
+      data: formNoTrackingData,
       lineWidth: 4,
-      marker: {
-        radius: 4,
-      },
+      className: 'popup-on-click',
     },
     {
-      name: 'New users',
+      name: '起迄點不符',
+      data: startEndMismatchData,
+      className: 'popup-on-click',
     },
   ],
 });
 
+// 當月各車機之妥善率
 const vendors = Object.keys(comparisonData.Vendor);
 
 // 建立資料：每個點都要有 `name` 欄位，以便 shared tooltip 正確配對
