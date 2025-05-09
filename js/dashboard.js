@@ -1,59 +1,35 @@
-// 頁面加載時，初始化隱藏所有子選單
 document.addEventListener('DOMContentLoaded', function () {
-  // 隱藏所有子選單
-  document.querySelectorAll('.dropdown-submenu').forEach(function (submenu) {
-    submenu.style.display = 'none';
-  });
-});
+  const tabs = document.querySelectorAll('.tab');
+  const tabsContainer = document.querySelector('.tabs');
 
-function toggleSubmenu(element) {
-  // 阻止事件冒泡
-  // event.preventDefault();
-  // event.stopPropagation();
-
-  // 獲取父選單文本
-  const parentText = element.textContent.trim().replace(/▶|▼/g, '').trim();
-  const arrow = element.querySelector('.menu-arrow');
-
-  // 找到所有屬於這個父選單的子選單
-  const submenus = document.querySelectorAll(
-    `.dropdown-submenu[data-parent="${parentText}"]`
-  );
-
-  // 檢查第一個子選單的顯示狀態來確定是顯示還是隱藏
-  const isVisible = submenus.length > 0 && submenus[0].style.display !== 'none';
-
-  // 切換顯示/隱藏狀態
-  submenus.forEach(function (submenu) {
-    submenu.style.display = isVisible ? 'none' : 'block';
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', (e) => {
+      showTab(e.target.dataset.tab);
+    });
   });
 
-  // 更新箭頭方向
-  if (isVisible) {
-    arrow.textContent = '▶'; // 未展開時顯示向右箭頭
-  } else {
-    arrow.textContent = '▼'; // 展開時顯示向下箭頭
-  }
-}
+  tabsContainer.addEventListener('click', (e) => {
+    const li = e.target.closest('.menu-section ul li');
+    if (li) {
+      document.querySelectorAll('.menu-section ul li').forEach((item) => {
+        item.classList.remove('active');
+      });
 
-// 點選主下拉選單時保持它開啟
-document.querySelectorAll('.dropdown-menu').forEach(function (element) {
-  element.addEventListener('click', function (event) {
-    event.stopPropagation();
+      li.classList.add('active');
+    }
   });
-});
 
-// 點擊文檔其他位置時關閉所有子選單
-document.addEventListener('click', function (event) {
-  // 檢查點擊的目標不是下拉選單或其子元素
-  if (!event.target.closest('.dropdown-menu')) {
-    document.querySelectorAll('.dropdown-submenu').forEach(function (submenu) {
-      submenu.style.display = 'none';
+  function showTab(tabId) {
+    document.querySelectorAll('.tab-content').forEach((tab) => {
+      tab.style.display = 'none';
     });
 
-    document.querySelectorAll('.menu-arrow').forEach(function (arrow) {
-      arrow.textContent = '▶'; // 重置為向右箭頭
+    tabs.forEach((tab) => {
+      tab.classList.remove('active');
     });
+
+    document.getElementById(tabId).style.display = 'block';
+    event.target.classList.add('active');
   }
 });
 
@@ -83,6 +59,7 @@ const stackedAreaData = {
     0, 1, 3, 6, 11, 18, 28, 41, 57, 76, 97, 119, 152, 188, 208, 228, 246, 262,
     274, 283, 290, 295, 298, 300,
   ],
+  MaxFormCount: 300,
 };
 
 // 當日累積載運量
@@ -438,7 +415,7 @@ Highcharts.chart('stackedArea', {
     title: {
       text: '表單數',
     },
-    max: 300,
+    max: stackedAreaData['MaxFormCount'],
   },
   tooltip: {
     shared: true,
