@@ -48,3 +48,12 @@
   background-color: #0051b4;
   color: white;
 }
+
+.taiwan-image {
+  height: 510px;
+  width: 365px;
+}
+
+.pointer {
+  cursor: pointer;
+}

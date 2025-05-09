@@ -535,7 +535,7 @@ Highcharts.chart('sameXaxisDifferentIntervals', {
     },
     {
       title: {
-        text: '',
+        text: '七日車輛成長差',
       },
       opposite: true,
     },
@@ -934,3 +934,10 @@ const chart = Highcharts.chart('comparison', {
 //     );
 //   });
 // });
+
+const imageArea = document.querySelector('#imageArea');
+
+imageArea.addEventListener('click', (e) => {
+  if (e.target.dataset.city === undefined) return;
+  console.log(e.target.dataset.city);
+});
