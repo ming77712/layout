@@ -1,3 +1,4 @@
+// header nav bar start
 document.addEventListener('DOMContentLoaded', function () {
   const tabs = document.querySelectorAll('.tab');
   const tabsContainer = document.querySelector('.tabs');
@@ -32,6 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
     event.target.classList.add('active');
   }
 });
+// header nav bar end
 
 // 目前行駛中的總車輛數
 const stackedColumnData = {
@@ -177,22 +179,10 @@ const sameXaxisDifferentIntervalsData = {
     '1月30日',
     '1月31日',
   ],
-  InitialReview: [
-    10, 5, 0, 0, 5, 3, 7, 0, 1, 5, 7, 0, 4, 9, 0, 0, 8, 7, 6, 8, 2, 10, 0, 4, 1,
-    1, 2, 0, 7, 10, 2,
-  ],
-  Unlisting: [
-    3, 3, 0, 2, 0, 1, 0, 0, 1, 0, 2, 0, 2, 10, 0, 0, 2, 7, 5, 5, 5, 0, 0, 2, 2,
-    10, 10, 0, 0, 2, 2,
-  ],
   TotalVehicleCount: [
     1707, 1709, 1709, 1707, 1712, 1714, 1721, 1721, 1721, 1726, 1731, 1731,
     1733, 1732, 1732, 1732, 1738, 1738, 1739, 1742, 1739, 1749, 1749, 1751,
     1750, 1741, 1733, 1733, 1740, 1748, 1748,
-  ],
-  DailyVehicleGrowth: [
-    7, 2, 0, -2, 5, 2, 7, 0, 0, 5, 5, 0, 2, -1, 0, 0, 6, 0, 1, 3, -3, 10, 0, 2,
-    -1, -9, -8, 0, 7, 8, 0,
   ],
 };
 
@@ -497,8 +487,33 @@ Highcharts.chart('splitPackedBubble', {
   series: splitPackedBubbleData,
 });
 
+// 動態計算 diffPer7Days
+const diffPer7Days = [];
+const interval = 7; // 7 天為一個區間
+for (
+  let i = 0;
+  i < sameXaxisDifferentIntervalsData.Date.length;
+  i += interval
+) {
+  const startIndex = i;
+  const endIndex = Math.min(
+    i + interval - 1,
+    sameXaxisDifferentIntervalsData.Date.length - 1
+  );
+  const centerIndex = Math.floor((startIndex + endIndex) / 2); // 計算中心點索引
+  const diff =
+    sameXaxisDifferentIntervalsData.TotalVehicleCount[endIndex] -
+    sameXaxisDifferentIntervalsData.TotalVehicleCount[startIndex];
+  const range = `${sameXaxisDifferentIntervalsData.Date[startIndex]} - ${sameXaxisDifferentIntervalsData.Date[endIndex]}`;
+
+  diffPer7Days.push({
+    x: centerIndex, // 中心點索引
+    y: diff, // 7 天差值
+    range: range, // 日期範圍
+  });
+}
+
 // 目前正式核可車輛數
-// 未完成
 Highcharts.chart('sameXaxisDifferentIntervals', {
   title: {
     text: '目前正式核可車輛數',
@@ -509,28 +524,53 @@ Highcharts.chart('sameXaxisDifferentIntervals', {
       text: '日期',
     },
   },
-  yAxis: {
-    title: {
-      text: '車輛數',
+  yAxis: [
+    {
+      title: {
+        text: '車輛數',
+      },
+      // Set min and max to ensure visibility of TotalVehicleCount
+      min: Math.min(...sameXaxisDifferentIntervalsData.TotalVehicleCount) - 5,
+      max: Math.max(...sameXaxisDifferentIntervalsData.TotalVehicleCount) + 5,
     },
-  },
+    {
+      title: {
+        text: '',
+      },
+      opposite: true,
+    },
+  ],
   tooltip: {
-    shared: true,
+    shared: false,
   },
   series: [
     {
       type: 'column',
-      name: '單日車輛成長差',
-      data: sameXaxisDifferentIntervalsData.InitialReview.map(
-        (val, i) => val - sameXaxisDifferentIntervalsData.Unlisting[i]
-      ),
+      name: '七日車輛成長差',
+      data: diffPer7Days,
+      yAxis: 1,
       color: '#7cb5ec',
+      pointWidth: 100,
+      groupPadding: 0,
+      pointPadding: 0,
+      opacity: 0.5,
+      tooltip: {
+        pointFormatter: function () {
+          return `<b>${this.series.name}</b><br>${this.range}: ${this.y}`;
+        },
+      },
     },
     {
       type: 'line',
       name: '總車輛數',
       data: sameXaxisDifferentIntervalsData.TotalVehicleCount,
       color: '#434348',
+      yAxis: 0,
+      tooltip: {
+        pointFormatter: function () {
+          return `<b>${this.series.name}</b><br> ${this.y}`;
+        },
+      },
     },
   ],
 });
@@ -548,9 +588,6 @@ Highcharts.chart('solidgauge', {
 
   title: {
     text: '前一日故障報備回報路線車輛數',
-    style: {
-      fontSize: '24px',
-    },
   },
 
   tooltip: {
