@@ -191,40 +191,41 @@ const solidgaugeData = {
   Routereported: 60,
   Noroutereported: 40,
   Totalfaultreports: 100,
+  PreTotalreports: 300,
 };
 
 // 前一日勾稽案件數
 const lineChartsData = {
   Date: [
-    '2025/12/18',
-    '2025/12/19',
-    '2025/12/20',
-    '2025/12/21',
-    '2025/12/22',
-    '2025/12/23',
-    '2025/12/24',
-    '2025/12/25',
-    '2025/12/26',
-    '2025/12/27',
-    '2025/12/28',
-    '2025/12/29',
-    '2025/12/30',
-    '2025/12/31',
-    '2026/1/1',
-    '2026/1/2',
-    '2026/1/3',
-    '2026/1/4',
-    '2026/1/5',
-    '2026/1/6',
-    '2026/1/7',
-    '2026/1/8',
-    '2026/1/9',
-    '2026/1/10',
-    '2026/1/11',
-    '2026/1/12',
-    '2026/1/13',
-    '2026/1/14',
-    '2026/1/15',
+    '2025/2/1',
+    '2025/2/2',
+    '2025/2/3',
+    '2025/2/4',
+    '2025/2/5',
+    '2025/2/6',
+    '2025/2/7',
+    '2025/2/8',
+    '2025/2/9',
+    '2025/2/10',
+    '2025/2/11',
+    '2025/2/12',
+    '2025/2/13',
+    '2025/2/14',
+    '2025/2/15',
+    '2025/2/16',
+    '2025/2/17',
+    '2025/2/18',
+    '2025/2/19',
+    '2025/2/20',
+    '2025/2/21',
+    '2025/2/22',
+    '2025/2/23',
+    '2025/2/24',
+    '2025/2/25',
+    '2025/2/26',
+    '2025/2/27',
+    '2025/2/28',
+    '2025/3/1',
   ],
   FormNoTracking: [
     5, 3, 0, 2, 7, 3, 2, 1, 3, 2, 3, 4, 1, 4, 10, 2, 2, 1, 2, 2, 5, 10, 4, 0, 1,
@@ -373,6 +374,9 @@ Highcharts.chart('stackedColumn', {
     pointFormat:
       '{series.name}: {point.y}<br/>目前行駛中的總車輛數: {point.stackTotal}',
   },
+  credits: {
+    enabled: false,
+  },
   plotOptions: {
     column: {
       stacking: 'normal',
@@ -411,6 +415,9 @@ Highcharts.chart('stackedArea', {
     shared: true,
     headerFormat:
       '<span style="font-size:12px"><b>{point.key}時</b></span>' + '<br>',
+  },
+  credits: {
+    enabled: false,
   },
   plotOptions: {
     series: {
@@ -454,6 +461,9 @@ Highcharts.chart('splitPackedBubble', {
   },
   tooltip: {
     pointFormat: '<b>{point.name}:</b> {point.value}',
+  },
+  credits: {
+    enabled: false,
   },
   plotOptions: {
     packedbubble: {
@@ -543,6 +553,9 @@ Highcharts.chart('sameXaxisDifferentIntervals', {
   tooltip: {
     shared: false,
   },
+  credits: {
+    enabled: false,
+  },
   series: [
     {
       type: 'column',
@@ -576,14 +589,15 @@ Highcharts.chart('sameXaxisDifferentIntervals', {
 });
 
 // 前一日故障報備回報路線車輛數
-const trackColors = Highcharts.getOptions().colors.map((color) =>
-  new Highcharts.Color(color).setOpacity(0.3).get()
+
+const defaultColors = ['#7cb5ec', '#434348', '#90ed7d', '#f7a35c', '#8085e9'];
+const trackColors = (Highcharts.getOptions().colors || defaultColors).map(
+  (color) => new Highcharts.Color(color).setOpacity(0.3).get()
 );
 
 Highcharts.chart('solidgauge', {
   chart: {
     type: 'solidgauge',
-    // height: '110%',
   },
 
   title: {
@@ -596,33 +610,29 @@ Highcharts.chart('solidgauge', {
     borderWidth: 0,
     shadow: false,
     style: {
-      fontSize: '64px',
+      fontSize: '48px',
     },
     formatter: function () {
-      const currentValue = solidgaugeData['Routereported'];
-      const total = solidgaugeData['Totalfaultreports'];
+      const point = this.point;
+      const value = point.y;
       return `
         <div>
-          <div style="text-align: left; font-weight: bold; color: ${
-            Highcharts.getOptions().colors[0]
-          }">
-            ${currentValue}/
-          </div>
-          <div style="text-align: right; font-weight: bold; color: ${
-            Highcharts.getOptions().colors[0]
-          }">
-            ${total}
+          <div style="font-weight: bold; color: ${point.color}">
+            ${value}/</br>100
           </div>
         </div>
       `;
     },
-    shared: true,
-    positioner: function (labelWidth, labelHeight, point) {
+    positioner: function (labelWidth, labelHeight) {
       return {
         x: this.chart.plotLeft + this.chart.plotWidth / 2 - labelWidth / 2,
         y: this.chart.plotTop + this.chart.plotHeight / 2 - labelHeight / 2,
       };
     },
+  },
+
+  credits: {
+    enabled: false,
   },
 
   pane: {
@@ -633,6 +643,12 @@ Highcharts.chart('solidgauge', {
         outerRadius: '112%',
         innerRadius: '88%',
         backgroundColor: trackColors[0],
+        borderWidth: 0,
+      },
+      {
+        outerRadius: '87%',
+        innerRadius: '63%',
+        backgroundColor: trackColors[1],
         borderWidth: 0,
       },
     ],
@@ -663,15 +679,24 @@ Highcharts.chart('solidgauge', {
           color: Highcharts.getOptions().colors[0],
           radius: '112%',
           innerRadius: '88%',
-          y:
-            (solidgaugeData['Totalfaultreports'] / 100) *
-            solidgaugeData['Routereported'],
+          y: Math.round(
+            ((solidgaugeData['PreTotalreports'] -
+              solidgaugeData['Totalfaultreports']) /
+              solidgaugeData['PreTotalreports']) *
+              100
+          ),
+        },
+        {
+          color: Highcharts.getOptions().colors[1],
+          radius: '87%',
+          innerRadius: '63%',
+          y: Math.round(
+            (solidgaugeData['Routereported'] /
+              solidgaugeData['Totalfaultreports']) *
+              100
+          ),
         },
       ],
-      custom: {
-        icon: 'filter',
-        iconColor: '#303030',
-      },
     },
   ],
 });
@@ -775,6 +800,10 @@ Highcharts.chart('lineCharts', {
     crosshairs: true,
   },
 
+  credits: {
+    enabled: false,
+  },
+
   legend: {
     align: 'left',
     verticalAlign: 'top',
@@ -852,6 +881,9 @@ const chart = Highcharts.chart('comparison', {
       });
       return tooltip;
     },
+  },
+  credits: {
+    enabled: false,
   },
   xAxis: {
     type: 'category',

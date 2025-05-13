@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-Hant-TW">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,128 +7,6 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css" />
     <link rel="stylesheet" href="./css/dashboard.css" />
   </head>
-
-  <style>
-    .tabs {
-      display: flex;
-      justify-content: space-around;
-      margin: 10px 0;
-    }
-    .tab-container {
-      position: relative;
-      display: inline-block;
-    }
-    .tab {
-      padding: 10px 20px;
-      background-color: #fff;
-      border: 1px solid #f0f1f1;
-      cursor: pointer;
-      border-radius: 5px;
-      font-size: 14px;
-    }
-    .tab:hover,
-    .tab.active {
-      background-color: #f0f1f1;
-    }
-    .tab-content {
-      display: none;
-      position: absolute;
-      top: 100%;
-      left: 0;
-      z-index: 1;
-      margin-top: 8px;
-    }
-    .menu-container {
-      display: inline-flex;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-      padding: 15px;
-      background-color: #fff;
-      gap: 20px;
-    }
-    .menu-section {
-      flex: 0 0 auto;
-      padding: 0 10px;
-      position: relative;
-    }
-    .menu-section:not(:last-child)::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 0;
-      height: 100%;
-      width: 1px;
-      background-color: #ccc;
-    }
-    .menu-section h3 {
-      margin: 0 0 10px 0;
-      font-size: 16px;
-      position: relative;
-    }
-    .menu-icon::before {
-      content: '▼';
-      position: absolute;
-      top: -4px;
-      left: -8px;
-      font-size: 16px;
-    }
-    .menu-section ul {
-      list-style-type: none;
-      padding: 0;
-      margin: 0;
-    }
-    .menu-section ul li {
-      padding: 5px 0;
-      font-size: 14px;
-      white-space: nowrap;
-    }
-
-    .menu-section ul li:hover {
-      background-color: #d8dad8;
-    }
-
-    .menu-section ul li.active {
-      background-color: #e4e4e4;
-    }
-
-    @media (max-width: 768px) {
-      .tabs {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      .tab-container {
-        width: 100%;
-      }
-      .tab {
-        width: 100%;
-        box-sizing: border-box;
-        margin-bottom: 5px;
-      }
-      .tab-content {
-        position: static;
-        width: 100%;
-      }
-      .menu-container {
-        display: flex;
-        flex-direction: column;
-        padding: 10px;
-      }
-      .menu-section {
-        padding: 0;
-        margin-bottom: 15px;
-      }
-      .menu-section:not(:last-child)::after {
-        display: none;
-      }
-      .menu-section h3 {
-        font-size: 14px;
-      }
-      .menu-section ul li {
-        font-size: 12px;
-      }
-    }
-  </style>
 
   <body>
     <header>
@@ -329,9 +207,26 @@
       <div class="container-fluid">
         <div class="row">
           <div class="col-4">
-            <div id="stackedColumn"></div>
-            <div id="stackedArea"></div>
-            <div id="splitPackedBubble"></div>
+            <div
+              id="stackedColumn"
+              style="
+                background-color: #f5f5f5;
+                padding: 16px;
+                margin-bottom: 20px;
+              "
+            ></div>
+            <div
+              id="stackedArea"
+              style="
+                background-color: #f5f5f5;
+                padding: 16px;
+                margin-bottom: 20px;
+              "
+            ></div>
+            <div
+              id="splitPackedBubble"
+              style="background-color: #f5f5f5; padding: 16px"
+            ></div>
           </div>
           <div class="col-4">
             <div class="d-flex justify-content-between">
@@ -507,7 +402,7 @@
                   />
                 </map>
               </div>
-              <div class="d-flex flex-column gap-4">
+              <div class="d-flex flex-column justify-content-center gap-4">
                 <div
                   class="pointer"
                   style="
@@ -573,11 +468,29 @@
                 </div>
               </div>
             </div>
-            <div id="sameXaxisDifferentIntervals"></div>
+            <div
+              id="sameXaxisDifferentIntervals"
+              style="background-color: #f5f5f5; padding: 16px"
+            ></div>
           </div>
           <div class="col-4">
-            <div id="solidgauge"></div>
-            <div id="lineCharts"></div>
+            <div
+              id="solidgauge"
+              style="
+                background-color: #f5f5f5;
+                padding: 16px;
+                margin-bottom: 20px;
+              "
+            ></div>
+            <div
+              id="lineCharts"
+              style="
+                background-color: #f5f5f5;
+                width: 740px;
+                padding: 16px;
+                margin-bottom: 20px;
+              "
+            ></div>
             <div>
               <!-- <div class="buttons">
                 <button id="2000">2000</button>
@@ -587,7 +500,10 @@
                 <button id="2016">2016</button>
                 <button id="2020" class="active">2020</button>
               </div> -->
-              <div id="comparison"></div>
+              <div
+                id="comparison"
+                style="background-color: #f5f5f5; padding: 16px"
+              ></div>
             </div>
           </div>
         </div>

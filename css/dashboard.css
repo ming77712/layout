@@ -1,3 +1,4 @@
+/* header */
 .logo {
   text-indent: 101%;
   overflow: hidden;
@@ -8,6 +9,128 @@
   width: 355px;
   height: 66px;
 }
+
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  margin: 10px 0;
+}
+.tab-container {
+  position: relative;
+  display: inline-block;
+}
+.tab {
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1px solid #f0f1f1;
+  cursor: pointer;
+  border-radius: 5px;
+  /* font-size: 14px; */
+}
+.tab:hover,
+.tab.active {
+  background-color: #f0f1f1;
+}
+.tab-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1;
+  margin-top: 8px;
+}
+.menu-container {
+  display: inline-flex;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75);
+  padding: 15px;
+  background-color: #fff;
+  gap: 20px;
+}
+.menu-section {
+  flex: 0 0 auto;
+  padding: 0 10px;
+  position: relative;
+}
+.menu-section:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  width: 1px;
+  background-color: #ccc;
+}
+.menu-section h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  position: relative;
+}
+.menu-icon::before {
+  content: '▼';
+  position: absolute;
+  top: -4px;
+  left: -8px;
+  font-size: 16px;
+}
+.menu-section ul {
+  list-style-type: none;
+  width: 15rem;
+  padding: 0;
+  margin: 0;
+}
+.menu-section ul li {
+  padding: 5px 0;
+  /* font-size: 14px; */
+}
+
+.menu-section ul li:hover {
+  background-color: #d8dad8;
+}
+
+.menu-section ul li.active {
+  background-color: #e4e4e4;
+}
+
+@media (max-width: 768px) {
+  .tabs {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .tab-container {
+    width: 100%;
+  }
+  .tab {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 5px;
+  }
+  .tab-content {
+    position: static;
+    width: 100%;
+  }
+  .menu-container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+  }
+  .menu-section {
+    padding: 0;
+    margin-bottom: 15px;
+  }
+  .menu-section:not(:last-child)::after {
+    display: none;
+  }
+  .menu-section h3 {
+    font-size: 14px;
+  }
+  .menu-section ul li {
+    font-size: 12px;
+  }
+}
+/* header */
 
 .buttons {
   min-width: 310px;
