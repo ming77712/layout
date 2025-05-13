@@ -475,7 +475,7 @@ Highcharts.chart('splitPackedBubble', {
         gravitationalConstant: 0.05,
         splitSeries: true,
         seriesInteraction: false,
-        dragBetweenSeries: true,
+        dragBetweenSeries: false,
         parentNodeLimit: true,
       },
       dataLabels: {
@@ -601,7 +601,7 @@ Highcharts.chart('solidgauge', {
   },
 
   title: {
-    text: '前一日故障報備回報路線車輛數',
+    text: '前一日車機無異常或已路線報備車輛情形',
   },
 
   tooltip: {
@@ -610,15 +610,25 @@ Highcharts.chart('solidgauge', {
     borderWidth: 0,
     shadow: false,
     style: {
-      fontSize: '48px',
+      fontSize: '20px',
     },
     formatter: function () {
       const point = this.point;
+      const index = point.index;
       const value = point.y;
+      const totalValue =
+        index === 0
+          ? solidgaugeData['PreTotalreports']
+          : solidgaugeData['Totalfaultreports'];
+      const label = index === 0 ? '車機正常運作率' : '已完成路線報備率';
+
       return `
         <div>
-          <div style="font-weight: bold; color: ${point.color}">
-            ${value}/</br>100
+          <div class="text-center fw-bold" style="color: ${point.color}">
+            ${label}
+          </div>
+          <div class="text-center fw-bold" style="color: ${point.color}">
+            ${value}/${totalValue}
           </div>
         </div>
       `;
@@ -679,22 +689,15 @@ Highcharts.chart('solidgauge', {
           color: Highcharts.getOptions().colors[0],
           radius: '112%',
           innerRadius: '88%',
-          y: Math.round(
-            ((solidgaugeData['PreTotalreports'] -
-              solidgaugeData['Totalfaultreports']) /
-              solidgaugeData['PreTotalreports']) *
-              100
-          ),
+          y:
+            solidgaugeData['PreTotalreports'] -
+            solidgaugeData['Totalfaultreports'],
         },
         {
           color: Highcharts.getOptions().colors[1],
           radius: '87%',
           innerRadius: '63%',
-          y: Math.round(
-            (solidgaugeData['Routereported'] /
-              solidgaugeData['Totalfaultreports']) *
-              100
-          ),
+          y: solidgaugeData['Routereported'],
         },
       ],
     },
