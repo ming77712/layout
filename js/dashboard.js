@@ -615,12 +615,19 @@ Highcharts.chart('solidgauge', {
     formatter: function () {
       const point = this.point;
       const index = point.index;
-      const value = point.y;
-      const totalValue =
-        index === 0
-          ? solidgaugeData['PreTotalreports']
-          : solidgaugeData['Totalfaultreports'];
-      const label = index === 0 ? '車機正常運作率' : '已完成路線報備率';
+      let value, totalValue, label;
+
+      if (index === 0) {
+        value =
+          solidgaugeData['PreTotalreports'] -
+          solidgaugeData['Totalfaultreports'];
+        totalValue = solidgaugeData['PreTotalreports'];
+        label = '車機正常運作率';
+      } else {
+        value = solidgaugeData['Routereported'];
+        totalValue = solidgaugeData['Totalfaultreports'];
+        label = '已完成路線報備率';
+      }
 
       return `
         <div>
@@ -664,12 +671,14 @@ Highcharts.chart('solidgauge', {
     ],
   },
 
-  yAxis: {
-    min: 0,
-    max: 100,
-    lineWidth: 0,
-    tickPositions: [],
-  },
+  yAxis: [
+    {
+      min: 0,
+      max: 100, // 統一為百分比
+      lineWidth: 0,
+      tickPositions: [],
+    },
+  ],
 
   plotOptions: {
     solidgauge: {
@@ -690,14 +699,25 @@ Highcharts.chart('solidgauge', {
           radius: '112%',
           innerRadius: '88%',
           y:
-            solidgaugeData['PreTotalreports'] -
-            solidgaugeData['Totalfaultreports'],
+            solidgaugeData['PreTotalreports'] > 0
+              ? ((solidgaugeData['PreTotalreports'] -
+                  solidgaugeData['Totalfaultreports']) /
+                  solidgaugeData['PreTotalreports']) *
+                100
+              : 0,
+          yAxis: 0,
         },
         {
           color: Highcharts.getOptions().colors[1],
           radius: '87%',
           innerRadius: '63%',
-          y: solidgaugeData['Routereported'],
+          y:
+            solidgaugeData['Totalfaultreports'] > 0
+              ? (solidgaugeData['Routereported'] /
+                  solidgaugeData['Totalfaultreports']) *
+                100
+              : 0,
+          yAxis: 1,
         },
       ],
     },
