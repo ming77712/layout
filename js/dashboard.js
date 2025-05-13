@@ -862,22 +862,48 @@ Highcharts.chart('lineCharts', {
 // 當月各車機之妥善率
 const vendors = Object.keys(comparisonData.Vendor);
 
-// 建立資料：每個點都要有 `name` 欄位，以便 shared tooltip 正確配對
+const splitPoint = Math.ceil(vendors.length / 2);
+
 const currentMonthData = vendors.map((vendor) => ({
   name: vendor,
-  y: comparisonData.Vendor[vendor][0][0],
-  grade: comparisonData.Vendor[vendor][0][1],
+  y: comparisonData.Vendor[vendor][0]?.[0] ?? 0,
+  grade: comparisonData.Vendor[vendor][0]?.[1] ?? '無',
 }));
-
 const previousMonthData = vendors.map((vendor) => ({
   name: vendor,
-  y: comparisonData.Vendor[vendor][1][0],
-  grade: comparisonData.Vendor[vendor][1][1],
+  y: comparisonData.Vendor[vendor][1]?.[0] ?? 0,
+  grade: comparisonData.Vendor[vendor][1]?.[1] ?? '無',
 }));
 
-const chart = Highcharts.chart('comparison', {
+document.getElementById('comparison1').style.display = 'block';
+document.getElementById('comparison2').style.display = 'none';
+
+const buttons = document.querySelectorAll('.buttons [data-page]');
+buttons.forEach((button) => {
+  button.addEventListener('click', (e) => {
+    const page = e.target.dataset.page;
+
+    document.querySelectorAll('.buttons button.active').forEach((active) => {
+      active.className = '';
+    });
+
+    if (page === '1') {
+      button.className = 'active';
+    } else if (page === '2') {
+      button.className = 'active';
+    }
+
+    document.getElementById('comparison1').style.display =
+      page === '1' ? 'block' : 'none';
+    document.getElementById('comparison2').style.display =
+      page === '2' ? 'block' : 'none';
+  });
+});
+
+Highcharts.chart('comparison1', {
   chart: {
     type: 'column',
+    height: 400,
   },
   title: {
     text: '當月各車機之妥善率',
@@ -896,7 +922,8 @@ const chart = Highcharts.chart('comparison', {
     shared: true,
     useHTML: true,
     formatter: function () {
-      const points = this.points;
+      const points = this.points || [];
+      if (!points.length) return false;
       let tooltip = `<b>${points[0].key}</b><br/>`;
       points.forEach((p) => {
         tooltip += `<span style="color:${p.color}">\u25CF</span> ${p.series.name}:
@@ -910,8 +937,9 @@ const chart = Highcharts.chart('comparison', {
   },
   xAxis: {
     type: 'category',
-    categories: vendors,
+    categories: vendors.slice(0, splitPoint),
     labels: {
+      rotation: -45,
       style: {
         textAlign: 'center',
       },
@@ -928,8 +956,7 @@ const chart = Highcharts.chart('comparison', {
       name: '9 月',
       id: 'main',
       dataSorting: {
-        enabled: true,
-        matchByName: true,
+        enabled: false,
       },
       dataLabels: {
         enabled: true,
@@ -941,14 +968,15 @@ const chart = Highcharts.chart('comparison', {
           fontSize: '16px',
         },
       },
-      data: currentMonthData,
+      data: currentMonthData.slice(0, splitPoint),
     },
     {
       name: '8 月',
       color: 'rgba(158, 159, 163, 0.5)',
+      pointPlacement: -0,
       pointPlacement: -0.2,
       linkedTo: 'main',
-      data: previousMonthData,
+      data: previousMonthData.slice(0, splitPoint),
     },
   ],
   exporting: {
@@ -956,39 +984,89 @@ const chart = Highcharts.chart('comparison', {
   },
 });
 
-// locations.forEach((location) => {
-//   const btn = document.getElementById(location.year);
-
-//   btn.addEventListener('click', () => {
-//     document.querySelectorAll('.buttons button.active').forEach((active) => {
-//       active.className = '';
-//     });
-//     btn.className = 'active';
-
-//     chart.update(
-//       {
-//         title: {
-//           text: '二月各車機之妥善率',
-//         },
-//         series: [
-//           {
-//             name: location.year - 4,
-//             data: dataPrev[location.year].slice(),
-//           },
-//           {
-//             name: location.year,
-//             data: getData(data[location.year]).slice(),
-//           },
-//         ],
-//       },
-//       true,
-//       false,
-//       {
-//         duration: 800,
-//       }
-//     );
-//   });
-// });
+Highcharts.chart('comparison2', {
+  chart: {
+    type: 'column',
+    height: 400,
+  },
+  title: {
+    text: '當月各車機之妥善率',
+    align: 'center',
+  },
+  plotOptions: {
+    series: {
+      grouping: false,
+      borderWidth: 0,
+    },
+  },
+  legend: {
+    enabled: false,
+  },
+  tooltip: {
+    shared: true,
+    useHTML: true,
+    formatter: function () {
+      const points = this.points || [];
+      if (!points.length) return false;
+      let tooltip = `<b>${points[0].key}</b><br/>`;
+      points.forEach((p) => {
+        tooltip += `<span style="color:${p.color}">\u25CF</span> ${p.series.name}:
+          <b>${p.y}%</b> (等級: ${p.point.grade})<br/>`;
+      });
+      return tooltip;
+    },
+  },
+  credits: {
+    enabled: false,
+  },
+  xAxis: {
+    type: 'category',
+    categories: vendors.slice(splitPoint),
+    labels: {
+      rotation: -45,
+      style: {
+        textAlign: 'center',
+      },
+    },
+  },
+  yAxis: {
+    title: {
+      text: '妥善率 (%)',
+    },
+    max: 100,
+  },
+  series: [
+    {
+      name: '9 月',
+      id: 'main',
+      dataSorting: {
+        enabled: false,
+      },
+      dataLabels: {
+        enabled: true,
+        inside: true,
+        formatter: function () {
+          return this.point.grade;
+        },
+        style: {
+          fontSize: '16px',
+        },
+      },
+      data: currentMonthData.slice(splitPoint),
+    },
+    {
+      name: '8 月',
+      color: 'rgba(158, 159, 163, 0.5)',
+      pointPlacement: -0,
+      pointPlacement: -0.2,
+      linkedTo: 'main',
+      data: previousMonthData.slice(splitPoint),
+    },
+  ],
+  exporting: {
+    allowHTML: true,
+  },
+});
 
 const imageArea = document.querySelector('#imageArea');
 
