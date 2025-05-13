@@ -793,6 +793,7 @@ Highcharts.chart('lineCharts', {
     tickInterval: 7 * 24 * 3600 * 1000,
     tickWidth: 0,
     gridLineWidth: 1,
+    reversed: true,
     labels: {
       align: 'left',
       x: 3,
