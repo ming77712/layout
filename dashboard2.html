@@ -1,0 +1,635 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>儀錶板</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/dashboard2.css" />
+  </head>
+
+  <body>
+    <header>
+      <div
+        style="
+          background: no-repeat url(./images/header.png),
+            repeat-x url(./images/headerBg.png);
+          height: 78px;
+        "
+      >
+        <div class="container-fluid">
+          <div class="d-block d-xl-flex justify-content-between">
+            <a
+              href="#"
+              title="環境部化學物質管理署Log"
+              class="logo d-block mx-auto mx-xl-0 mb-3 mb-md-0"
+              ><h1>環境部化學物質管理署</h1></a
+            >
+            <!-- 右側登入資訊 -->
+            <span>小強 你好</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="tabs">
+        <div class="tab-container">
+          <button class="tab" data-tab="tab1">審驗資訊系統</button>
+          <div id="tab1" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section menu-icon">
+                <h3>帳號功能管理</h3>
+                <ul>
+                  <li>更換個人密碼</li>
+                  <li>設定自然人憑證</li>
+                </ul>
+              </div>
+              <div class="menu-section menu-icon">
+                <h3>運送車輛審驗/查詢</h3>
+                <ul>
+                  <li>申請審驗車輛列表</li>
+                  <li>列管車輛資訊查詢</li>
+                </ul>
+              </div>
+              <div class="menu-section menu-icon">
+                <h3>運作業者查詢/統計</h3>
+                <ul>
+                  <li>公司基本資料查詢</li>
+                  <li>專業人員帳號密碼查詢</li>
+                  <li>小量運送APP密碼查詢</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab2">GPS軌跡監控展示</button>
+          <div id="tab2" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>GIS監控圖台(TGOS)</li>
+                  <li>即時監控牆功能</li>
+                  <li>毒性化學物質運送車輛軌跡分類展示</li>
+                  <li>毒性及關注化學物質</li>
+                  <li>運送路線網格分析功能</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <ul>
+                  <li>車輛監控申請</li>
+                  <li>監控車輛名單</li>
+                  <li>軌跡資料回傳情形查詢</li>
+                  <li>週確認作業</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <ul>
+                  <li>車機變頻</li>
+                  <li>多化學物質運送車輛共同軌跡分析功能</li>
+                  <li>車機即時狀態查詢</li>
+                  <li>回報運作場所座標</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <ul>
+                  <li>車輛軌跡介接下載</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab3">即時警示分析</button>
+          <div id="tab3" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>管制區域建置</li>
+                  <li>IPS03 管制區域即時警示-今日進入管制區域車輛</li>
+                  <li>IPS04 管制區域即時警示-進入管制區域車輛查詢</li>
+                  <li>IPS05 管制區域即時警示-監控平台1x1</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <ul>
+                  <li>IPS05 管制區域即時警示-監控平台2x2</li>
+                  <li>今日進出高雄市表單統計</li>
+                  <li>高雄市疑似發生事故車輛名單</li>
+                  <li>今日進出科學園區表單列表</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <ul>
+                  <li>每日異常勾稽作業</li>
+                  <li>查核回報平台</li>
+                  <li>查核成果統計報表</li>
+                  <li>簡易表單異常樣態勾稽</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab4">客服系統</button>
+          <div id="tab4" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>特殊案件處理申請</li>
+                  <li>表單介接刷新</li>
+                  <li>帳號恢復功能</li>
+                  <li>代碼檔維護</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <ul>
+                  <li>路名維護</li>
+                  <li>主動通知系統</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab5">監控系統操作手冊</button>
+          <div id="tab5" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>環保局操作說明會簡報</li>
+                  <li>查核回報操作懶人包</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab6">緊急應變即時資訊平台</button>
+          <div id="tab6" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>緊急通報設定</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab7">系統帳號權限維護</button>
+          <div id="tab7" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>群組設定</li>
+                  <li>網頁功能對應</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab8">APP下載與功能管理</button>
+          <div id="tab8" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>管理端App下載</li>
+                  <li>APP最新消息管理</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container-fluid mt-5">
+        <div class="row g-4">
+          <!-- 左邊 -->
+          <div class="col-12 col-lg-5">
+            <div id="imageArea" class="d-flex justify-content-center">
+              <img
+                class="taiwanImage"
+                src="./images/Taiwan_resize_New.png"
+                alt=""
+                usemap="#workmap"
+              />
+
+              <map name="workmap">
+                <area
+                  shape="poly"
+                  coords="292,23,309,23,309,53,292,53"
+                  class="pointer"
+                  alt="臺北市"
+                  data-city="臺北市"
+                />
+                <area
+                  shape="poly"
+                  coords="160,154,160,180,210,180,210,154"
+                  class="pointer"
+                  alt="臺中市"
+                  data-city="臺中市"
+                />
+                <area
+                  shape="poly"
+                  coords="321,13,349,13,349,29,321,29"
+                  class="pointer"
+                  alt="基隆市"
+                  data-city="基隆市"
+                />
+                <area
+                  shape="poly"
+                  coords="281,59,281,75,321,75,321,59"
+                  class="pointer"
+                  alt="新北市"
+                  data-city="新北市"
+                />
+                <area
+                  shape="poly"
+                  coords="301,102,301,120,342,120,342,102"
+                  class="pointer"
+                  alt="宜蘭縣"
+                  data-city="宜蘭縣"
+                />
+                <area
+                  shape="poly"
+                  coords="227,49,227,67,271,67,270,49"
+                  class="pointer"
+                  alt="桃園市"
+                  data-city="桃園市"
+                />
+                <area
+                  shape="poly"
+                  coords="107,266,107,289,153,289,153,266"
+                  class="pointer"
+                  alt="嘉義市"
+                  data-city="嘉義市"
+                />
+                <area
+                  shape="poly"
+                  coords="221,85,221,104,266,104,266,85"
+                  class="pointer"
+                  alt="新竹縣"
+                  data-city="新竹縣"
+                />
+                <area
+                  shape="poly"
+                  coords="197,116,197,135,241,135,241,116"
+                  class="pointer"
+                  alt="苗栗縣"
+                  data-city="苗栗縣"
+                />
+                <area
+                  shape="poly"
+                  coords="206,152,206,169,247,169,247,152"
+                  class="pointer"
+                  alt="臺中市"
+                  data-city="臺中市"
+                />
+                <area
+                  shape="poly"
+                  coords="203,205,203,226,249,226,249,205"
+                  class="pointer"
+                  alt="南投縣"
+                  data-city="南投縣"
+                />
+                <area
+                  shape="poly"
+                  coords="127,201,127,221,175,221,175,201"
+                  class="pointer"
+                  alt="彰化縣"
+                  data-city="彰化縣"
+                />
+                <area
+                  shape="poly"
+                  coords="163,70,163,89,204,89,204,70"
+                  class="pointer"
+                  alt="新竹市"
+                  data-city="新竹市"
+                />
+                <area
+                  shape="poly"
+                  coords="117,227,117,250,164,250,164,229"
+                  class="pointer"
+                  alt="雲林縣"
+                  data-city="雲林縣"
+                />
+                <area
+                  shape="poly"
+                  coords="169,262,169,280,210,279,211,261"
+                  class="pointer"
+                  alt="嘉義縣"
+                  data-city="嘉義縣"
+                />
+                <area
+                  shape="poly"
+                  coords="110,310,110,330,163,330,163,310"
+                  class="pointer"
+                  alt="臺南市"
+                  data-city="臺南市"
+                />
+                <area
+                  shape="poly"
+                  coords="170,329,170,350,215,350,215,329"
+                  class="pointer"
+                  alt="高雄市"
+                  data-city="高雄市"
+                />
+                <area
+                  shape="poly"
+                  coords="165,376,165,396,210,396,210,376"
+                  class="pointer"
+                  alt="屏東縣"
+                  data-city="屏東縣"
+                />
+                <area
+                  shape="poly"
+                  coords="271,206,271,224,315,224,315,206"
+                  class="pointer"
+                  alt="花蓮縣"
+                  data-city="花蓮縣"
+                />
+                <area
+                  shape="poly"
+                  coords="230,333,230,355,272,353,273,333"
+                  class="pointer"
+                  alt="臺東縣"
+                  data-city="臺東縣"
+                />
+                <area
+                  shape="poly"
+                  coords="2,187,2,207,39,207,39,187"
+                  class="pointer"
+                  alt="金門縣"
+                  data-city="金門縣"
+                />
+                <area
+                  shape="poly"
+                  coords="30,300,30,321,77,321,77,300"
+                  class="pointer"
+                  alt="澎湖縣"
+                  data-city="澎湖縣"
+                />
+                <area
+                  shape="poly"
+                  coords="43,30,43,52,80,52,80,30"
+                  class="pointer"
+                  alt="連江縣"
+                  data-city="連江縣"
+                />
+              </map>
+            </div>
+          </div>
+          <!-- 中間 -->
+          <div class="col-12 col-lg-6">
+            <div class="infoBoard">
+              <!-- 第一行 -->
+              <div class="row g-3 mb-3">
+                <div class="col-12 col-md-6">
+                  <div
+                    class="dashboardInfoItem position-relative h-100 p-3"
+                    style="background-color: #f4b183"
+                  >
+                    <h2 class="fs-4">目前正式核可車輛數</h2>
+                    <span class="fs-1">1748</span>
+                    <div
+                      class="dashboardInfoCover d-none"
+                      style="position: absolute; background-color: #f4b183"
+                    >
+                      <i
+                        class="bi bi-bar-chart-fill text-white"
+                        style="font-size: 80px"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div
+                    class="dashboardInfoItem position-relative h-100 p-3"
+                    style="background-color: #f4b183"
+                  >
+                    <h2 class="text-center fs-4">當月各車機<br />妥善率</h2>
+                    <div
+                      class="dashboardInfoCover d-none"
+                      style="position: absolute; background-color: #f4b183"
+                    >
+                      <i
+                        class="bi bi-bar-chart-fill text-white"
+                        style="font-size: 80px"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-6 col-md-3">
+                  <div
+                    class="dashboardInfoItem position-relative h-100 p-3"
+                    style="background-color: #43b3aa"
+                  >
+                    <h2 class="fs-4">統計資料</h2>
+                    <span class="fs-2">全國</span>
+                    <div
+                      class="dashboardInfoCover d-none"
+                      style="position: absolute; background-color: #43b3aa"
+                    >
+                      <img
+                        src="./images/return.svg"
+                        style="width: 80px; height: 80px"
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 第二行 -->
+              <div class="row g-3 mb-3">
+                <div class="col-12 col-md-6">
+                  <div
+                    class="dashboardInfoItem position-relative h-100 p-3"
+                    style="background-color: #5bc9d4"
+                  >
+                    <div class="text-center">
+                      <h2 class="fs-4">目前行駛中的總車輛數</h2>
+                      <span style="font-size: 3.75rem">685</span>
+                      <div
+                        class="d-flex justify-content-between align-items-center mt-3"
+                      >
+                        <div>
+                          <h3 class="fs-5">有表單</h3>
+                          <span class="fs-3">481</span>
+                        </div>
+                        <div class="dividerContainer">
+                          <div class="verticalDivider"></div>
+                        </div>
+                        <div>
+                          <h3 class="fs-5">無表單</h3>
+                          <span class="fs-3">204</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="dashboardInfoCover d-none"
+                      style="position: absolute; background-color: #5bc9d4"
+                    >
+                      <i
+                        class="bi bi-bar-chart-fill text-white"
+                        style="font-size: 80px"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div class="row g-3 h-100">
+                    <div class="col-12">
+                      <div
+                        class="dashboardInfoItem position-relative h-100 p-3"
+                        style="background-color: #5bc9d4"
+                      >
+                        <h2 class="fs-4">目前申報運送表單數</h2>
+                        <span class="fs-1">300</span>
+                        <div
+                          class="dashboardInfoCover d-none"
+                          style="position: absolute; background-color: #5bc9d4"
+                        >
+                          <i
+                            class="bi bi-bar-chart-fill text-white"
+                            style="font-size: 80px"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <div
+                        class="dashboardInfoItem position-relative h-100 p-3"
+                        style="background-color: #5bc9d4"
+                      >
+                        <h2 class="fs-4">當日累計載運量</h2>
+                        <span class="fs-1">6022.7公噸</span>
+                        <div
+                          class="dashboardInfoCover d-none"
+                          style="position: absolute; background-color: #5bc9d4"
+                        >
+                          <i
+                            class="bi bi-bar-chart-fill text-white"
+                            style="font-size: 80px"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 第三行 -->
+              <div class="row g-3">
+                <div class="col-12 col-md-6">
+                  <div
+                    class="dashboardInfoItem position-relative h-100 p-3"
+                    style="background-color: #df7483"
+                  >
+                    <h2 class="fs-4">前一日回報故障報備車輛數</h2>
+                    <span class="fs-1">100</span>
+                    <div
+                      class="dashboardInfoCover d-none"
+                      style="position: absolute; background-color: #df7483"
+                    >
+                      <i
+                        class="bi bi-bar-chart-fill text-white"
+                        style="font-size: 80px"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <div
+                    class="dashboardInfoItem position-relative h-100 p-3"
+                    style="background-color: #df7483"
+                  >
+                    <h2 class="fs-4">前一日勾稽案件數</h2>
+                    <span class="fs-1">3</span>
+                    <div
+                      class="dashboardInfoCover d-none"
+                      style="position: absolute; background-color: #df7483"
+                    >
+                      <i
+                        class="bi bi-bar-chart-fill text-white"
+                        style="font-size: 80px"
+                      ></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 右邊 -->
+          <div class="col-12 col-lg-1">
+            <div
+              class="d-flex flex-row flex-lg-column justify-content-center gap-3"
+            >
+              <div class="dashboardFunItem p-3">
+                <img
+                  src="./images/tracking.png"
+                  class="d-block mx-auto mb-2"
+                  style="width: 60px; height: 60px"
+                  alt=""
+                />
+                <p
+                  class="text-center fw-bold mb-0"
+                  style="color: #ff7b4a; font-size: 18px"
+                >
+                  監控圖台
+                </p>
+              </div>
+              <div class="dashboardFunItem p-3">
+                <img
+                  src="./images/registration.png"
+                  class="d-block mx-auto mb-2"
+                  style="width: 60px; height: 60px"
+                  alt=""
+                />
+                <p
+                  class="text-center fw-bold mb-0"
+                  style="color: #d74696; font-size: 18px"
+                >
+                  審驗系統
+                </p>
+              </div>
+              <div class="dashboardFunItem p-3">
+                <img
+                  src="./images/check.png"
+                  class="d-block mx-auto mb-2"
+                  style="width: 60px; height: 60px"
+                  alt=""
+                />
+                <p
+                  class="text-center fw-bold mb-0"
+                  style="color: #5aafff; font-size: 18px"
+                >
+                  查核回報
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./js/bootstrap.min.js"></script>
+    <!-- <script src="./js/highcharts.js"></script>
+    <script src="./js/highcharts-more.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/series-label.js"></script>
+    <script src="./js/solid-gauge.js"></script>
+    <script src="./js/exporting.js"></script>
+    <script src="./js/export-data.js"></script>
+    <script src="./js/accessibility.js"></script> -->
+    <script src="./js/admin-header.js"></script>
+    <script src="./js/admin-map.js"></script>
+    <script src="./js/dashboard2.js"></script>
+    <!-- <script src="./js/dashboard.js"></script> -->
+  </body>
+</html>

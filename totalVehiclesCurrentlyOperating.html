@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>儀錶板</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./css/bootstrap-icons.min.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/dashboard2.css" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+  </head>
+
+  <style>
+    .breadcrumb-item + .breadcrumb-item::before {
+      content: '>';
+    }
+
+    .breadcrumb-item.active {
+      color: black;
+    }
+  </style>
+
+  <body>
+    <header>
+      <div
+        style="
+          background: no-repeat url(./images/header.png),
+            repeat-x url(./images/headerBg.png);
+          height: 78px;
+        "
+      >
+        <div class="container-fluid">
+          <div class="d-block d-xl-flex justify-content-between">
+            <a
+              href="#"
+              title="環境部化學物質管理署Log"
+              class="logo d-block mx-auto mx-xl-0 mb-3 mb-md-0"
+              ><h1>環境部化學物質管理署</h1></a
+            >
+            <!-- 右側登入資訊 -->
+            <span>小強 你好</span>
+          </div>
+        </div>
+      </div>
+
+      <nav class="tabs">
+        <div class="tab-container">
+          <button class="tab" data-tab="tab1">審驗資訊系統</button>
+          <div id="tab1" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section menu-icon">
+                <h3>帳號功能管理</h3>
+                <ul>
+                  <li>更換個人密碼</li>
+                  <li>設定自然人憑證</li>
+                </ul>
+              </div>
+              <div class="menu-section menu-icon">
+                <h3>運送車輛審驗/查詢</h3>
+                <ul>
+                  <li>申請審驗車輛列表</li>
+                  <li>列管車輛資訊查詢</li>
+                </ul>
+              </div>
+              <div class="menu-section menu-icon">
+                <h3>運作業者查詢/統計</h3>
+                <ul>
+                  <li>公司基本資料查詢</li>
+                  <li>專業人員帳號密碼查詢</li>
+                  <li>小量運送APP密碼查詢</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab2">GPS軌跡監控展示</button>
+          <div id="tab2" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>GIS監控圖台(TGOS)</li>
+                  <li>即時監控牆功能</li>
+                  <li>毒性化學物質運送車輛軌跡分類展示</li>
+                  <li>毒性及關注化學物質</li>
+                  <li>運送路線網格分析功能</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <ul>
+                  <li>車輛監控申請</li>
+                  <li>監控車輛名單</li>
+                  <li>軌跡資料回傳情形查詢</li>
+                  <li>週確認作業</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <ul>
+                  <li>車機變頻</li>
+                  <li>多化學物質運送車輛共同軌跡分析功能</li>
+                  <li>車機即時狀態查詢</li>
+                  <li>回報運作場所座標</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <ul>
+                  <li>車輛軌跡介接下載</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab3">即時警示分析</button>
+          <div id="tab3" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>管制區域建置</li>
+                  <li>IPS03 管制區域即時警示-今日進入管制區域車輛</li>
+                  <li>IPS04 管制區域即時警示-進入管制區域車輛查詢</li>
+                  <li>IPS05 管制區域即時警示-監控平台1x1</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <ul>
+                  <li>IPS05 管制區域即時警示-監控平台2x2</li>
+                  <li>今日進出高雄市表單統計</li>
+                  <li>高雄市疑似發生事故車輛名單</li>
+                  <li>今日進出科學園區表單列表</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <ul>
+                  <li>每日異常勾稽作業</li>
+                  <li>查核回報平台</li>
+                  <li>查核成果統計報表</li>
+                  <li>簡易表單異常樣態勾稽</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab4">客服系統</button>
+          <div id="tab4" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>特殊案件處理申請</li>
+                  <li>表單介接刷新</li>
+                  <li>帳號恢復功能</li>
+                  <li>代碼檔維護</li>
+                </ul>
+              </div>
+              <div class="menu-section">
+                <ul>
+                  <li>路名維護</li>
+                  <li>主動通知系統</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab5">監控系統操作手冊</button>
+          <div id="tab5" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>環保局操作說明會簡報</li>
+                  <li>查核回報操作懶人包</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab6">緊急應變即時資訊平台</button>
+          <div id="tab6" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>緊急通報設定</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab7">系統帳號權限維護</button>
+          <div id="tab7" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>群組設定</li>
+                  <li>網頁功能對應</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="tab-container">
+          <button class="tab" data-tab="tab8">APP下載與功能管理</button>
+          <div id="tab8" class="tab-content">
+            <div class="menu-container">
+              <div class="menu-section">
+                <ul>
+                  <li>管理端App下載</li>
+                  <li>APP最新消息管理</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container-fluid mt-5">
+        <div class="row g-4">
+          <!-- 左邊 -->
+          <div class="col-12 col-lg-5">
+            <div id="imageArea" class="d-flex justify-content-center">
+              <img
+                class="taiwanImage"
+                src="./images/Taiwan_resize_New.png"
+                alt=""
+                usemap="#workmap"
+              />
+
+              <map name="workmap">
+                <area
+                  shape="poly"
+                  coords="292,23,309,23,309,53,292,53"
+                  class="pointer"
+                  alt="臺北市"
+                  data-city="臺北市"
+                />
+                <area
+                  shape="poly"
+                  coords="160,154,160,180,210,180,210,154"
+                  class="pointer"
+                  alt="臺中市"
+                  data-city="臺中市"
+                />
+                <area
+                  shape="poly"
+                  coords="321,13,349,13,349,29,321,29"
+                  class="pointer"
+                  alt="基隆市"
+                  data-city="基隆市"
+                />
+                <area
+                  shape="poly"
+                  coords="281,59,281,75,321,75,321,59"
+                  class="pointer"
+                  alt="新北市"
+                  data-city="新北市"
+                />
+                <area
+                  shape="poly"
+                  coords="301,102,301,120,342,120,342,102"
+                  class="pointer"
+                  alt="宜蘭縣"
+                  data-city="宜蘭縣"
+                />
+                <area
+                  shape="poly"
+                  coords="227,49,227,67,271,67,270,49"
+                  class="pointer"
+                  alt="桃園市"
+                  data-city="桃園市"
+                />
+                <area
+                  shape="poly"
+                  coords="107,266,107,289,153,289,153,266"
+                  class="pointer"
+                  alt="嘉義市"
+                  data-city="嘉義市"
+                />
+                <area
+                  shape="poly"
+                  coords="221,85,221,104,266,104,266,85"
+                  class="pointer"
+                  alt="新竹縣"
+                  data-city="新竹縣"
+                />
+                <area
+                  shape="poly"
+                  coords="197,116,197,135,241,135,241,116"
+                  class="pointer"
+                  alt="苗栗縣"
+                  data-city="苗栗縣"
+                />
+                <area
+                  shape="poly"
+                  coords="206,152,206,169,247,169,247,152"
+                  class="pointer"
+                  alt="臺中市"
+                  data-city="臺中市"
+                />
+                <area
+                  shape="poly"
+                  coords="203,205,203,226,249,226,249,205"
+                  class="pointer"
+                  alt="南投縣"
+                  data-city="南投縣"
+                />
+                <area
+                  shape="poly"
+                  coords="127,201,127,221,175,221,175,201"
+                  class="pointer"
+                  alt="彰化縣"
+                  data-city="彰化縣"
+                />
+                <area
+                  shape="poly"
+                  coords="163,70,163,89,204,89,204,70"
+                  class="pointer"
+                  alt="新竹市"
+                  data-city="新竹市"
+                />
+                <area
+                  shape="poly"
+                  coords="117,227,117,250,164,250,164,229"
+                  class="pointer"
+                  alt="雲林縣"
+                  data-city="雲林縣"
+                />
+                <area
+                  shape="poly"
+                  coords="169,262,169,280,210,279,211,261"
+                  class="pointer"
+                  alt="嘉義縣"
+                  data-city="嘉義縣"
+                />
+                <area
+                  shape="poly"
+                  coords="110,310,110,330,163,330,163,310"
+                  class="pointer"
+                  alt="臺南市"
+                  data-city="臺南市"
+                />
+                <area
+                  shape="poly"
+                  coords="170,329,170,350,215,350,215,329"
+                  class="pointer"
+                  alt="高雄市"
+                  data-city="高雄市"
+                />
+                <area
+                  shape="poly"
+                  coords="165,376,165,396,210,396,210,376"
+                  class="pointer"
+                  alt="屏東縣"
+                  data-city="屏東縣"
+                />
+                <area
+                  shape="poly"
+                  coords="271,206,271,224,315,224,315,206"
+                  class="pointer"
+                  alt="花蓮縣"
+                  data-city="花蓮縣"
+                />
+                <area
+                  shape="poly"
+                  coords="230,333,230,355,272,353,273,333"
+                  class="pointer"
+                  alt="臺東縣"
+                  data-city="臺東縣"
+                />
+                <area
+                  shape="poly"
+                  coords="2,187,2,207,39,207,39,187"
+                  class="pointer"
+                  alt="金門縣"
+                  data-city="金門縣"
+                />
+                <area
+                  shape="poly"
+                  coords="30,300,30,321,77,321,77,300"
+                  class="pointer"
+                  alt="澎湖縣"
+                  data-city="澎湖縣"
+                />
+                <area
+                  shape="poly"
+                  coords="43,30,43,52,80,52,80,30"
+                  class="pointer"
+                  alt="連江縣"
+                  data-city="連江縣"
+                />
+              </map>
+            </div>
+          </div>
+          <!-- 中間 -->
+          <div class="col-12 col-lg-6">
+            <div class="row">
+              <div class="col-6 bg-custom-green-blue px-4 pt-2">
+                <nav aria-label="breadcrumb">
+                  <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item fs-8">
+                      <a id="allCityBreadcrumb" class="pointer">全國</a>
+                    </li>
+                    <li
+                      id="cityBreadcrumb"
+                      class="d-none breadcrumb-item active fs-8"
+                      aria-current="page"
+                    ></li>
+                  </ol>
+                </nav>
+              </div>
+              <div class="col-6 bg-custom-green p-1"></div>
+            </div>
+            <div
+              id="stackedColumn"
+              style="
+                background-color: #f5f5f5;
+                padding: 16px;
+                margin-bottom: 20px;
+              "
+            ></div>
+          </div>
+
+          <!-- 右邊 -->
+          <div class="col-12 col-lg-1">
+            <div
+              class="d-flex flex-row flex-lg-column justify-content-center gap-3"
+            >
+              <div class="dashboardFunItem p-3">
+                <img
+                  src="./images/tracking.png"
+                  class="d-block mx-auto mb-2"
+                  style="width: 60px; height: 60px"
+                  alt=""
+                />
+                <p
+                  class="text-center fw-bold mb-0"
+                  style="color: #ff7b4a; font-size: 18px"
+                >
+                  監控圖台
+                </p>
+              </div>
+              <div class="dashboardFunItem p-3">
+                <img
+                  src="./images/registration.png"
+                  class="d-block mx-auto mb-2"
+                  style="width: 60px; height: 60px"
+                  alt=""
+                />
+                <p
+                  class="text-center fw-bold mb-0"
+                  style="color: #d74696; font-size: 18px"
+                >
+                  審驗系統
+                </p>
+              </div>
+              <div class="dashboardFunItem p-3">
+                <img
+                  src="./images/check.png"
+                  class="d-block mx-auto mb-2"
+                  style="width: 60px; height: 60px"
+                  alt=""
+                />
+                <p
+                  class="text-center fw-bold mb-0"
+                  style="color: #5aafff; font-size: 18px"
+                >
+                  查核回報
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/highcharts.js"></script>
+    <script src="./js/highcharts-more.js"></script>
+    <script src="./js/data.js"></script>
+    <script src="./js/series-label.js"></script>
+    <script src="./js/solid-gauge.js"></script>
+    <script src="./js/exporting.js"></script>
+    <script src="./js/export-data.js"></script>
+    <script src="./js/accessibility.js"></script>
+    <script src="./js/admin-header.js"></script>
+    <script src="./js/dashboard2.js"></script>
+    <script>
+      const imageArea = document.querySelector('#imageArea');
+      const allCityBreadcrumb = document.querySelector('#allCityBreadcrumb');
+      const cityBreadcrumb = document.querySelector('#cityBreadcrumb');
+
+      let indexState = 22;
+      const responseData = {
+        TotalVehiclesCurrentlyOperating: {
+          FormVehicleCount: [
+            280, 205, 210, 213, 230, 337, 394, 358, 388, 375, 379, 344, 367,
+            320, 374, 300, 328, 283, 170, 240, 221, 203, 197, 204,
+          ],
+          NoFormVehicleCount: [
+            602, 590, 480, 450, 479, 724, 671, 774, 840, 820, 782, 800, 844,
+            710, 740, 678, 722, 684, 690, 592, 570, 530, 490, 481,
+          ],
+          TotalVehicleCount: [
+            882, 795, 690, 663, 709, 1061, 1065, 1132, 1228, 1195, 1161, 1144,
+            1211, 1030, 1114, 978, 1050, 967, 860, 832, 791, 733, 687, 685,
+          ],
+        },
+
+        TotalTransportFormsCurrentlyReported: {
+          UndeliveredForm: [
+            300, 287, 277, 269, 249, 247, 231, 224, 200, 183, 179, 144, 84, 69,
+            66, 37, 39, 28, 11, 12, 6, 2, 0, 0,
+          ],
+          DeliveringForm: [
+            0, 12, 20, 25, 40, 35, 41, 35, 43, 41, 24, 37, 64, 43, 26, 35, 15,
+            10, 15, 5, 4, 3, 2, 0,
+          ],
+          DeliveredForm: [
+            0, 1, 3, 6, 11, 18, 28, 41, 57, 76, 97, 119, 152, 188, 208, 228,
+            246, 262, 274, 283, 290, 295, 298, 300,
+          ],
+          AllForm: [
+            0, 1, 3, 6, 11, 18, 28, 41, 57, 76, 97, 119, 152, 188, 208, 228,
+            246, 262, 274, 283, 290, 295, 298, 300,
+          ],
+          MaxFormCount: 300, //跟著allform每小時刷新，取今天最高值
+        },
+
+        DailyAccumulatedFreightVolume: {
+          categories: [
+            {
+              name: '第一類毒化物',
+              data: [
+                {
+                  name: '苯 Benzene',
+                  value: 20.0,
+                },
+                {
+                  name: '丙烯腈 Acrylonitrile',
+                  value: 40.8,
+                },
+                {
+                  name: '二硫化碳 Carbon disulfide',
+                  value: 800.1,
+                },
+                {
+                  name: '甲基汞 Methylmercury',
+                  value: 0.47,
+                },
+                {
+                  name: '可氯丹 Chlordane',
+                  value: 543.9,
+                },
+              ],
+            },
+            {
+              name: '第二類毒化物',
+              data: [
+                {
+                  name: '苯 Benzene',
+                  value: 20.0,
+                },
+                {
+                  name: '鎘 Cadmium',
+                  value: 579.1,
+                },
+                {
+                  name: '甲醯胺 Formamide',
+                  value: 87.4,
+                },
+                {
+                  name: '甲醛 Formaldehyde',
+                  value: 70.7,
+                },
+              ],
+            },
+            {
+              name: '第三類毒化物',
+              data: [
+                {
+                  name: '氰化鎘 Cadmium cyanide',
+                  value: 1900.7,
+                },
+                {
+                  name: '苯胺 Aniline',
+                  value: 73,
+                },
+                {
+                  name: '地特靈 Dieldrin',
+                  value: 66.6,
+                },
+              ],
+            },
+            {
+              name: '關注化學物質',
+              data: [
+                {
+                  name: '一氧化二氮（笑氣）Nitrous Oxide',
+                  value: 820,
+                },
+                {
+                  name: '一氧化鉛 Lead monoxide',
+                  value: 999.9,
+                },
+              ],
+            },
+          ],
+          TotalvalueCount: '6022.7公噸',
+        },
+
+        TotalOfficiallyApprovedVehicles: {
+          Date: [
+            '1月1日',
+            '1月2日',
+            '1月3日',
+            '1月4日',
+            '1月5日',
+            '1月6日',
+            '1月7日',
+            '1月8日',
+            '1月9日',
+            '1月10日',
+            '1月11日',
+            '1月12日',
+            '1月13日',
+            '1月14日',
+            '1月15日',
+            '1月16日',
+            '1月17日',
+            '1月18日',
+            '1月19日',
+            '1月20日',
+            '1月21日',
+            '1月22日',
+            '1月23日',
+            '1月24日',
+            '1月25日',
+            '1月26日',
+            '1月27日',
+            '1月28日',
+            '1月29日',
+            '1月30日',
+            '1月31日',
+          ],
+          TotalVehicleCount: [
+            1707, 1709, 1709, 1707, 1712, 1714, 1721, 1721, 1721, 1726, 1731,
+            1731, 1733, 1732, 1732, 1732, 1738, 1738, 1739, 1742, 1739, 1749,
+            1749, 1751, 1750, 1741, 1733, 1733, 1740, 1748, 1748,
+          ],
+          DailyVehicleGrowth: [
+            7, 2, 0, -2, 5, 2, 7, 0, 0, 5, 5, 0, 2, -1, 0, 0, 6, 0, 1, 3, -3,
+            10, 0, 2, -1, -9, -8, 0, 7, 8, 0,
+          ],
+        },
+
+        PreviousDayFaultReportedRouteVehicles: {
+          Routereported: 60,
+          Noroutereported: 40,
+          Totalfaultreports: 100,
+        },
+
+        PreviousDayAuditedCases: {
+          Date: [
+            '2025/2/1',
+            '2025/2/2',
+            '2025/2/3',
+            '2025/2/4',
+            '2025/2/5',
+            '2025/2/6',
+            '2025/2/7',
+            '2025/2/8',
+            '2025/2/9',
+            '2025/2/10',
+            '2025/2/11',
+            '2025/2/12',
+            '2025/2/13',
+            '2025/2/14',
+            '2025/2/15',
+            '2025/2/16',
+            '2025/2/17',
+            '2025/2/18',
+            '2025/2/19',
+            '2025/2/20',
+            '2025/2/21',
+            '2025/2/22',
+            '2025/2/23',
+            '2025/2/24',
+            '2025/2/25',
+            '2025/2/26',
+            '2025/2/27',
+            '2025/2/28',
+            '2025/3/1',
+          ],
+          FormNoTracking: [
+            5, 3, 0, 2, 7, 3, 2, 1, 3, 2, 3, 4, 1, 4, 10, 2, 2, 1, 2, 2, 5, 10,
+            4, 0, 1, 2, 5, 3, 1,
+          ],
+          StartEndMismatch: [
+            3, 8, 7, 4, 7, 2, 10, 5, 6, 8, 5, 2, 6, 5, 10, 4, 6, 4, 3, 6, 4, 15,
+            0, 2, 4, 3, 5, 7, 2,
+          ],
+        },
+
+        MonthlyVehicleDeviceReliabilityRate: {
+          Month: [9, 8],
+          Vendor: {
+            '銳俤(Locator 690)': [
+              [96, 'A+'],
+              [90, 'A'],
+            ],
+            '易通(EC-912 4G)': [
+              [95, 'A+'],
+              [99, 'A+'],
+            ],
+            '航釱(H4G)': [
+              [99, 'A+'],
+              [98, 'A+'],
+            ],
+            '宇暘(J40)': [
+              [96, 'A+'],
+              [90, 'A'],
+            ],
+            '康訊(U3 LTE)': [
+              [99, 'A+'],
+              [87, 'B+'],
+            ],
+            '冠祺鴻(TP-458-4G)': [
+              [79, 'C'],
+              [99, 'A+'],
+            ],
+            '長輝資訊(CH-68-4G)': [
+              [96, 'A+'],
+              [98, 'A+'],
+            ],
+            '中興保全(MSM0901)': [
+              [98, 'A+'],
+              [98, 'A+'],
+            ],
+            '弋揚(EP-168-4G)': [
+              [98, 'A+'],
+              [99, 'A+'],
+            ],
+            '捷世林(JAS106)': [
+              [79, 'C'],
+              [96, 'A+'],
+            ],
+            '長輝資訊(D1-Plus)': [
+              [98, 'A+'],
+              [96, 'A+'],
+            ],
+            '富德爾(FT-168 4G)': [
+              [87, 'B+'],
+              [95, 'A+'],
+            ],
+            '天眼衛星(SE-401 4G)': [
+              [96, 'A+'],
+              [95, 'A+'],
+            ],
+            '康訊(U1 PLUS LTE)': [
+              [99, 'A+'],
+              [99, 'A+'],
+            ],
+            '弋揚(EDR-168 4G)': [
+              [90, 'A'],
+              [95, 'A+'],
+            ],
+            '中興保全(MSM0921)': [
+              [98, 'A+'],
+              [98, 'A+'],
+            ],
+          },
+        },
+      };
+
+      imageArea.addEventListener('click', (e) => {
+        if (e.target.dataset.city === undefined) return;
+        cityBreadcrumb.textContent = e.target.dataset.city;
+        cityBreadcrumb.classList.remove('d-none');
+        console.log(e.target.dataset.city);
+      });
+
+      Highcharts.chart('stackedColumn', {
+        chart: {
+          type: 'column',
+        },
+        title: {
+          text: '目前行駛中的總車輛數',
+          align: 'center',
+        },
+        xAxis: {
+          title: {
+            text: '24小時',
+          },
+          categories: [
+            '00',
+            '01',
+            '02',
+            '03',
+            '04',
+            '05',
+            '06',
+            '07',
+            '08',
+            '09',
+            '10',
+            '11',
+            '12',
+            '13',
+            '14',
+            '15',
+            '16',
+            '17',
+            '18',
+            '19',
+            '20',
+            '21',
+            '22',
+            '23',
+          ],
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: '車輛數',
+          },
+          stackLabels: {
+            enabled: true,
+          },
+        },
+        legend: {
+          align: 'left',
+          x: 70,
+          verticalAlign: 'top',
+          y: 30,
+          floating: true,
+          backgroundColor:
+            Highcharts.defaultOptions.legend.backgroundColor || 'white',
+          borderColor: '#CCC',
+          borderWidth: 1,
+          shadow: false,
+        },
+        tooltip: {
+          headerFormat: '<b>{category}時</b><br/>',
+          pointFormat:
+            '{series.name}: {point.y}<br/>目前行駛中的總車輛數: {point.stackTotal}',
+        },
+        credits: {
+          enabled: false,
+        },
+        plotOptions: {
+          column: {
+            stacking: 'normal',
+            dataLabels: {
+              enabled: true,
+            },
+          },
+        },
+        series: [
+          {
+            name: '無表單車輛數',
+            data: responseData.TotalVehiclesCurrentlyOperating[
+              'NoFormVehicleCount'
+            ],
+          },
+          {
+            name: '有表單車輛數',
+            data: responseData.TotalVehiclesCurrentlyOperating[
+              'FormVehicleCount'
+            ],
+          },
+        ],
+      });
+
+      allCityBreadcrumb.addEventListener('click', () => {
+        cityBreadcrumb.classList.add('d-none');
+        // getData('allCity');
+      });
+    </script>
+    <!-- <script src="./js/dashboard.js"></script> -->
+  </body>
+</html>
