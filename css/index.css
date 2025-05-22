@@ -60,10 +60,10 @@
   margin: auto;
 }
 
-.drawIcon {
-  fill: #212529;
+.easeIcon {
+  /* fill: #212529;
   stroke: #212529;
-  stroke-width: 0.1;
+  stroke-width: 0.1; */
   opacity: 0;
   animation: appear 2s ease forwards;
   /* animation-delay: 2s; */
@@ -314,16 +314,10 @@
 
 .line {
   margin: auto;
-  -webkit-transform: translateY(76px);
-  -moz-transform: translateY(76px);
-  -o-transform: translateY(76px);
   transform: translateY(0px);
   height: 80px;
   opacity: 1;
   border-right: solid black 1px;
-  -webkit-animation: expand 1s 1 ease-in-out;
-  -moz-animation: expand 1s 1 ease-in-out;
-  -o-animation: expand 1s 1 ease-in-out;
   animation: expand 1s 1 ease-in-out;
 }
 

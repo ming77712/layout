@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (paths.length) {
         paths.forEach((path) => {
-          path.classList.add('drawIcon');
+          path.classList.add('easeIcon');
         });
       }
     }
@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (paths.length) {
         paths.forEach((path) => {
-          path.classList.remove('drawIcon');
+          path.classList.remove('easeIcon');
         });
       }
     }
@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             width="50"
             height="50"
             fill="currentColor"
-            class="drawIcon bi bi-truck"
+            class="easeIcon bi bi-truck"
             viewBox="0 0 16 16"
           >
             <path
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
           width="50"
           height="50"
           fill="currentColor"
-          class="drawIcon bi bi-router"
+          class="easeIcon bi bi-router"
           viewBox="0 0 16 16"
         >
           <path
@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
           width="50"
           height="50"
           fill="currentColor"
-          class="drawIcon bi bi-key"
+          class="easeIcon bi bi-key"
           viewBox="0 0 16 16"
         >
           <path
