@@ -34,7 +34,8 @@
 
 .dashboardFunItem {
   border-radius: 20px;
-  background-color: #f8f8f8;
+  background-color: #FFFFFF;
+  box-shadow: 2px 4px 12px #00000014;
   cursor: pointer;
   transition: all 0.2s ease;
 }
@@ -42,7 +43,7 @@
 .dashboardFunItem:hover {
   transform: scale(1.05);
   background-color: #d8dad8;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 2px 4px 16px #00000029;
 }
 
 .pointer {
