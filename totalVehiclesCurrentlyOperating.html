@@ -414,7 +414,7 @@
                   <ol class="breadcrumb mb-0">
                     <li class="breadcrumb-item fs-5">
                       <span>統計資料： </span>
-                      <a id="allCityBreadcrumb">全國</a>
+                      <a id="allCityBreadcrumb" class="pointer">全國</a>
                     </li>
                     <li
                       id="cityBreadcrumb"
@@ -504,13 +504,13 @@
     <script src="./js/export-data.js"></script>
     <script src="./js/accessibility.js"></script>
     <script src="./js/admin-header.js"></script>
-    <script src="./js/dashboard2.js"></script>
+
     <script>
       const imageArea = document.querySelector('#imageArea');
       const allCityBreadcrumb = document.querySelector('#allCityBreadcrumb');
       const cityBreadcrumb = document.querySelector('#cityBreadcrumb');
 
-      let indexState = 22;
+      let citySearchindex = 22;
       const responseData = {
         TotalVehiclesCurrentlyOperating: {
           FormVehicleCount: [
@@ -797,7 +797,6 @@
         if (e.target.dataset.city === undefined) return;
         cityBreadcrumb.textContent = e.target.dataset.city;
         cityBreadcrumb.classList.remove('d-none');
-        console.log(e.target.dataset.city);
       });
 
       Highcharts.chart('stackedColumn', {
@@ -894,9 +893,8 @@
 
       allCityBreadcrumb.addEventListener('click', () => {
         cityBreadcrumb.classList.add('d-none');
-        // getData('allCity');
+        // call API get data
       });
     </script>
-    <!-- <script src="./js/dashboard.js"></script> -->
   </body>
 </html>

@@ -436,8 +436,9 @@
                     style="background-color: #43b3aa"
                   >
                     <h2 class="fs-4">統計資料</h2>
-                    <span class="fs-2">全國</span>
+                    <span id="cityTitle" class="fs-2">全國</span>
                     <div
+                      id="returnAllCity"
                       class="dashboardInfoCover d-none"
                       style="position: absolute; background-color: #43b3aa"
                     >
@@ -587,7 +588,7 @@
                 />
                 <p
                   class="text-center fw-bold mb-0"
-                  style="color: #ff7b4a; font-size: 18px"
+                  style="color: #ff7b4a; font-size: 24px"
                 >
                   監控圖台
                 </p>
@@ -601,7 +602,7 @@
                 />
                 <p
                   class="text-center fw-bold mb-0"
-                  style="color: #d74696; font-size: 18px"
+                  style="color: #d74696; font-size: 24px"
                 >
                   審驗系統
                 </p>
@@ -615,7 +616,7 @@
                 />
                 <p
                   class="text-center fw-bold mb-0"
-                  style="color: #5aafff; font-size: 18px"
+                  style="color: #5aafff; font-size: 24px"
                 >
                   查核回報
                 </p>
@@ -627,17 +628,40 @@
     </main>
 
     <script src="./js/bootstrap.min.js"></script>
-    <!-- <script src="./js/highcharts.js"></script>
-    <script src="./js/highcharts-more.js"></script>
-    <script src="./js/data.js"></script>
-    <script src="./js/series-label.js"></script>
-    <script src="./js/solid-gauge.js"></script>
-    <script src="./js/exporting.js"></script>
-    <script src="./js/export-data.js"></script>
-    <script src="./js/accessibility.js"></script> -->
     <script src="./js/admin-header.js"></script>
-    <script src="./js/admin-map.js"></script>
-    <script src="./js/dashboard2.js"></script>
-    <!-- <script src="./js/dashboard.js"></script> -->
+    <script>
+      // 中間面板
+      const dashboardInfoItem = document.querySelectorAll('.dashboardInfoItem');
+      const dashboardInfoCover = document.querySelectorAll(
+        '.dashboardInfoCover'
+      );
+
+      dashboardInfoItem.forEach((item, index) => {
+        item.addEventListener('mouseover', () => {
+          dashboardInfoCover[index].classList.remove('d-none');
+        });
+        item.addEventListener('mouseout', () => {
+          dashboardInfoCover[index].classList.add('d-none');
+        });
+      });
+      // 左邊地圖
+      const imageArea = document.querySelector('#imageArea');
+      const cityTitle = document.querySelector('#cityTitle');
+      const returnAllCity = document.querySelector('#returnAllCity');
+
+      let citySearchindex = 22;
+      imageArea.addEventListener('click', (e) => {
+        if (e.target.dataset.city === undefined) return;
+        cityTitle.textContent = e.target.dataset.city;
+        // call API get data
+      });
+
+      // 按 return 時, 將統計資料改回全國
+      returnAllCity.addEventListener('click', () => {
+        citySearchindex = 22;
+        cityTitle.textContent = '全國';
+        // call API get data
+      });
+    </script>
   </body>
 </html>
