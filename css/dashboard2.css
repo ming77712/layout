@@ -4,8 +4,8 @@
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 }
 
-.fsc64 {
-  font-size: 4rem;
+.fsc67 {
+  font-size: 4.1875rem;
 }
 
 .fsc52 {
@@ -28,7 +28,6 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
-
   text-align: center;
   min-height: 120px;
   border-radius: 0.625rem;
@@ -40,6 +39,11 @@
   box-shadow: 2px 4px 16px #00000029;
 }
 
+.dashboardInfoItem:hover .dashboardInfoCover {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
 .dashboardInfoCover {
   display: flex;
   flex-direction: column;
@@ -49,6 +53,9 @@
   height: 100%;
   border-radius: 0.625rem;
   cursor: pointer;
+  opacity: 0;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
 }
 
 .dashboardFunItem {
@@ -61,7 +68,6 @@
 
 .dashboardFunItem:hover {
   transform: scale(1.05);
-  background-color: #d8dad8;
   box-shadow: 2px 4px 16px #00000029;
 }
 

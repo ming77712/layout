@@ -44,7 +44,7 @@
   display: inline-flex;
   border: 1px solid #ccc;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 4px 12px #00000014;
   padding: 15px;
   background-color: #fff;
   gap: 20px;
