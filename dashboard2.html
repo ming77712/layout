@@ -215,8 +215,10 @@
       <div class="container-fluid h-100" style="padding-top: 6rem">
         <div class="row justify-content-between">
           <!-- 左邊 -->
-          <div class="col-12 col-lg-3">
-            <div id="imageArea" class="d-flex justify-content-center">
+          <div
+            class="col-12 col-lg-3 d-flex justify-content-center align-items-center"
+          >
+            <div id="imageArea">
               <img
                 class="taiwanImage"
                 src="./images/Taiwan_resize_New.png"
@@ -396,14 +398,31 @@
               <div class="row g-3 mb-3">
                 <div class="col-12 col-md-6">
                   <div
-                    class="dashboardInfoItem position-relative h-100 p-2"
-                    style="background-color: #f4b183"
+                    class="dashboardInfoItem position-relative h-100 p-3"
+                    style="background-color: #c4dcf2"
                   >
-                    <h2 class="fs-4">目前正式核可車輛數</h2>
-                    <span class="fs-1">1748</span>
+                    <div class="text-center">
+                      <h2 class="fs-2">目前行駛中的總車輛數</h2>
+                      <span class="fsc64">685</span>
+                      <div
+                        class="d-flex justify-content-between align-items-center mt-3"
+                      >
+                        <div>
+                          <h3 class="fs-3">有表單</h3>
+                          <span class="fsc48">481</span>
+                        </div>
+                        <div class="dividerContainer">
+                          <div class="verticalDivider"></div>
+                        </div>
+                        <div>
+                          <h3 class="fs-3">無表單</h3>
+                          <span class="fsc48">204</span>
+                        </div>
+                      </div>
+                    </div>
                     <div
                       class="dashboardInfoCover d-none"
-                      style="position: absolute; background-color: #f4b183"
+                      style="position: absolute; background-color: #c4dcf2"
                     >
                       <i
                         class="easeIcon bi bi-bar-chart-fill text-white"
@@ -412,41 +431,63 @@
                     </div>
                   </div>
                 </div>
-                <div class="col-6 col-md-3">
+                <div
+                  class="col-12 col-md-6 d-flex flex-column justify-content-between"
+                >
+                  <div class="row">
+                    <div class="col-12 col-md-6">
+                      <div
+                        class="dashboardInfoItem position-relative h-100 p-3"
+                        style="background-color: #faddce"
+                      >
+                        <h2 class="text-center fs-3">當月各車機<br />妥善率</h2>
+                        <div
+                          class="dashboardInfoCover d-none"
+                          style="position: absolute; background-color: #faddce"
+                        >
+                          <i
+                            class="easeIcon bi bi-bar-chart-fill text-white"
+                            style="font-size: 80px"
+                          ></i>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <div
+                        class="dashboardInfoItem flex-column position-relative h-100 p-3"
+                        style="background-color: #bedbc0"
+                      >
+                        <h2 class="fs-3">統計資料</h2>
+                        <span id="cityTitle" class="fsc48">全國</span>
+                        <div
+                          id="returnAllCity"
+                          class="dashboardInfoCover d-none"
+                          style="position: absolute; background-color: #bedbc0"
+                        >
+                          <img
+                            src="./images/return.svg"
+                            class="easeIcon"
+                            style="width: 80px; height: 80px"
+                            alt=""
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                   <div
-                    class="dashboardInfoItem position-relative h-100 p-2"
-                    style="background-color: #f4b183"
+                    class="dashboardInfoItem position-relative p-3"
+                    style="background-color: #faddce"
                   >
-                    <h2 class="text-center fs-4">當月各車機<br />妥善率</h2>
+                    <h2 class="fs-3">目前正式<br />核可車輛數</h2>
+                    <span class="fsc52">1748</span>
                     <div
                       class="dashboardInfoCover d-none"
-                      style="position: absolute; background-color: #f4b183"
+                      style="position: absolute; background-color: #faddce"
                     >
                       <i
                         class="easeIcon bi bi-bar-chart-fill text-white"
                         style="font-size: 80px"
                       ></i>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-6 col-md-3">
-                  <div
-                    class="dashboardInfoItem position-relative h-100 p-2"
-                    style="background-color: #43b3aa"
-                  >
-                    <h2 class="fs-4">統計資料</h2>
-                    <span id="cityTitle" class="fs-2">全國</span>
-                    <div
-                      id="returnAllCity"
-                      class="dashboardInfoCover d-none"
-                      style="position: absolute; background-color: #43b3aa"
-                    >
-                      <img
-                        src="./images/return.svg"
-                        class="easeIcon"
-                        style="width: 80px; height: 80px"
-                        alt=""
-                      />
                     </div>
                   </div>
                 </div>
@@ -456,31 +497,14 @@
               <div class="row g-3 mb-3">
                 <div class="col-12 col-md-6">
                   <div
-                    class="dashboardInfoItem position-relative h-100 p-2"
-                    style="background-color: #5bc9d4"
+                    class="dashboardInfoItem position-relative h-100 p-3"
+                    style="background-color: #c4dcf2"
                   >
-                    <div class="text-center">
-                      <h2 class="fs-4">目前行駛中的總車輛數</h2>
-                      <span style="font-size: 3.75rem">685</span>
-                      <div
-                        class="d-flex justify-content-between align-items-center mt-3"
-                      >
-                        <div>
-                          <h3 class="fs-5">有表單</h3>
-                          <span class="fs-3">481</span>
-                        </div>
-                        <div class="dividerContainer">
-                          <div class="verticalDivider"></div>
-                        </div>
-                        <div>
-                          <h3 class="fs-5">無表單</h3>
-                          <span class="fs-3">204</span>
-                        </div>
-                      </div>
-                    </div>
+                    <h2 class="fs-3">目前申報<br />運送表單數</h2>
+                    <span class="fsc52">300</span>
                     <div
                       class="dashboardInfoCover d-none"
-                      style="position: absolute; background-color: #5bc9d4"
+                      style="position: absolute; background-color: #c4dcf2"
                     >
                       <i
                         class="easeIcon bi bi-bar-chart-fill text-white"
@@ -493,32 +517,14 @@
                   <div class="row g-3 h-100">
                     <div class="col-12">
                       <div
-                        class="dashboardInfoItem position-relative h-100 p-2"
-                        style="background-color: #5bc9d4"
+                        class="dashboardInfoItem position-relative h-100 p-3"
+                        style="background-color: #e1d1e1"
                       >
-                        <h2 class="fs-4">目前申報運送表單數</h2>
-                        <span class="fs-1">300</span>
+                        <h2 class="fs-3">前一日回報故障<br />報備車輛數</h2>
+                        <span class="fsc52">100</span>
                         <div
                           class="dashboardInfoCover d-none"
-                          style="position: absolute; background-color: #5bc9d4"
-                        >
-                          <i
-                            class="easeIcon bi bi-bar-chart-fill text-white"
-                            style="font-size: 80px"
-                          ></i>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-12">
-                      <div
-                        class="dashboardInfoItem position-relative h-100 p-2"
-                        style="background-color: #5bc9d4"
-                      >
-                        <h2 class="fs-4">當日累計載運量</h2>
-                        <span class="fs-1">6022.7公噸</span>
-                        <div
-                          class="dashboardInfoCover d-none"
-                          style="position: absolute; background-color: #5bc9d4"
+                          style="position: absolute; background-color: #e1d1e1"
                         >
                           <i
                             class="easeIcon bi bi-bar-chart-fill text-white"
@@ -535,14 +541,14 @@
               <div class="row g-3">
                 <div class="col-12 col-md-6">
                   <div
-                    class="dashboardInfoItem position-relative h-100 p-2"
-                    style="background-color: #df7483"
+                    class="dashboardInfoItem position-relative h-100 p-3"
+                    style="background-color: #c4dcf2"
                   >
-                    <h2 class="fs-4">前一日回報故障報備車輛數</h2>
-                    <span class="fs-1">100</span>
+                    <h2 class="fs-3">當日累積<br />載運量</h2>
+                    <span class="fsc52">6022.7公噸</span>
                     <div
                       class="dashboardInfoCover d-none"
-                      style="position: absolute; background-color: #df7483"
+                      style="position: absolute; background-color: #c4dcf2"
                     >
                       <i
                         class="easeIcon bi bi-bar-chart-fill text-white"
@@ -553,14 +559,14 @@
                 </div>
                 <div class="col-12 col-md-6">
                   <div
-                    class="dashboardInfoItem position-relative h-100 p-2"
-                    style="background-color: #df7483"
+                    class="dashboardInfoItem position-relative h-100 p-3"
+                    style="background-color: #e1d1e1"
                   >
-                    <h2 class="fs-4">前一日勾稽案件數</h2>
-                    <span class="fs-1">3</span>
+                    <h2 class="fs-3">前一日<br />勾稽案件數</h2>
+                    <span class="fsc52">3</span>
                     <div
                       class="dashboardInfoCover d-none"
-                      style="position: absolute; background-color: #df7483"
+                      style="position: absolute; background-color: #e1d1e1"
                     >
                       <i
                         class="easeIcon bi bi-bar-chart-fill text-white"
