@@ -419,6 +419,7 @@
                 </nav>
               </div>
               <button
+                id="backBtn"
                 type="button"
                 class="border-0 rounded-2"
                 style="background-color: #f5f5f5"
@@ -431,12 +432,7 @@
             </div>
             <div
               id="chart"
-              style="
-                background-color: #f5f5f5;
-                padding: 16px;
-
-                margin: 0 auto;
-              "
+              style="background-color: #f5f5f5; padding: 16px; margin: 0 auto"
             ></div>
           </div>
 
@@ -506,15 +502,16 @@
     <script src="./js/dashboard2.js"></script>
 
     <script>
-      const imageArea = document.querySelector('#imageArea');
-      const allCityBreadcrumb = document.querySelector('#allCityBreadcrumb');
-      const cityBreadcrumb = document.querySelector('#cityBreadcrumb');
+      const imageArea = document.getElementById('imageArea');
+      const allCityBreadcrumb = document.getElementById('allCityBreadcrumb');
+      const cityBreadcrumb = document.getElementById('cityBreadcrumb');
+      const backBtn = document.getElementById('backBtn');
       const chart = document.getElementById('chart');
 
       let citySearchindex = 22;
       let chartType = null;
 
-      document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener('DOMContentLoaded', () => {
         const responseData = {
           TotalVehiclesCurrentlyOperating: {
             FormVehicleCount: [
@@ -833,6 +830,10 @@
       allCityBreadcrumb.addEventListener('click', () => {
         cityBreadcrumb.classList.add('d-none');
         // call API get data
+      });
+
+      backBtn.addEventListener('click', () => {
+        location.href = '/dashboard2.html';
       });
     </script>
   </body>

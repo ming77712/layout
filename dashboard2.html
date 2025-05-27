@@ -638,9 +638,12 @@
     <script src="./js/admin-header.js"></script>
     <script>
       // 左邊地圖
-      const imageArea = document.querySelector('#imageArea');
-      const cityTitle = document.querySelector('#cityTitle');
-      const returnAllCity = document.querySelector('#returnAllCity');
+      const imageArea = document.getElementById('imageArea');
+      const cityTitle = document.getElementById('cityTitle');
+      const returnAllCity = document.getElementById('returnAllCity');
+      const dashboardInfoCover = document.querySelectorAll(
+        '.dashboardInfoCover'
+      );
 
       let citySearchindex = 22;
       imageArea.addEventListener('click', (e) => {
@@ -654,6 +657,14 @@
         citySearchindex = 22;
         cityTitle.textContent = '全國';
         // call API get data
+      });
+
+      dashboardInfoCover.forEach((item, index) => {
+        if (index !== 2) {
+          item.addEventListener('click', () => {
+            location.href = '/totalVehiclesCurrentlyOperating.html';
+          });
+        }
       });
     </script>
   </body>
