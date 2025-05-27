@@ -224,7 +224,9 @@
       <div class="container-fluid h-100" style="padding-top: 6rem">
         <div class="row justify-content-between">
           <!-- 左邊 -->
-          <div class="col-12 col-lg-3">
+          <div
+            class="col-12 col-lg-3 d-flex justify-content-center align-items-center"
+          >
             <div id="imageArea" class="d-flex justify-content-center">
               <img
                 class="taiwanImage"
@@ -429,7 +431,12 @@
             </div>
             <div
               id="chart"
-              style="background-color: #f5f5f5; padding: 16px"
+              style="
+                background-color: #f5f5f5;
+                padding: 16px;
+
+                margin: 0 auto;
+              "
             ></div>
           </div>
 
@@ -502,8 +509,10 @@
       const imageArea = document.querySelector('#imageArea');
       const allCityBreadcrumb = document.querySelector('#allCityBreadcrumb');
       const cityBreadcrumb = document.querySelector('#cityBreadcrumb');
+      const chart = document.getElementById('chart');
 
       let citySearchindex = 22;
+      let chartType = null;
 
       document.addEventListener('DOMContentLoaded', function () {
         const responseData = {
@@ -789,13 +798,23 @@
           },
         };
 
+        chartType = 'splitPackedBubble';
+
+        if (chartType === 'splitPackedBubble') {
+          chart.style.width = '600px';
+          chart.style.height = '600px';
+        } else {
+          chart.style.width = 'auto';
+          chart.style.height = 'auto';
+        }
+
         initCharts(responseData);
       });
 
       function initCharts(responseData) {
         const chartManager = new ChartManager();
         chartManager.setResponseData(responseData);
-        chartManager.renderChart('splitPackedBubble', 'chart');
+        chartManager.renderChart(chartType, 'chart');
 
         // 處理比較圖表（需要分頁邏輯）
         // setupComparisonCharts(
